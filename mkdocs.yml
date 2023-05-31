@@ -34,7 +34,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github 
-      link: https://github.com/hwlab-csed
+      link: https://github.com/hwlabnitc
   homepage: https://minerva.nitc.ac.in/ 
 
 markdown_extensions:
