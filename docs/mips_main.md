@@ -50,16 +50,16 @@ This course covers the following topics-
 
 
 &emsp;&emsp;Merge 2 Sorted Arrays:  
-&emsp;&emsp;&emsp;&emsp; 1. [ Video :simple-youtube: ]( )  
+&emsp;&emsp;&emsp;&emsp; 1. [ Video :simple-youtube: ]( https://youtu.be/IqFx7i-GqPI)  
 &emsp;&emsp;&emsp;&emsp; 2. [ Sample Code :simple-github: ]( https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q1_Merging_Two_Sorted_Arrays.asm)  
 
 &emsp;&emsp;Highest and Lowest occurrence of an element in an array:  
-&emsp;&emsp;&emsp;&emsp; 1. [ Video :simple-youtube: ]( )  
+&emsp;&emsp;&emsp;&emsp; 1. [ Video :simple-youtube: ]( https://youtu.be/1tUfRNTi1t4)  
 &emsp;&emsp;&emsp;&emsp; 2. [ Sample Code :simple-github: ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q2_Highest_Lowest_Frequency.asm )  
 
 
 &emsp;&emsp;Binary Search:  
-&emsp;&emsp;&emsp;&emsp; 1. [ Video :simple-youtube: ]( )  
+&emsp;&emsp;&emsp;&emsp; 1. [ Video :simple-youtube: ](https://youtu.be/lKo10ZWYlDc )  
 &emsp;&emsp;&emsp;&emsp; 2. [ Sample Code :simple-github: ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q3_BinarySearch.asm )  
 
 
@@ -76,7 +76,8 @@ This course covers the following topics-
 &emsp;&emsp;Sample Code Bank:  
 &emsp;&emsp;&emsp;&emsp; 1. [ Taking Input ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q1_Taking_Input_For_Matrix.asm )  
 &emsp;&emsp;&emsp;&emsp; 2. [ Printing a Matrix ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q2_Printing_Matrix.asm )  
-&emsp;&emsp;&emsp;&emsp; 3. [ Sum of Two Matrices ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Assignment_Q1_sum_of_two_matrices.asm )  
+
+<!-- &emsp;&emsp;&emsp;&emsp; 3. [ Sum of Two Matrices ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Assignment_Q1_sum_of_two_matrices.asm )   -->
 ---  
 
 ### **String Handling (advanced)**
@@ -89,7 +90,7 @@ This course covers the following topics-
 &emsp;&emsp;&emsp;&emsp; 1. [ Video :simple-youtube: ](https://youtu.be/HiqgMrXHeyQ )  
 &emsp;&emsp;&emsp;&emsp; 2. [ Sample Code :simple-github: ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings%20Advanced_Sample%20Codes_1.asm )  
 
-&emsp;&emsp;Length of String:  
+<!-- &emsp;&emsp;Length of String:  
 &emsp;&emsp;&emsp;&emsp; 1. [ Video :simple-youtube: ](https://youtu.be/GWlaAK4VdWo )  
 &emsp;&emsp;&emsp;&emsp; 2. [ Sample Code :simple-github: ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings%20Advanced_Assignment%20Codes_1.asm )  
 
@@ -99,11 +100,12 @@ This course covers the following topics-
 
 &emsp;&emsp;Concatenation of strings:  
 &emsp;&emsp;&emsp;&emsp; 1. [ Video :simple-youtube: ]( https://youtu.be/SDeHKgsCJE8)  
-&emsp;&emsp;&emsp;&emsp; 2. [ Sample Code :simple-github: ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings%20Advanced_Assignment%20Codes_3.asm )  
+&emsp;&emsp;&emsp;&emsp; 2. [ Sample Code :simple-github: ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings%20Advanced_Assignment%20Codes_3.asm )   -->
 ---
 
 ### **Floating Point Handling**
-&emsp;&emsp;Main Documentation :material-google-drive: : [Click Here]()   
-    - Mithun 
+<!-- &emsp;&emsp;Main Documentation :material-google-drive: : [Click Here]()    -->
+(In progress...)
+        
 
 ---
