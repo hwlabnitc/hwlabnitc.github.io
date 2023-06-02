@@ -70,7 +70,7 @@ This course covers the following topics-
 
 ### **2-D Integer Array Handling**
 
-&emsp;&emsp;Main Documentation :material-google-drive: : [Click Here](https://drive.google.com/file/d/1sSR_gQUEQIQaQ1e99JQt8DJgnEFW37kZ/view?usp=sharing)  
+&emsp;&emsp;Main Documentation :material-google-drive: : [Click Here](https://drive.google.com/file/d/1PSKVY8JSxPmQUKMK4aZ0Q41GEBkVXjG8/view?usp=sharing)  
 
 &emsp;&emsp;Theory Explanation: [Video Link :simple-youtube:](https://youtu.be/SHl3shv24jc)  
 &emsp;&emsp;Sample Code Bank:  
