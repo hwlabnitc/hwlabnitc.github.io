@@ -76,7 +76,6 @@ This course covers the following topics-
 &emsp;&emsp;Sample Code Bank:  
 &emsp;&emsp;&emsp;&emsp; 1. [ Taking Input ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q1_Taking_Input_For_Matrix.asm )  
 &emsp;&emsp;&emsp;&emsp; 2. [ Printing a Matrix ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q2_Printing_Matrix.asm )  
-
 &emsp;&emsp;&emsp;&emsp; 3. [ Sum of Two Matrices ]( https://github.com/hwlabnitc/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Practice_Q1_sum_of_two_matrices.asm )  
 ---  
 
