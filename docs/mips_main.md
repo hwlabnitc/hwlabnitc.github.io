@@ -31,7 +31,22 @@ This course covers the following topics-
 &emsp;&emsp;&emsp;&emsp; 1. [ Reversing 2 digit number ]( https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q1.asm)  
 &emsp;&emsp;&emsp;&emsp; 2. [ Calculating Average Marks ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q2.asm )  
 &emsp;&emsp;&emsp;&emsp; 3. [ Finding Spy Number ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q3.asm )  
+
 ---
+
+### **Floating Point Handling**
+&emsp;&emsp;Main Documentation :material-google-drive: : [Click Here](https://drive.google.com/file/d/1BybUxaKDMDrL3FIs_8W87zXCUnqun1HT/view?usp=sharing)   
+&emsp;&emsp;Farenheit to Celcius:  
+&emsp;&emsp;&emsp;&emsp;[ Sample Code :simple-github: ](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q1.asm )         
+&emsp;&emsp;Maximum and Minimum in Float Array:  
+&emsp;&emsp;&emsp;&emsp;[ Sample Code :simple-github: ](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q2.asm)  
+&emsp;&emsp; Round off to n digits:  
+&emsp;&emsp;&emsp;&emsp;[ Sample Code :simple-github: ](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q3.asm)
+
+
+---
+
+
 
 ### **Integer Array Handling**
 &emsp;&emsp;Main Documentation (Also contains String advanced):material-google-drive: : [Click Here](https://drive.google.com/file/d/1zscvtdHjjzVDhKyP9l7cfaFXMhMfeBQj/view?usp=sharing)    
@@ -100,11 +115,6 @@ This course covers the following topics-
 &emsp;&emsp;Concatenation of strings:  
 &emsp;&emsp;&emsp;&emsp; 1. [ Video :simple-youtube: ]( https://youtu.be/SDeHKgsCJE8)  
 &emsp;&emsp;&emsp;&emsp; 2. [ Sample Code :simple-github: ](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q3.asm )  
----
 
-<!-- ### **Floating Point Handling** -->
-<!-- &emsp;&emsp;Main Documentation :material-google-drive: : [Click Here]()    -->
-<!-- (In progress...) -->
-        
 
 ---
