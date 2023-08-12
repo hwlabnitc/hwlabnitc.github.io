@@ -22,7 +22,7 @@ This course covers the following topics-
 
 &emsp;**Implementation** :  
 &emsp;&emsp;How to Run Verilog Files in Quartus: [How to Run ? :simple-youtube:]( https://youtu.be/cICPPWahs0k)  
-&emsp;&emsp;Sample Codes: [Link to 42 Sample Codes :simple-github:]( https://github.com/hwlab-csed/Introduction-to-Verilog)  
+&emsp;&emsp;Sample Codes: [Link to Sample Codes :simple-github:]( https://github.com/hwlabnitc/Intro-to-Verilog )  
 &emsp;&emsp;Video Explanation of Select Codes:   
 &emsp;&emsp;&emsp;&emsp; 1. [Verilog Syntax :simple-youtube: ](https://youtu.be/xPxiqmg8utg )    
 &emsp;&emsp;&emsp;&emsp; 2. [Adder Subtractor :simple-youtube:](https://youtu.be/QKHHTn3Egt8 )    
