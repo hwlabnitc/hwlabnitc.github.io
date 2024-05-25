@@ -2,8 +2,10 @@ site_name: Hardware Lab Guide
 nav:
     - Home: index.md
     - Verilog: verilog_main.md
+    - Single Cycle : SingleCycle.md
     - MIPS: mips_main.md
     - About Us: about.md
+
 theme:
   palette:
 
