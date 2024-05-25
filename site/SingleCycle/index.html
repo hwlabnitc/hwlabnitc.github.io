@@ -1,0 +1,2173 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>Single Cycle - Hardware Lab Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#single-cycle-processor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://minerva.nitc.ac.in/" title="Hardware Lab Guide" class="md-header__button md-logo" aria-label="Hardware Lab Guide" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hardware Lab Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Single Cycle
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../verilog_main/" class="md-tabs__link">
+      Verilog
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Single Cycle
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../mips_main/" class="md-tabs__link">
+      MIPS
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../about/" class="md-tabs__link">
+      About Us
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://minerva.nitc.ac.in/" title="Hardware Lab Guide" class="md-nav__button md-logo" aria-label="Hardware Lab Guide" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    Hardware Lab Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verilog_main/" class="md-nav__link">
+        Verilog
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Single Cycle
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Single Cycle
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    1. Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-prerequisites" class="md-nav__link">
+    2. Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-control-unit" class="md-nav__link">
+    3. Control Unit
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Control Unit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instruction-format" class="md-nav__link">
+    Instruction Format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-control-unit-main-decoder" class="md-nav__link">
+    Main Control Unit (Main Decoder)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alu-control-unit-alu-decoder" class="md-nav__link">
+    ALU Control Unit (ALU Decoder)
+  </a>
+  
+    <nav class="md-nav" aria-label="ALU Control Unit (ALU Decoder)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-optimal-implementation" class="md-nav__link">
+    Understanding the optimal implementation:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alu-control-truth-table" class="md-nav__link">
+    ALU Control Truth Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-output-truth-table" class="md-nav__link">
+    Input-Output Truth Table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-datapath" class="md-nav__link">
+    4. Datapath
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Datapath">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-elements" class="md-nav__link">
+    State elements
+  </a>
+  
+    <nav class="md-nav" aria-label="State elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-instruction-memory" class="md-nav__link">
+    a Instruction Memory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-register-file" class="md-nav__link">
+    b Register File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-alu" class="md-nav__link">
+    c) ALU
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-data-memory" class="md-nav__link">
+    d Data Memory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-sign-extension" class="md-nav__link">
+    e) Sign extension
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-final-datapath" class="md-nav__link">
+    The Final Datapath
+  </a>
+  
+    <nav class="md-nav" aria-label="The Final Datapath">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#role-of-multiplexors" class="md-nav__link">
+    Role of Multiplexors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-implementation" class="md-nav__link">
+    5. Implementation
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-top-level-module" class="md-nav__link">
+    1. Top level module
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Top level module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-data-memory" class="md-nav__link">
+    2. Data Memory
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Data Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs-" class="md-nav__link">
+    Inputs-
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-" class="md-nav__link">
+    Output-
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-instruction-memory" class="md-nav__link">
+    3. Instruction Memory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4mips" class="md-nav__link">
+    4.MIPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-controller" class="md-nav__link">
+    5. Controller
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working" class="md-nav__link">
+    Working
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-main-decoder" class="md-nav__link">
+    6. Main Decoder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporary-variables" class="md-nav__link">
+    Temporary Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Temporary Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working_1" class="md-nav__link">
+    Working
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-alu-decoder" class="md-nav__link">
+    7. ALU Decoder
+  </a>
+  
+    <nav class="md-nav" aria-label="7. ALU Decoder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9-three-ported-register" class="md-nav__link">
+    9. Three ported Register
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-some-other-functional-units" class="md-nav__link">
+    10. Some Other Functional Units
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Some Other Functional Units">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-adder-module" class="md-nav__link">
+    1. ADDER MODULE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-shift-left-by-2-module" class="md-nav__link">
+    2. SHIFT LEFT BY 2 MODULE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sign-extension-module" class="md-nav__link">
+    3. SIGN EXTENSION MODULE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-d-flip-flop-module-with-variable-width" class="md-nav__link">
+    4. D FLIP FLOP MODULE (with variable width)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-2-way-mux-module-with-variable-width" class="md-nav__link">
+    5. 2 WAY MUX MODULE (with variable width)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-32-bit-alu-module" class="md-nav__link">
+    6. 32 BIT ALU MODULE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-how-to-run-instructions" class="md-nav__link">
+    6. How to Run Instructions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-test-cases-for-various-instructions" class="md-nav__link">
+    7. Test cases for Various Instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Test cases for Various Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-add" class="md-nav__link">
+    1. add
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sub" class="md-nav__link">
+    2. sub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sw" class="md-nav__link">
+    3. sw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-lw" class="md-nav__link">
+    4. lw
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-beq" class="md-nav__link">
+    5. beq
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-references" class="md-nav__link">
+    8. References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mips_main/" class="md-nav__link">
+        MIPS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        About Us
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="single-cycle-processor">Single Cycle Processor</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<table>
+<thead>
+<tr>
+<th>Sl  No.</th>
+<th></th>
+<th>Topic</th>
+<th>Page  No.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td>Overview</td>
+<td><a href="#1-overview">1</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td>Prerequisites</td>
+<td><a href="#2-prerequisites">2</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td>Theory- Control Unit</td>
+<td><a href="#3-control-unit">3</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td>Theory- Datapath</td>
+<td><a href="#4-datapath">8</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td>Implementation</td>
+<td><a href="#5-implementation">22</a></td>
+</tr>
+<tr>
+<td></td>
+<td>1</td>
+<td>Top Level Module</td>
+<td><a href="#1-top-level-module">22</a></td>
+</tr>
+<tr>
+<td></td>
+<td>2</td>
+<td>Data Memory</td>
+<td><a href="#2-data-memory">24</a></td>
+</tr>
+<tr>
+<td></td>
+<td>3</td>
+<td>Instruction Memory</td>
+<td><a href="#3-instruction-memory">25</a></td>
+</tr>
+<tr>
+<td></td>
+<td>4</td>
+<td>Microprocessor Top Level (MIPS)</td>
+<td><a href="#4mips">27</a></td>
+</tr>
+<tr>
+<td></td>
+<td>5</td>
+<td>Controller</td>
+<td><a href="#5-controller">29</a></td>
+</tr>
+<tr>
+<td></td>
+<td>6</td>
+<td>Main Decoder</td>
+<td><a href="#6-main-decoder">31</a></td>
+</tr>
+<tr>
+<td></td>
+<td>7</td>
+<td>ALU Decoder</td>
+<td><a href="#7-alu-decoder">33</a></td>
+</tr>
+<tr>
+<td></td>
+<td>8</td>
+<td>Datapath</td>
+<td><a href="#8-datapath">35</a></td>
+</tr>
+<tr>
+<td></td>
+<td>9</td>
+<td>Register File</td>
+<td><a href="#9-three-ported-register">38</a></td>
+</tr>
+<tr>
+<td></td>
+<td>10</td>
+<td>Other Functional Units</td>
+<td><a href="#10-some-other-functional-units">41</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td>How to Run Instructions?</td>
+<td><a href="#6-how-to-run-instructions">44</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+<td>Test Cases for Various Instructions</td>
+<td><a href="#7-test-cases-for-various-instructions">46</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td></td>
+<td>References</td>
+<td><a href="#8-references">53</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-overview">1. Overview</h2>
+<p>Till now you have learned to design sequential and combinational logic, in this section you will learn how to create a single cycle processor, specifically the MIPS microprocessor.  </p>
+<p>This section combines almost every concept covered so far. Abstraction of block diagrams and Verilog HDLis used to describe the arrangement of each component. We exploit regularity and modularity by reusing already created blocks such as ALUs, multiplexers and register files. 
+The microarchitecture is partitioned into datapath and control units. The MIPS microprocessor datapath uses the register file, ALU, memory unit, and instruction decoder to execute instructions. The register file stores data and instructions, the ALU performs operations, the memory unit accesses and stores data, and the instruction decoder controls data flow. 
+The control unit of a MIPS microprocessor generates control signals that direct the flow of data between components in the datapath, ensuring that instructions are executed correctly. It receives instructions from the decoder, directs data flow to the correct components, and controls instruction timing.<br />
+Together, the datapath and control units work to execute instructions in the MIPS microprocessor.<br />
+We will focus on the single-cycle implementation of a subset of MIPS instructions. Additionally, we will compare single-cycle, multicycle, and pipelined microarchitectures for the MIPS processor.</p>
+<h2 id="2-prerequisites">2. Prerequisites</h2>
+<p>To create a Verilog MIPS single cycle processor, you should have a strong understanding of digital logic design, computer architecture, and Verilog programming.   </p>
+<p>Some of the specific prerequisites include-</p>
+<ul>
+<li>
+<p>Knowledge of digital logic design concepts, such as combinational and sequential circuits, logic gates, flip-flops, and registers and implementing these in Verilog HDL.   </p>
+</li>
+<li>
+<p>Understanding of computer architecture principles, including datapath and control unit design, memory organisation, instruction decoding, and input/output interfaces. These are also covered once more in the “Theory” section of our module.</p>
+</li>
+<li>
+<p>Experience with Verilog programming, including the ability to write and understand Verilog code, testbenches, and simulation results. </p>
+</li>
+<li>
+<p>Ability to use simulation and synthesis tools, such as ModelSim, Quartus, to simulate and synthesise Verilog code. </p>
+</li>
+<li>
+<p>Knowledge of computer organisation and assembly language programming is also beneficial, as it provides context for understanding the MIPS single cycle processor and its operation. </p>
+</li>
+</ul>
+<p>Additionally, it would be helpful if you were familiar with the MIPS instruction set architecture, including its various instruction formats, opcode values, and functionality.</p>
+<h2 id="3-control-unit">3. Control Unit</h2>
+<p>This section covers an implementation of our MIPS subset, which is created by adding a basic control function to the datapath discussed in the previous section. Support for load word (lw), store word (sw), branch equal (beq), and arithmetic-logical instructions like add, sub, AND, OR, and set on less than are all included in this version. It is implemented in 2 parts: the main control Unit and ALU Control Unit. Firstly we look at the instruction format.</p>
+<p><img alt="CU" src="../2024%20Single%20Cycle%20Images/singlecycle-0013.png" /></p>
+<h3 id="instruction-format">Instruction Format</h3>
+<p>The 32 bit MIPS instruction can be broken down into the following parts </p>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0017.png" />
+<code>fig 2</code></p>
+<p>The op field, called the opcode, is always contained in bits 31:26. We will refer to this field as <code>Op[5:0]</code> by standard notation.</p>
+<ul>
+<li>
+<p>The two registers to be read are always specified by the rs and rt fields, at positions <code>25:21</code> and <code>20:16</code>. This is true for the R-type instructions, branch equal, and store.</p>
+</li>
+<li>
+<p>The base register for load and store instructions is always in bit positions <code>25:21</code> (rs).</p>
+</li>
+<li>
+<p>The 16-bit offset for branch equal, load, and store is always in positions <code>15:0</code>. </p>
+</li>
+<li>
+<p>The destination register is in one of two places. For a load, it is in bit positions 20:16 (rt), while for an R-type instruction it is in bit positions 15:11 (rd). Thus, we will need to add a multiplexor to select which field of the instruction is used to indicate the register number to be written. </p>
+</li>
+</ul>
+<h3 id="main-control-unit-main-decoder">Main Control Unit (Main Decoder)</h3>
+<p>The control unit computes the control  ignals based on the opcode and funct fields of the instruction, <code>[31:26]</code> and <code>[5:0]</code>.</p>
+<p>Most of the control information comes from the opcode, but R-type instructions also use the funct field to determine the ALU operation. The majority of the outputs from the opcode are computed by the main decoder. The 6 bits of the opcode are decoded into various control signals of the Main Decoder as shown in Fig. 3.</p>
+<p><img alt="Simple PLA Implementation " src="../2024%20Single%20Cycle%20Images/singlecycle-0020.png" /> </p>
+<blockquote>
+<p>Fig 3. Simple PLA Implementation </p>
+</blockquote>
+<p>Table 1 explains each of the control signals in detail with all the important information. These nine control (two from ALUOp which are explained later) signals are set on the basis of six input signals to the control unit, which are the opcode bits 31 to 26.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Control  Signals</th>
+<th style="text-align: center;">Deasserted</th>
+<th style="text-align: center;">Asserted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">RegDst</td>
+<td style="text-align: center;">The write register number comes  from the rt field (20:16)</td>
+<td style="text-align: center;">The write register number comes from the rd field (15:11)</td>
+</tr>
+<tr>
+<td style="text-align: center;">RegWrite</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">The register on the write register input is written with the value  of the Write data input.</td>
+</tr>
+<tr>
+<td style="text-align: center;">ALUSrc</td>
+<td style="text-align: center;">Second ALU Operand is the second register file output.</td>
+<td style="text-align: center;">Second ALU Operand is the sign extended offset (16 bit to 32 bits)</td>
+</tr>
+<tr>
+<td style="text-align: center;">PCSrc</td>
+<td style="text-align: center;">PC = PC + 4 (For sequential exec.)</td>
+<td style="text-align: center;">PC is replaced by branch target.</td>
+</tr>
+<tr>
+<td style="text-align: center;">MemRead</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Data memory contents  designated by address input  are put in Read Data Output.</td>
+</tr>
+<tr>
+<td style="text-align: center;">MemWrite</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Data memory contents  designated by address input  are put in Write Data Output.</td>
+</tr>
+<tr>
+<td style="text-align: center;">MemtoReg</td>
+<td style="text-align: center;">Write Data is fed input from  ALU.</td>
+<td style="text-align: center;">Write Data is fed input from Data Memory.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Table 1. Different Control Signals for the different MUXs</p>
+</blockquote>
+<p>With the exception of the PCSrc control line, the control unit can set all of the control signals based only on the opcode field of the instruction.
+If the instruction is branch on equal and the ALU's Zero output is asserted, then the PCSrc control line should also be asserted. We must AND the Zero signal from the ALU with the Branch signal from the control unit in order to produce the PCSrc signal.</p>
+<h3 id="alu-control-unit-alu-decoder">ALU Control Unit (ALU Decoder)</h3>
+<p>Depending on the instruction class, the ALU will need to perform one of these functions.</p>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0023.png" />
+Table 2. ALU Control Lines </p>
+<p>The main decoder determines a 2-bit ALUOp signal which is used as input for ALU Decoder along with the 6-bit funct (or function) field in the low-order bits of the instruction. The 4 bit output signal of the ALU Control Unit represents the operation to be carried out by the ALU. 
+<img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0026.png" />
+Fig 4. ALU Hardware Implementation </p>
+<p>The 2 bit ALUOp sent by the Control Unit indicates whether the operation to be performed should be add (00) for loads and stores, subtract (01) for beq, or determined by the operation encoded in the funct field (10).</p>
+<h4 id="understanding-the-optimal-implementation">Understanding the optimal implementation:</h4>
+<p>Using multiple levels of control can reduce the size of the main control unit. Using several smaller control units may also potentially increase the speed of the control unit. Such optimizations are important, since the speed of the control unit is often critical to clock cycle time </p>
+<h4 id="alu-control-truth-table">ALU Control Truth Table</h4>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0027.png" /></p>
+<h4 id="input-output-truth-table">Input-Output Truth Table</h4>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0030.png" /></p>
+<h2 id="4-datapath">4. Datapath</h2>
+<p>A datapath is the part of a computer processor that performs arithmetic and logic operations on data. It is a digital circuit that consists of <code>registers</code>, an <code>arithmetic logic unit</code> (ALU), and <code>multiplexers</code>.</p>
+<p>The datapath receives instructions and data from the processor's memory and performs the necessary operations specified by the instructions. The ALU performs arithmetic and logical operations on the data, and the registers store intermediate and final results.</p>
+<p>The datapath also includes multiplexers that allow the selection of different input values based on control signals. The control signals are generated by the control unit, which coordinates the operations of the datapath to execute instructions.</p>
+<p>The datapath operates on words of data. <code>MIPS</code> is a <code>32-bit architecture</code>, so we will use a 32-bit datapath. The datapath first decodes the instruction for the control unit which then sets the different multiplexers thereby fixing the datapath. We will split the datapath into different state elements and try to learn them one by one and finally piece them together to create a complete datapath.</p>
+<h3 id="state-elements">State elements</h3>
+<p>There are 5 main state elements required for building the datapath.</p>
+<h4 id="a-instruction-memory">a Instruction Memory</h4>
+<p>The program counter contains the address of the instruction to be executed. The first step is to read this instruction from the element called instruction memory. 
+The instruction memory takes the address in PC as the input and fetches the 32 bit instruction, labelled instr. </p>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0033.png" /></p>
+<p>The processor’s actions depend on the specific instruction that was fetched. </p>
+<h4 id="b-register-file">b Register File</h4>
+<p>The register file contains all the available registers. It has two read ports and one write port. Since MIPS architecture contains 32 registers, each register is identified by a unique 5 bit number (log2 32). This unique 5 bit number is given as the input in both read and write ports. 
+The contents of the registers specified via the read ports are given as the output. If the control signal RegWrite is set, the data given in the data port is written into the register given in the write port.</p>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0036.png" /></p>
+<h4 id="c-alu">c) ALU</h4>
+<p>ALU performs different arithmetic operations on the data depending on the signal received from the control unit. It has two data input ports and an input from the control unit which specifies the operation to be performed. The final result is output through ALU result and zero port is set to 1 if the result is zero. </p>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0037.png" /></p>
+<h4 id="d-data-memory">d Data Memory</h4>
+<p>The memory unit is a state element with inputs for the address and the write data, and a single output for the read result.There are separate read and write controls, called MemRead and MemWrite. Only one of these may be asserted at a time.</p>
+<ul>
+<li>If <code>MemRead</code> is set then value at the address given is fetched and outputted through the read data port. </li>
+<li>If <code>MemWrite</code> is set then the value at the address is changed to write data.</li>
+</ul>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0040.png" /></p>
+<h4 id="e-sign-extension">e) Sign extension</h4>
+<p>To understand what sign extension is, let’s take an example. Consider the 4 bit number 1100. If we were to sign extend it to an 8 bit number, we take the MSB which in this case is 1 and extend it to make the upper half of the 8 bit number keeping the lower same as the initial 4 bits which gives us 1111 1100. Similarly, this element sign extends a 16 bit number into a 32 bit number.</p>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0041.png" /></p>
+<p>Now that we have seen the different state elements involved in a datapath, let's see the datapath followed by different MIPS instructions. Since we are considering MIPS microprocessor, each instruction is 32 bits long. </p>
+<ul>
+<li>add 
+It is an R-type instruction of the form add $rd,$rs,$rt 
+The R-type instruction format is</li>
+</ul>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0044.png" /></p>
+<p>The datapath for add instruction is as follows :</p>
+<ol>
+<li>Grab the instruction address from the PC.</li>
+</ol>
+<p><img alt="PC" src="../2024%20Single%20Cycle%20Images/singlecycle-0045.png" /></p>
+<ol>
+<li>Decode instruction.</li>
+</ol>
+<p><img alt="Decoder" src="../2024%20Single%20Cycle%20Images/singlecycle-0046.png" /></p>
+<ol>
+<li>Pass rs,rt and rd into read register and write register ports.</li>
+</ol>
+<p><img alt="Register" src="../2024%20Single%20Cycle%20Images/singlecycle-0049.png" /></p>
+<ol>
+<li>Retrieve data from read register 1 and register 2 (rs and rt).</li>
+</ol>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0050.png" /></p>
+<ol>
+<li>Pass contents of rs and rt into the ALU as operands for the addition operation. The only difference between different arithmetic operations is in the ALU operation performed.</li>
+</ol>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0053.png" /></p>
+<ol>
+<li>Return back the ALU result to the register file as the Write data argument. The data will be written into the Write register specified by the rd field.</li>
+</ol>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0054.png" /></p>
+<ol>
+<li>Increment the value of PC to PC+4 to move on to the next instruction.</li>
+</ol>
+<p><img alt="" src="../2024%20Single%20Cycle%20Images/singlecycle-0057.png" /></p>
+<ul>
+<li><code>lw(load word)</code><br />
+The lw instruction is of the form <code>lw $rt immediate($rs)</code>. It has an I-type instruction format. </li>
+</ul>
+<p><img alt="lw" src="../2024%20Single%20Cycle%20Images/singlecycle-0058.png" /></p>
+<p>The load word instruction copies the data stored at the address ‘immediate+value(rs)’ and stores it into the register rt.<br />
+The datapath for lw instruction is as follows :-</p>
+<ol>
+<li>
+<p>The instruction memory reads the PC and outputs the instruction.</p>
+</li>
+<li>
+<p>The control unit examines the most significant five bits of the instruction to determine the necessary datapath configuration.</p>
+</li>
+<li>
+<p>The register file receives the two register numbers rs and rt, with rs connected to the read port and rt to the write port. Read data 1 port outputs the data stored in rs.</p>
+</li>
+<li>
+<p>This output is then added to the sign-extended immediate using ALU.</p>
+</li>
+<li>
+<p>The ALU result is sent to the data memory unit, which reads the data stored at the address specified by the ALU result.</p>
+</li>
+<li>
+<p>Finally, the data read from the memory is returned to the register file, which writes it into register rt.</p>
+</li>
+<li>
+<p>PC is incremented to PC+4.</p>
+</li>
+</ol>
+<p><img alt="lw" src="../2024%20Single%20Cycle%20Images/singlecycle-0061.png" /></p>
+<ul>
+<li>
+<p><code>sw(store word)</code>
+    sw instruction is of the form</p>
+<p><code>v
+sw $rt immediate($rs)</code></p>
+<p>The instruction format is again of the form I-type with an opcode 43.</p>
+</li>
+</ul>
+<p>The store word instruction writes the data stored in the register rt into the memory address ‘value(rs)+immediate ’.</p>
+<p>The datapath for sw instruction is as follows :-</p>
+<ol>
+<li>
+<p>The instruction memory reads the PC and outputs the instruction.</p>
+</li>
+<li>
+<p>Control unit examines the most significant five bits and determines the necessary datapath configuration by setting the multiplexers.</p>
+</li>
+<li>
+<p>The register file receives two register numbers rs and rt, with rs connected to read port1 and rt connected to read port2. The data stored in registers rs and rt is output through the read data port1 and read data port2 respectively.</p>
+</li>
+<li>
+<p>The read data1 is then added to the sign-extended immediate using ALU.</p>
+</li>
+<li>
+<p>The ALU result along with read data2 (which contains the value stored in register rt) is sent to the data memory unit, which writes the read data2 into the address specified by the ALU result.</p>
+</li>
+<li>
+<p>PC is incremented to PC+4.</p>
+</li>
+</ol>
+<p><img alt="sw" src="../2024%20Single%20Cycle%20Images/singlecycle-0065.png" /></p>
+<ul>
+<li><code>beq</code>(branch if equal) </li>
+</ul>
+<p>The beq instruction is of the form</p>
+<pre><code class="language-mips">    beq $rs ,$rt ,immediate
+</code></pre>
+<p>It has an I-type instruction format.</p>
+<p><img alt="I-type" src="../2024%20Single%20Cycle%20Images/singlecycle-0066.png" /></p>
+<p>It compares the contents of rs and rt to check if they are equal and uses the 16-bit immediate field to compute the target address of the branch relative to the current address. </p>
+<p>The datapath for beq instruction is as follows :- </p>
+<ol>
+<li>
+<p>The instruction memory reads the PC and outputs the instruction.</p>
+</li>
+<li>
+<p>Control unit examines the most significant five its and determines the necessary datapath configuration.</p>
+</li>
+<li>
+<p>The register file receives two register numbers rs and rt in the read register port and outputs the contents in rs and rt.</p>
+</li>
+<li>
+<p>ALU subtracts the value of rs from rt and sets the zero port to 1 if the result is 0.</p>
+</li>
+<li>
+<p>The immediate value is sign extended and then shifted left by 2 bits.</p>
+</li>
+<li>
+<p>PC is incremented to PC+4 and is added with the immediate value to give the branch target.</p>
+</li>
+<li>
+<p>PC is changed to the branch target if zero port was set to 1.</p>
+</li>
+</ol>
+<p><img alt="beq" src="../2024%20Single%20Cycle%20Images/singlecycle-0069.png" /></p>
+<ul>
+<li><code>j</code> (jump)</li>
+</ul>
+<p>The jump instruction is of the form j targaddr. It has a J-type instruction format with opcode 2.</p>
+<p>This instruction uses the 26 bit targaddr to compute jump address and updates the value of PC to jump 
+address. </p>
+<p><img alt="J-type" src="../2024%20Single%20Cycle%20Images/singlecycle-0072.png" /></p>
+<p>The datapath for j instruction is as follows :-</p>
+<ol>
+<li>
+<p>The instruction memory reads the PC and outputs the instruction.</p>
+</li>
+<li>
+<p>Control unit examines the most significant five bits and determines the necessary datapath configuration.</p>
+</li>
+<li>
+<p>The 26 bit targaddr is shifted left by 2 bits to create a 28 bit result</p>
+</li>
+<li>
+<p>Concatenate the result with the upper 4 bits of PC+4 to get the jump address.</p>
+</li>
+<li>
+<p>Finally, the PC gets updated to the jump address.</p>
+</li>
+</ol>
+<p><img alt="j" src="../2024%20Single%20Cycle%20Images/singlecycle-0073.png" /></p>
+<h3 id="the-final-datapath">The Final Datapath</h3>
+<p><img alt="Final" src="../2024%20Single%20Cycle%20Images/singlecycle-0076.png" /></p>
+<blockquote>
+<p>Fig 4. Simple datapath with control unit (for R-type and I-type)</p>
+</blockquote>
+<p>Here, the input to the control unit is the 6-bit opcode field from the instruction. The outputs are the control signals which serve various purposes :- </p>
+<ul>
+<li>
+<p><code>RegDst</code>, <code>ALUSrc</code>, <code>MemtoReg</code> - 1-bit signals that control the multiplexors.</p>
+</li>
+<li>
+<p><code>RegWrite</code>, <code>MemRead</code>, <code>MemWrite</code> - Signals that control reads and writes in the data memory and register file.</p>
+</li>
+<li><code>Branch</code> - Signal used in checking if a branch is required.</li>
+<li><code>ALUOp</code> - 2-bit control signal for the ALU.</li>
+</ul>
+<p>Note that here, the AND gate is used to combine the Branch control signal with the Zero output from the ALU. This is responsible for the selection of the next PC.</p>
+<h4 id="role-of-multiplexors">Role of Multiplexors</h4>
+<p>As seen above, there are 4 multiplexors required at various stages of the datapath. They are needed in order to implement both R-type and I-type instructions using the same datapath. Their roles are explained below :- </p>
+<ol>
+<li>
+<p>MUX 1 - This MUX determines which register needs to be written into using the <code>RegDst</code> control signal. If it’s 0, the write register number comes from the rt field (in the case of I-type), whereas if it’s 1, the write register number comes from the rd field (for R-type instructions)</p>
+</li>
+<li>
+<p>MUX 2 - This MUX is placed at the ALU input with <code>ALUSrc</code> as the select line. When it’s 0, an arithmetic-logical instruction is taking place, and the second ALU operand is the data read from the second register. When it’s 1, a memory instruction is taking place, with the second ALU operand being the sign-extended 16-bit immediate field from instruction.</p>
+</li>
+<li>
+<p>MUX 3 - It chooses which value is stored in the destination register using the <code>MemtoReg</code> control signal. This value comes from the ALU (for an R-type instruction) or the memory (for a load).</p>
+</li>
+<li>
+<p>MUX 4 - The final MUX is used to select if the PC moves onto the sequentially following instruction address (PC + 4) or branches to a target address. The control signal that achieves this is the output of the <code>AND gate</code> which is 1 in case of a branch instruction and 0 otherwise.</p>
+</li>
+</ol>
+<p><img alt="Final" src="../2024%20Single%20Cycle%20Images/singlecycle-0079.png" /></p>
+<blockquote>
+<p>Fig 4. Datapath with Jump implementation</p>
+</blockquote>
+<p>Additionally to implement the Jump instruction in the same datapath, an additional MUX, controlled by the jump control signal, is used to determine whether to move to the jump target address or the next consequent instruction. This jump target is obtained by shifting the lower 26 bits of the jump instruction left 2 bits (ie. multiplying by 4) and then concatenating the upper 4 bits of PC + 4 as the high-order bits, thus yielding a 32-bit address.</p>
+<h2 id="5-implementation">5. Implementation</h2>
+<h3 id="1-top-level-module">1. Top level module</h3>
+<p><img alt="Top" src="../2024%20Single%20Cycle%20Images/singlecycle-0082.jpg" /></p>
+<pre><code class="language-v">module top (input clk, reset, 
+    output [31:0] writedata, dataadr, 
+    output memwrite); 
+    wire [31:0] pc, instr, readdata; 
+
+    // instantiate processor and memories 
+    mips mips (clk, reset, pc, instr, memwrite, dataadr, writedata, readdata); 
+    imem imem (pc[7:2], instr); 
+    dmem dmem (clk, memwrite, dataadr, writedata,readdata); 
+endmodule
+</code></pre>
+<p>The top level module instantiates 3 sub modules <code>mips</code> , <code>imem</code> and  <code>dmem</code>
+The <code>mips</code> module is the main processor that is responsible for executing instructions.
+The <code>imem</code> module is the instruction memory, which contains the program instructions.
+The <code>dmem</code> module is the data memory, which is used for load/store instructions.
+Here is a brief description of the input and output ports of the top module:</p>
+<h4 id="inputs">Inputs</h4>
+<ol>
+<li>
+<p><code>clk</code> - the clock signal used to synchronise the processor.</p>
+</li>
+<li>
+<p><code>reset</code> - the reset signal used to initialise the processor.</p>
+</li>
+</ol>
+<h4 id="outputs">Outputs</h4>
+<ol>
+<li>
+<p><code>writedata</code> - the data to be written to memory.</p>
+</li>
+<li>
+<p><code>dataadr</code> - the memory address to access.</p>
+</li>
+<li>
+<p><code>memwrite</code> - the control signal for writing to memory.</p>
+</li>
+<li>
+<p><code>pc</code> - the program counter, which contains the memory address of the current instruction.</p>
+</li>
+<li>
+<p><code>instr</code> - the current instruction being executed.</p>
+</li>
+<li>
+<p><code>readdata</code> - the data read from memory.</p>
+</li>
+</ol>
+<p>Overall, the top module provides the infrastructure to execute programs on the MIPS processor. It loads the program instructions from memory, executes them, and stores the results back into memory if necessary.</p>
+<p><img alt="Top" src="../2024%20Single%20Cycle%20Images/singlecycle-0088.jpg" /></p>
+<blockquote>
+<p>RTL view of top level module </p>
+</blockquote>
+<h3 id="2-data-memory">2. Data Memory</h3>
+<pre><code class="language-v">module dmem (input clk, we, 
+            input [31:0] a, wd, 
+            output [31:0] rd); 
+
+    reg [31:0] RAM[63:0]; 
+    assign rd RAM[a[31:2]]; // word aligned 
+    always @ (posedge clk) 
+        if (we) 
+            RAM[a[31:2]] wd; 
+endmodule
+</code></pre>
+<p><code>dmem</code> represents a random access memory (RAM) block that can store and retrieve 32-bit data values. </p>
+<h4 id="inputs-">Inputs-</h4>
+<ol>
+<li>clk </li>
+<li>MemWrite <code>we</code> - control signal that determines whether to write data to memory.</li>
+<li>32 bit memory address <code>a</code></li>
+<li>32 bit WriteData ‘wd’- data to be written to the location specified by <code>a</code>.</li>
+</ol>
+<h4 id="output-">Output-</h4>
+<ol>
+<li>32 bit ReadData <code>rd</code> - data read from memory location <code>a</code>. 
+The <code>dmem</code> module contains a RAM that stores 64 words each of size 32 bits. When the <code>we</code> input is set to 1, the 32 bit data <code>wd</code> gets written into the memory location <code>a</code> at the positive edge of <code>clk</code> .</li>
+</ol>
+<p><img alt="dmem" src="../2024%20Single%20Cycle%20Images/singlecycle-0092.jpg" /></p>
+<h3 id="3-instruction-memory">3. Instruction Memory</h3>
+<pre><code class="language-v">module imem (input [5:0] a,output [31:0] rd); 
+    reg [31:0] RAM[63:0]; 
+    integer i; 
+    initial 
+        begin 
+            $readmemh (&quot;E:\memfile.dat&quot;,RAM); 
+        end 
+    assign rd = RAM[a]; // word aligned 
+endmodule
+</code></pre>
+<p>Input : </p>
+<ol>
+<li>6 bit address <code>a</code> : This is generated by the mips module.</li>
+</ol>
+<p>Output : </p>
+<ol>
+<li>32 bit instruction <code>rd</code> :<br />
+The instructions are stored initially in a file called memfile.dat. This file gets loaded into the <code>RAM</code> array using the <code>$readmemh</code> system task. The <code>$readmemh</code> system task reads a memory file in HEX format and initialises the memory array with these values.</li>
+</ol>
+<p>The syntax is : </p>
+<pre><code class="language-v">$readmemh(&quot;hex_memory_file.mem&quot;, memory_array,[start_address],[end_address]) (The start and end address arguments are optional) 
+</code></pre>
+<p>The <code>imem</code> module is a combinational logic block which is driven by the <code>RAM</code> array. </p>
+<p>The input address <code>a</code> is used to index into the <code>RAM</code> array to retrieve the instruction located at that address.</p>
+<p>The instruction is then assigned to <code>rd</code> .</p>
+<p><img alt="imem" src="../2024%20Single%20Cycle%20Images/singlecycle-0097.jpg" /></p>
+<blockquote>
+<p>RTL view of Instruction Memory</p>
+</blockquote>
+<h3 id="4mips">4.MIPS</h3>
+<pre><code class="language-v">module mips(input clk, reset, 
+            output [31:0] pc, 
+            input [31:0] instr, 
+            output memwrite, 
+            output [31:0] aluout, writedata, 
+            input [31:0] readdata); 
+
+   wire memtoreg, branch, 
+   alusrc, regdst, regwrite, jump; 
+   wire [2:0] alucontrol; 
+
+   controller c(instr[31:26], instr[5:0], zero, memtoreg,  
+   memwrite, pcsrc, alusrc, regdst, regwrite, jump, alucontrol);
+
+   datapath dp(clk, reset, memtoreg, pcsrc,alusrc, regdst, regwrite, jump,alucontrol,zero, pc, instr,aluout, writedata, readdata); 
+
+endmodule 
+
+</code></pre>
+<p>Inputs :</p>
+<ol>
+<li>clk</li>
+<li>reset</li>
+<li>instr - current instruction being executed.</li>
+<li>32 bit readdata - data read from the memory.</li>
+</ol>
+<p>Outputs :</p>
+<ol>
+<li>32 bit pc - current program counter.</li>
+<li>32 bit aluout - result of ALU operation(i applicable). </li>
+<li>32 bit writedata</li>
+<li>memwrite - control signal (discussed earlier).</li>
+</ol>
+<p>The <code>mips</code>  module instantiates two other modules, <code>controller</code>  and <code>datapath</code> , which work together to execute instructions. 
+Both these modules are discussed in detail in the upcoming sections. </p>
+<p>Overall the <code>mips</code>  module acts like a traffic signal, directing the flow of data and control signals between the <code>datapath</code>  and <code>controller</code>  modules to execute instructions and maintain the processor’s state.</p>
+<p><img alt="mips" src="../2024%20Single%20Cycle%20Images/singlecycle-0102.jpg" /></p>
+<blockquote>
+<p>RTL view of MIPS module</p>
+</blockquote>
+<h3 id="5-controller">5. Controller</h3>
+<pre><code class="language-v">module controller (input [5:0] op, funct, 
+                input zero, 
+                   output memtoreg, memwrite, 
+             output pcsrc, alusrc, 
+             output regdst, regwrite, 
+             output jump, 
+             output [2:0] alucontrol); 
+
+     wire [1:0] aluop; 
+     wire branch; 
+
+     maindec md (op, memtoreg, memwrite, branch,alusrc,   regdst, regwrite, jump,aluop); 
+     aludec ad (funct, aluop, alucontrol); 
+
+     assign pcsrc = branch &amp; zero; 
+     endmodule 
+</code></pre>
+<p>Inputs-</p>
+<ol>
+<li>6 bit Opcode</li>
+<li>6 bit funct</li>
+<li>Zero bit (for PCSrc)</li>
+</ol>
+<p>Outputs-</p>
+<ol>
+<li>
+<p>7 control signals</p>
+<ol>
+<li><code>memtoreg</code>  </li>
+<li><code>memwrite</code>  </li>
+<li><code>pcsrc</code>  </li>
+<li><code>alusrc</code>  </li>
+<li><code>regdst</code>  </li>
+<li><code>regwrite</code>  </li>
+<li><code>jump</code>  </li>
+</ol>
+</li>
+<li>
+<p>3 bit alu control</p>
+</li>
+</ol>
+<p>Temporary Variables</p>
+<ol>
+<li>2 bit AluOP</li>
+<li>Branch bit</li>
+</ol>
+<h4 id="working">Working</h4>
+<p>It acts as a top level module connecting the main decoder and alu decoder. It has some additional logic to make the PCSrc control signal by AND-ing the branch (intermediate) signal from the main decoder and the Zero from the ALU.</p>
+<p><img alt="controller" src="../2024%20Single%20Cycle%20Images/singlecycle-0122.jpg" /></p>
+<p>RTL View of Main Controller</p>
+<h3 id="6-main-decoder">6. Main Decoder</h3>
+<pre><code class="language-v">module maindec(input [5:0] op, 
+            output memtoreg, memwrite, 
+            output branch, alusrc, 
+            output regdst, regwrite, 
+            output jump, 
+            output [1:0] aluop); 
+
+     reg [8:0] controls; 
+     assign {regwrite, regdst, alusrc, branch, memwrite,  memtoreg, jump, aluop} = controls; 
+
+    always @ (*) 
+    case(op) 
+        6'b000000: controls &lt;= 9'b110000010; //Rtype 
+        6'b100011: controls &lt;= 9'b101001000; //LW 
+        6'b101011: controls &lt;= 9'b001010000; //SW 
+        6'b000100: controls &lt;= 9'b000100001; //BEQ 
+        6'b001000: controls &lt;= 9'b101000000; //ADDI 
+        6'b000010: controls &lt;= 9'b000000100; //J 
+        default: controls &lt;= 9'bxxxxxxxxx; //??? 
+    endcase 
+endmodule 
+</code></pre>
+<p>Input :  </p>
+<p>6 Bit <code>Opcode</code></p>
+<p>Outputs :</p>
+<ol>
+<li><code>memtoreg</code></li>
+<li><code>memwrite</code></li>
+<li><code>branch</code></li>
+<li><code>alusrc</code></li>
+<li><code>regdst</code></li>
+<li><code>regwrite</code></li>
+<li><code>jump</code></li>
+</ol>
+<p>(These 7 represent the 7 control signals which originate from the Control Unit and are explained in Theory section Table 1)
+     1. 2 Bit ALUOp</p>
+<h3 id="temporary-variables">Temporary Variables</h3>
+<ol>
+<li>9 bit register control - It represents all the control signals together for easier assignment during the case statement.</li>
+</ol>
+<h4 id="working_1">Working</h4>
+<p>It is the main decoder which sets the control signals to 1s and 0s according to the opcode instruction. It uses a switch-case statement to decide what control to set inside a “always” procedural block.</p>
+<blockquote>
+<p>Note:<br />
+<code>always@(*)</code> blocks are used to describe <strong>Combinational Logic</strong>, or Logic Gates. <code>*</code> sets the sensitivity list of the “always” to any values that can have an impact on a value(s) determined by the <code>always@(*)</code> block.</p>
+</blockquote>
+<p><img alt="maindec" src="../2024%20Single%20Cycle%20Images/singlecycle-0110.png" />
+RTL View of Main Decoder</p>
+<h2 id="7-alu-decoder">7. ALU Decoder</h2>
+<pre><code class="language-v">module aludec (input [5:0] funct, 
+               input [1:0] aluop, 
+         output reg [2:0] alucontrol); 
+
+   always @ (*) 
+        case (aluop) 
+            2'b00: alucontrol &lt;= 3'b010; // add 
+            2'b01: alucontrol &lt;= 3'b110; // sub 
+            default: case(funct) // RTYPE 
+                6'b100000: alucontrol &lt;= 3'b010; // ADD 
+                6'b100010: alucontrol &lt;= 3'b110; // SUB 
+                6'b100100: alucontrol &lt;= 3'b000; // AND
+                6'b100101: alucontrol &lt;= 3'b001; // OR
+                6'b101010: alucontrol &lt;= 3'b111; // SLT
+                default: alucontrol &lt;= 3’bxxx; // ??? 
+        endcase
+endcase
+endmodule 
+````
+
+Inputs :
+
+1. 16 bit ```funct``` (from 32 bit MIPS Instruction)
+2. 2 bit ```ALUOp``` (coming from Main decoder)
+
+Output :
+
+1. 3 bit ALU control
+
+Working
+
+It decides what function the ALU will carry out. It works with a nested switch-case statement. First it checks the ```ALUop```
+
+1. If ```ALUOp``` = 1 -&gt; ALU has to perform addition. (lw,sw)
+2. If ```ALUOp``` = 2 -&gt; ALU has to perform subtraction. (beq)
+3. If ```ALUOp``` = 3 -&gt; It depends on the 6 bit funct which will ADD, SUB, AND, OR, SLT (R-type)
+
+![aludec](./2024%20Single%20Cycle%20Images/singlecycle-0113.png)
+RTL View of ALU Decoder
+
+## 8. Datapath
+
+```v
+module datapath (input clk, reset, 
+    input memtoreg, pcsrc, 
+    input alusrc, regdst, 
+    input regwrite, jump, 
+    input [2:0] alucontrol, 
+    output zero, 
+    output [31:0] pc, 
+    input [31:0] instr, 
+    output [31:0] aluout, writedata, 
+    input [31:0] readdata); 
+    wire [4:0] writereg; 
+    wire [31:0] pcnext, pcnextbr, pcplus4, pcbranch; 
+    wire [31:0] signimm, signimmsh; 
+    wire [31:0] srca, srcb; 
+    wire [31:0] result; 
+// next PC logic 
+    flopr #(32) pcreg(clk, reset, pcnext, pc); 
+    adder pcadd1 (pc, 32b100, pcplus4); 
+    sl2 immsh(signimm, signimmsh); 
+    adder pcadd2(pcplus4, signimmsh, pcbranch); 
+    mux2 #(32) pcbrmux(pcplus4, pcbranch, pcsrc,pcnextbr); 
+    mux2 #(32) pcmux(pcnextbr, {pcplus4[31:28], 
+    instr[25:0], 2b00},jump, pcnext); 
+// register file logic 
+    regfile rf(clk, regwrite, instr[25:21],instr[20:16], writereg,result, srca, writedata); 
+    mux2 #(5) wrmux(instr[20:16], instr[15:11], 
+    regdst, writereg); 
+    mux2 #(32) resmux(aluout, readdata, 
+    memtoreg, result); 
+    signext se(instr[15:0], signimm); 
+// ALU logic 
+    mux2 #(32) srcbmux(writedata, signimm, alusrc,srcb); alu alu(srca, srcb, alucontrol,aluout, zero); 
+endmodule
+</code></pre>
+<p>Inputs :</p>
+<ol>
+<li>clk</li>
+<li>reset<br />
+(They are external inputs.)</li>
+<li>memwrite</li>
+<li>regwrite</li>
+<li>regdst</li>
+<li>alusrc</li>
+<li>memtoreg</li>
+<li>pcsrc</li>
+<li>jump<br />
+(They are the control signals from the main decoder.)</li>
+<li>32 bit instr - output of the instruction memory.</li>
+<li>32 bit readdata - output of the data memory.</li>
+<li>3 bit alucontrol - output of the alu decoder.</li>
+</ol>
+<p>Outputs :</p>
+<ol>
+<li>zero</li>
+<li>32 bit pc</li>
+<li>32 bit aluout</li>
+<li>32 bit writedata</li>
+</ol>
+<p>Working :</p>
+<p>The datapath is separated into 3 sections:-</p>
+<ol>
+<li>next PC logic</li>
+</ol>
+<p>The pseudocode for this section is-</p>
+<pre><code class="language-v">{ 
+always@(poseedge clk &amp;&amp; poseedge reset) 
+    pc=pcnext; 
+
+    pcplus4=pc+4; 
+    signimm=signextend to 32 bits instr[15:0] 
+    signimmsh=shift left 2 of signimmsh 
+    pcbranch=pcplus4+signimmsh 
+    jump address= {pcplus4[31:28],instr[25:0], 2b00}
+
+    if(pcsrc==0) 
+        pcnextbr=pcplus4; 
+    else 
+        pcnextbr=pcbranch;
+
+    if(jump==0) 
+        pcnext=pcnextbr; 
+    else 
+        pcnext=jump address; 
+}
+</code></pre>
+<ol>
+<li>register file logic</li>
+</ol>
+<p>The pseudocode for this section is- </p>
+<pre><code class="language-v">{ 
+if(regdst==0) 
+    writereg=instr[20:16]; 
+else 
+    writereg=instr[15:11]; 
+    if(memtoreg==0) 
+    result=aluout; 
+    else 
+    result=readdata; 
+    in registerfile { 
+    read register1=instr[25,21]; 
+    read register2=instr[20:16]; 
+    write register=writereg; 
+    write data=result; 
+          } 
+}
+</code></pre>
+<ol>
+<li>ALU 
+In this section the ALU performs operations on ‘srca’(output of register file) and ‘srcb’ (depends on control signal alusrc) depending on the value of ‘alucontrol’.</li>
+</ol>
+<p>RTL view of datapath </p>
+<h3 id="9-three-ported-register">9. Three ported Register</h3>
+<pre><code class="language-v">module regfile (input clk,
+                input we3,
+                input [4:0] ra1, ra2, wa3,
+                input [31:0] wd3,
+                output [31:0] rd1, rd2);
+                reg [31:0] rf[31:0];
+
+    always @ (posedge clk)
+    if (we3) rf[wa3] &lt;= wd3;
+        assign rd1 = (ra1 != 0) ? (rf[ra1]) : 0;
+        assign rd2 = (ra2 != 0) ? (rf[ra2]): 0;
+endmodule
+</code></pre>
+<p>Inputs :</p>
+<ol>
+<li><code>Clk</code> signal for third port</li>
+<li>Read register 1 <code>ra1</code></li>
+<li>Read register 2 <code>ra2</code></li>
+<li>Write register <code>wa3</code></li>
+<li>Write data <code>we3</code></li>
+</ol>
+<p>Outputs :</p>
+<ol>
+<li>Read data 1 <code>rd1</code></li>
+<li>Read data 2 <code>rd2</code></li>
+</ol>
+<p>Temporary Variables :</p>
+<ol>
+<li>32 element Array of 32 bit registers</li>
+</ol>
+<p>Working :</p>
+<p>Two ports read combinationally. Third port written on the rising edge of the clock. If any of the registers are ‘0’ it is hardwired to be 0 value by default.</p>
+<p><img alt="regfile" src="../2024%20Single%20Cycle%20Images/singlecycle-0125.png" /> RTL View of Register File</p>
+<h2 id="10-some-other-functional-units">10. Some Other Functional Units</h2>
+<p>These units were explained in previous modules. As such explanation and theory is not repeated and can be referred to from those modules.</p>
+<h3 id="1-adder-module">1. ADDER MODULE</h3>
+<pre><code class="language-v">module adder (input [31:0] a, b,output [31:0] y); assign y=a + b; 
+endmodule
+</code></pre>
+<h3 id="2-shift-left-by-2-module">2. SHIFT LEFT BY 2 MODULE</h3>
+<pre><code class="language-v">module sl2 (input [31:0] a, 
+output [31:0] y); 
+assign y = {a[29:01], 2'b00}; 
+endmodule
+</code></pre>
+<h3 id="3-sign-extension-module">3. SIGN EXTENSION MODULE</h3>
+<pre><code class="language-v">module signext (input [15:0] a,output [31:0] y); assign y={{16{a[15]}}, a}; 
+endmodule
+</code></pre>
+<p>First 16 bits of 32 bit Y are assigned the value of A[15] thus extending A by 16 bits. </p>
+<h3 id="4-d-flip-flop-module-with-variable-width">4. D FLIP FLOP MODULE (with variable width)</h3>
+<pre><code class="language-v">module flopr # (parameter WIDTH = 8)(input clk, reset,input [WIDTH-1:0] d,output reg [WIDTH-1:0] q); 
+    always @ (posedge clk, posedge reset) 
+        if (reset) q&lt;=0; 
+        else q &lt;= d; 
+endmodule
+</code></pre>
+<h3 id="5-2-way-mux-module-with-variable-width">5. 2 WAY MUX MODULE (with variable width)</h3>
+<pre><code class="language-v">module mux2 # (parameter WIDTH = 8)(input [WIDTH-1:0] d0, d1,input s,output [WIDTH-1:0] y); 
+assign y = s ? d1 : d0; 
+endmodule
+</code></pre>
+<h3 id="6-32-bit-alu-module">6. 32 BIT ALU MODULE</h3>
+<pre><code class="language-v">module alu(i_data_A, i_data_B, i_alu_control,o_result,o_zero_flag); 
+    input [31:0] i_data_A; // A operand input [31:0] i_data_B; // B operand output reg [31:0] o_result; // ALU result input [3:0] i_alu_control; // Control signal 
+    output wire o_zero_flag; // Zero flag assign o_zero_flag = ~|o_result; 
+    always @(*) begin 
+    // Start initialization: 
+        casex(i_alu_control) 
+        4'b0010: // ADD 
+            begin 
+            o_result = i_data_A + i_data_B; 
+            end 
+        4'b0110: // SUB 
+            begin 
+            o_result = i_data_A - i_data_B; 
+            end 
+        4'b0000: // AND 
+            begin 
+            o_result = i_data_A &amp; i_data_B; 
+            end 
+        4'b0001: // OR 
+            begin 
+            o_result = i_data_A | i_data_B; 
+            end 
+        4'b0111: // SLT 
+            begin 
+                o_result = i_data_A &lt; i_data_B ? 32'h00000001: 32'h00000000; 
+            end 
+        4'b0011://XOR 
+            begin 
+                o_result=i_data_A^i_data_B; 
+            end 
+        4'b0100://NOR 
+            begin 
+                o_result=~(i_data_A | i_data_B); 
+            end 
+        default: 
+            begin 
+                o_result={32{1'bx}};  //x-state,(nor1,nor0) 
+            end 
+        endcase 
+    end 
+endmodule
+</code></pre>
+<h2 id="6-how-to-run-instructions">6. How to Run Instructions</h2>
+<p>Great! Now we have our single cycle microprocessor ready but how do we run assembly code in it? The following steps explain that in detail.
+( Since its a MIPS implementation of a 32 Bit Microprocessor we shall use MIPS code as the assembly code. )</p>
+<p>Steps to run</p>
+<ol>
+<li>Write Down the MIPS code you want to execute.<ol>
+<li>Your code should have an instance of the instruction you want to test.</li>
+<li>Make sure the set of instructions ends with a store word (sw) instruction. The output of this “store word” should be dependent on the instruction to be tested. (This will be used for checking if the instruction is executed correctly or not.)</li>
+</ol>
+</li>
+<li>Convert the MIPS Code into machine code with the help of an online convertor.</li>
+<li>Save the machine code as “memfile.dat” in your preferred directory.</li>
+<li>Update the path (line 6) of “memfile.dat” in the imem module (Instruction Memory) of your Verilog code to the absolute path of the memfile.dat</li>
+<li>Change the test bench to check the following<ol>
+<li>dataaddr- should contain the address of the last store word (X) in the last line of  our machine code in memfile.dat</li>
+<li>writedata- should contain the data being written in memory (Y) in the last store word instruction.</li>
+<li>So, in the testbench make the change :
+(dataadr === X &amp; writedata === Y )</li>
+</ol>
+</li>
+<li>Save the module and compile your Verilog code.</li>
+<li>Run RTL Simulation.</li>
+<li>The transcript section should contain “Simulation succeeded” in the case of a correct implementation and matching dataaddr and writedata.</li>
+</ol>
+<p><img alt="transcript" src="../2024%20Single%20Cycle%20Images/singlecycle-0134.png" /></p>
+<p>Fig. Sample transcript output</p>
+<h2 id="7-test-cases-for-various-instructions">7. Test cases for Various Instructions</h2>
+<p>Now we will try to check if our microprocessor implements instructions properly.</p>
+<h3 id="1-add">1. add</h3>
+<pre><code class="language-mips">addi $2, $0, 450 //initialise $2 =450 
+addi $3, $0, 550 //initialise $3 =550 
+add  $4, $2, $3  //$4=$2+$3 ,$4=450+550=1000 
+sw   $4, 20($0)  //write address 20 = 1000 
+</code></pre>
+<p>Machine code</p>
+<pre><code class="language-hex">200201c2 
+20030226 
+00432020 
+ac040014 
+</code></pre>
+<p>If the value at address location 20 is 1000,then the add instruction is working properly. 
+The testbench to check the same is:</p>
+<pre><code class="language-v">module testbenchv1; 
+    reg clk; 
+    reg reset; 
+    integer i; 
+    wire [31:0] writedata, dataadr; 
+    wire memwrite; 
+
+    // instantiate device to be tested 
+        top dut(clk, reset, writedata, dataadr, memwrite); 
+    // initialize test 
+    initial 
+        begin 
+            reset &lt;= 1; # 22; reset &lt;= 0; 
+        end 
+
+    // generate clock to sequence tests 
+    always 
+        begin 
+            clk &lt;= 1; # 5; clk &lt;= 0; # 5; 
+        end 
+
+    // check results 
+    always @ (negedge clk) begin 
+        if (memwrite) begin 
+        if (dataadr === 20 &amp; writedata === 1000) begin 
+            $display (&quot;Simulation succeeded&quot;); 
+            $stop; 
+        end 
+        else if (dataadr !== 80) begin 
+            $display (&quot;Failed hehe %h and 
+            %h&quot;,writedata,dataadr); 
+            $stop; 
+        end 
+    end 
+    end 
+endmodule
+</code></pre>
+<h3 id="2-sub">2. sub</h3>
+<pre><code class="language-mips">addi $2,$0, 550 //initialise $2 =550 
+addi $3,$0, 550 //initialise $3 =550 
+sub $4,$2, $3 //$4=$2+$3 , $4=550-550=0 
+sw $4, 50($0) //write address 50 = 0
+</code></pre>
+<p>Machine code :</p>
+<pre><code class="language-hex">20020226 
+20030226 
+00432022 
+ac040032 
+</code></pre>
+<p>If the value at address location 50 is 0,then the sub instruction is working properly.
+The testbench to check the same is:</p>
+<pre><code class="language-v">module testbenchv1; 
+    reg clk; 
+    reg reset; 
+    integer i; 
+    wire [31:0] writedata, dataadr; 
+    wire memwrite; 
+    // instantiate device to be tested 
+    top dut(clk, reset, writedata, dataadr, memwrite);
+    // initialize test 
+        initial 
+            begin 
+                reset &lt;= 1; # 22; reset &lt;= 0;  
+            end 
+    // generate clock to sequence tests 
+        always 
+            begin 
+                clk &lt;= 1; # 5; clk &lt;= 0; # 5; 
+            end 
+    //check results 
+    always @ (negedge clk) 
+    begin 
+        if (memwrite) begin 
+            if (dataadr === 50 &amp; writedata === 0) begin 
+                $display (&quot;Simulation succeeded&quot;); 
+                $stop; 
+            end 
+            else if (dataadr !== 80) begin 
+                $display (&quot;Failed hehe %h and 
+                %h&quot;,writedata,dataadr); 
+                $stop; 
+            end
+        end 
+    end 
+ endmodule 
+</code></pre>
+<h3 id="3-sw">3. sw</h3>
+<pre><code class="language-mips">addi $2,$0,25 //initialise $2 =25 
+sw $2, 30($0) //write address 30 = 25 
+</code></pre>
+<p>Machine code :</p>
+<pre><code class="language-hex">20020019 
+ac02001e 
+</code></pre>
+<p>If the value at address location 30 is 25,the sw instruction is working properly. 
+The testbench to check the same is:</p>
+<pre><code class="language-v">module testbenchv1; 
+    reg clk; 
+    reg reset;
+    integer i; 
+    wire [31:0] writedata, dataadr; 
+    wire memwrite; 
+    // instantiate device to be tested 
+    top dut(clk, reset, writedata, dataadr, memwrite); 
+    // initialize test 
+    initial 
+    begin 
+    reset &lt;= 1; # 22; reset &lt;= 0; 
+    end 
+    // generate clock to sequence tests 
+    always 
+    begin 
+    clk &lt;= 1; # 5; clk &lt;= 0; # 5; 
+    end 
+    // check results 
+    always @ (negedge clk) 
+    begin 
+        if (memwrite) begin 
+            if (dataadr === 30 &amp; writedata === 25) begin 
+                $display (&quot;Simulation succeeded&quot;); 
+                $stop; 
+            end 
+            else if (dataadr !== 80) begin 
+                $display (&quot;Failed hehe %h and 
+                %h&quot;,writedata,dataadr); 
+                $stop; 
+            end 
+        end 
+    end 
+endmodule
+</code></pre>
+<h3 id="4-lw">4. lw</h3>
+<pre><code class="language-mips">addi $2,$0,100 //initialise $2 =100 
+sw $2,30($0) //write address 30 = 100 
+lw $3,30($0) //$3=[30] = 100 
+sw $3,20($0) //write address 20 = 100 
+</code></pre>
+<p>Machine code</p>
+<pre><code class="language-hex">20020064 
+ac02001e 
+8c03001e 
+ac030014
+</code></pre>
+<p>If the value at address location 20 is 100, then lw instruction is working properly. 
+The testbench to check the same is:\</p>
+<pre><code class="language-v">module testbenchv1; 
+    reg clk; 
+    reg reset; 
+    integer i; 
+    wire [31:0] writedata, dataadr; 
+    wire memwrite; 
+    // instantiate device to be tested 
+    top dut(clk, reset, writedata, dataadr, memwrite); 
+    // initialize test 
+    initial 
+        begin 
+        reset &lt;= 1; # 22; reset &lt;= 0; 
+        end 
+    // generate clock to sequence tests 
+    always 
+        begin 
+        clk &lt;= 1; # 5; clk &lt;= 0; # 5; 
+        end 
+    // check results 
+    always @ (negedge clk) 
+        begin 
+        if (memwrite) begin 
+            if (dataadr === 20 &amp; writedata === 100) begin 
+            $display (&quot;Simulation succeeded&quot;); 
+            $stop; 
+            end 
+            else if (dataadr !== 30) begin 
+                $display (&quot;Failed hehe %h and 
+                %h&quot;,writedata,dataadr); 
+                $stop; 
+            end 
+        end 
+    end 
+endmodule
+</code></pre>
+<h3 id="5-beq">5. beq</h3>
+<pre><code class="language-mips">main: 
+addi $2,$0,20 //initialise $2 =20 
+addi $3,$0,30 //initialise $3 =30 
+addi $5,$0,0 //initialise $5 =0 
+beq $5,$0,end //if val($5)==val($0) branch to ‘end’ add $5,$2,$3 //$5=$2+$3 
+end: 
+sw $5, 20($0) //write address 20 = 0 
+</code></pre>
+<p>Machine code:</p>
+<pre><code class="language-hex">20020014 
+2003001e 
+20050000 
+10a00002 
+00432820 
+ac050014
+</code></pre>
+<p>If the value at address location 20 is 0,then the beq instruction is executed properly.
+The testbench for the same is:</p>
+<pre><code class="language-v">module testbenchv1; 
+    reg clk; 
+    reg reset; 
+    integer i; 
+    wire [31:0] writedata, dataadr; 
+    wire memwrite; 
+// instantiate device to be tested 
+    top dut (clk, reset, writedata, dataadr, memwrite); 
+// initialize test 
+initial 
+    begin 
+        reset &lt;= 1; # 22; reset &lt;= 0; 
+    end 
+// generate clock to sequence tests 
+always 
+     begin 
+         clk &lt;= 1; # 5; clk &lt;= 0; # 5;
+     end 
+// check results 
+    always @ (negedge clk) 
+    begin 
+        if (memwrite) begin 
+            if (dataadr === 20 &amp; writedata === 0) begin 
+                $display (&quot;Simulation succeeded&quot;); 
+                $stop; 
+            end else if (dataadr !== 80) begin 
+                $display (&quot;Failed hehe %h and 
+                %h&quot;,writedata,dataadr); 
+                $stop; 
+            end 
+        end 
+    end 
+endmodule
+</code></pre>
+<h2 id="8-references">8. References</h2>
+<ul>
+<li>"Computer Organization and Design: The Hardware/Software Interface" by David Patterson and John Hennessy</li>
+<li>“Digital design and Computer architecture” by David Money Harris &amp; Sarah L. Harris.</li>
+<li>“Digital Logic and Computer Design ”by M. Morris Mano.</li>
+<li>“Verilog HDL: A Guide to Digital Design and Synthesis ” by Samir Palnitkar.</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../verilog_main/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Verilog" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Verilog
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../mips_main/" class="md-footer__link md-footer__link--next" aria-label="Next: MIPS" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              MIPS
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/hwlabnitc" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.footer", "toc.integrate"], "search": "../assets/javascripts/workers/search.bd0b6b67.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+  </body>
+</html>
