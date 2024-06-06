@@ -18,8 +18,7 @@ hero:
 
 features:
   - title: Extensive documentation
-    details: Study the documentation to understand the working of the topics hardware lab 
-    link: /markdown-examples
+    details: Study the documentation to understand the working of the topics hardware lab
   - title: Video tutorials
     details: Watch the video tutorials to understand sample codes and key concepts
   - title: Sample Codes
@@ -27,6 +26,7 @@ features:
 
 ---
 
+---
 
 # Welcome to the Hardware Lab Guide
 

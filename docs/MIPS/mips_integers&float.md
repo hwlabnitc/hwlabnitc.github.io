@@ -1,4 +1,4 @@
-# **MIPS**
+# **MIPS INteger and Floating Point Numbers**
 ## **Integer Handling**
 
 Unlike NASM where numbers are stored as characters, MIPS can store single or multiple digit
@@ -164,10 +164,12 @@ mflo  $s3      #s3=t3/t4
 ### **Points To Note**
 
 **1.** Entering number of size larger than 32 bits
-    The largest integer that can be entered in 32 bit space is 2,147,483,647. Entering a
-    number larger than that results in the following error:  
+The largest integer that can be entered in 32 bit space is 2,147,483,647. Entering a
+number larger than that results in the following error:  
 
-    ``` Runtime exception at 0x0040002c: invalid integer input (syscall 5)```
+```
+Runtime exception at 0x0040002c: invalid integer input (syscall 5)
+```
 
 **2.** Changing the value of $zero register
     It is not possible to change the value of the $zero register, any instructions that attempt

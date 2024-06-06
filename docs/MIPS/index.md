@@ -45,121 +45,78 @@ This course covers the following topics-
 
 ## **Introduction to MIPS**
 
-Main Documentation : [Click Here](./mips)  
+Main Documentation : [Click Here](./mips_basics&procedures.md)  
 Theory explanation: [ Video Link ](https://youtu.be/T40qoR7V6oU)  
 
-### Setting up MARS:  
+## Setting up MARS:  
+
+Main Documentation : [Click Here](./mips_setup.md)  
+
 
 - [Video Link]( https://youtu.be/FM-0bSelrjw  )  
 - [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/First%20program/Tutorial1.asm )  
 
 ## **Basic Integer and String Handling**
 
-Main Documentation : [Click Here](https://drive.google.com/file/d/105FBBHBQZX-1MJW7P27LlPcv1Jij5xnz/view?usp=sharing)  
+Main Documentation(Integer) : [Click Here](./mips_integers&float.md)  
 Theory Explanation: [Video Link ](https://youtu.be/R5UB4CnZo7Y)
 
 ### Sample Code Bank:  
 
- 1. [Reversing 2 digit number]( https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q1.asm)  
- 2. [Calculating Average Marks](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q2.asm )  
- 3. [Finding Spy Number](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q3.asm )  
+| Topic                     | Sample Code Link                                                                                      |
+|---------------------------|-------------------------------------------------------------------------------------------------------|
+| Reversing 2 digit number  | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q1.asm)     |
+| Calculating Average Marks | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q2.asm)     |
+| Finding Spy Number        | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q3.asm)     |
 
 
 ## **Floating Point Handling**
 
 Main Documentation : [Click Here](https://drive.google.com/file/d/1BybUxaKDMDrL3FIs_8W87zXCUnqun1HT/view?usp=sharing)
 
-Farenheit to Celcius:  
-[ Sample Code ](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q1.asm )         
+| Topic                             | Sample Code Link                                                                                      |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------|
+| Fahrenheit to Celsius             | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q1.asm)              |
+| Maximum and Minimum in Float Array| [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q2.asm)              |
+| Round off to n digits             | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q3.asm)              |
 
-Maximum and Minimum in Float Array:  
-[ Sample Code ](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q2.asm)  
-
- Round off to n digits:  
-[ Sample Code ](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q3.asm)
 
 ## **Integer Array Handling**
 
-Main Documentation (Also contains String advanced : [Click Here](https://drive.google.com/file/d/1zscvtdHjjzVDhKyP9l7cfaFXMhMfeBQj/view?usp=sharing)    
+Main Documentation : [Click Here](./mips_array.md)    
 
-Introduction to Integer Arrays:  
-
- 1. [Video](https://youtu.be/tvaMA7D_cjo )  
-
- 2. [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20arrays/MIPS_Integer%20Arrays_Sample%20Codes_1.asm )  
-
-Sum of Elements of an Array:  
-
- 1. [Video](https://youtu.be/oYBOHah18Pw )  
-
- 2. [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20arrays/MIPS_Integer%20Arrays_Practice%20Codes_1.asm )  
-
-
-Greatest Element in Array:
-
- 1. [Video](https://youtu.be/xc4gQB3S2dg)▶️
- 2. [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20arrays/MIPS_Integer%20Arrays_Practice%20Codes_2.asm )  
-
-
-Merge 2 Sorted Arrays:  
-
- 1. [Video]( https://youtu.be/IqFx7i-GqPI)▶️
- 2. [Sample Code]( https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q1_Merging_Two_Sorted_Arrays.asm)  
-
-Highest and Lowest occurrence of an element in an array:  
-
- 1. [Video]( https://youtu.be/1tUfRNTi1t4)  ▶️
- 2. [ Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q2_Highest_Lowest_Frequency.asm )  
-
-
-Binary Search:  
-
- 1. [Video](https://youtu.be/lKo10ZWYlDc )  ▶️
- 2. [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q3_BinarySearch.asm )  
-
-
-Quicksort:  
-
- 1. [Video](https://youtu.be/ywtvFJw4HQQ)  ▶️
- 2. [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q4_QuickSort.asm ) 
+| Topic                                       | Video Link                                            | Sample Code Link                                                                                      |
+|---------------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Introduction to Integer Arrays              | [Video](https://youtu.be/tvaMA7D_cjo)                 | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20arrays/MIPS_Integer%20Arrays_Sample%20Codes_1.asm)                 |
+| Sum of Elements of an Array                 | [Video](https://youtu.be/oYBOHah18Pw)                 | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20arrays/MIPS_Integer%20Arrays_Practice%20Codes_1.asm)               |
+| Greatest Element in Array                   | [Video](https://youtu.be/xc4gQB3S2dg)                 | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20arrays/MIPS_Integer%20Arrays_Practice%20Codes_2.asm)               |
+| Merge 2 Sorted Arrays                       | [Video](https://youtu.be/IqFx7i-GqPI)                 | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q1_Merging_Two_Sorted_Arrays.asm)  |
+| Highest and Lowest occurrence of an element in an array | [Video](https://youtu.be/1tUfRNTi1t4) | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q2_Highest_Lowest_Frequency.asm) |
+| Binary Search                               | [Video](https://youtu.be/lKo10ZWYlDc)                 | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q3_BinarySearch.asm)               |
+| Quicksort                                   | [Video](https://youtu.be/ywtvFJw4HQQ)                 | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q4_QuickSort.asm)               |
 
 ---
 
 ### **2-D Integer Array Handling**
 
-Main Documentation : [Click Here](https://drive.google.com/file/d/1PSKVY8JSxPmQUKMK4aZ0Q41GEBkVXjG8/view?usp=sharing)  
-
+Main Documentation : [Click Here](./mips_array.md/#two-dimensional-arrays)  
 Theory Explanation: [Video Link](https://youtu.be/SHl3shv24jc)  
 Sample Code Bank:  
 
- 1. [ Taking Input ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q1_Taking_Input_For_Matrix.asm )  
- 2. [ Printing a Matrix ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q2_Printing_Matrix.asm )  
- 3. [ Sum of Two Matrices ]( https://github.com/hwlabnitc/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Practice_Q1_sum_of_two_matrices.asm )  
+| Topic                | Video Link | Sample Code Link                                                                                      |
+|----------------------|------------|-------------------------------------------------------------------------------------------------------|
+| Taking Input         | N/A        | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q1_Taking_Input_For_Matrix.asm)     |
+| Printing a Matrix    | N/A        | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q2_Printing_Matrix.asm)           |
+| Sum of Two Matrices  | N/A        | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Practice_Q1_sum_of_two_matrices.asm)       |
+
 ---  
 
 ### **String Handling (advanced)**
 
-Input/Output of Strings:
-
- 1. [Video]( https://youtu.be/R5UB4CnZo7Y)  ▶️
- 2. [Sample Code]( https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q2.asm)  
-
-Traversal of Strings (Advanced string operations):  
-
-- [Video](https://youtu.be/HiqgMrXHeyQ )  ▶️
-- [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings%20Advanced_Sample%20Codes_1.asm )  
-
-Length of String:  
-
-- [Video](https://youtu.be/GWlaAK4VdWo )  ▶️
-- [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q1.asm )  
-
-Palindrome Check:  
-
-- [Video]( https://youtu.be/7mD-2DHDjEc)  ▶️
-- [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q2.asm )  
-
-Concatenation of strings:  
-
-- [Video]( https://youtu.be/SDeHKgsCJE8)  ▶️
-- [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q3.asm )  
+| Topic                          | Video Link                                            | Sample Code Link                                                                                      |
+|--------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Input/Output of Strings        | [Video](https://youtu.be/R5UB4CnZo7Y)                 | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q2.asm)                        |
+| Traversal of Strings (Advanced string operations) | [Video](https://youtu.be/HiqgMrXHeyQ)                | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings%20Advanced_Sample%20Codes_1.asm)          |
+| Length of String               | [Video](https://youtu.be/GWlaAK4VdWo)                 | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q1.asm)                  |
+| Palindrome Check               | [Video](https://youtu.be/7mD-2DHDjEc)                 | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q2.asm)                  |
+| Concatenation of strings       | [Video](https://youtu.be/SDeHKgsCJE8)                 | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q3.asm)                  |

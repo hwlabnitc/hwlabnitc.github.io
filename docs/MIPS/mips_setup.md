@@ -1,4 +1,4 @@
-# **MIPS**
+# **MIPS Setup**
 ## **Setting up the Code Editor** 
 ### **Introduction to MARS Simulator**
 MARS simulator will be the software on which we will be running our MIPS code.

@@ -1,4 +1,4 @@
-# **MIPS**
+# **MIPS Basics and Procedures**
 ## **MIPS Basic Codes**
 ### **MIPS code for if statements**
   - If the condition is an equality use beq, bne

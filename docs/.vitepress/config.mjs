@@ -30,7 +30,7 @@ export default defineConfig({
             { text: 'MIPS Setup', link: '/MIPS/mips_setup' },
             { text: 'Basics and Procedures', link: '/MIPS/mips_basics&procedures'},
             { text: 'MIPS Instructions and syscall', link: '/MIPS/mips_syscalls&tutorial' },
-            { text: 'Integer and Floating point', link: '/MIPS/Registers' },
+            { text: 'Integer and Floating point', link: '/MIPS/mips_interger&float' },
             { text: 'MIPS Arrays', link: '/MIPS/mips_array' },
             { text: 'MIPS String', link: '/MIPS/mips_string' },
           ]
