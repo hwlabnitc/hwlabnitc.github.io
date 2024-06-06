@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Hardware Lab NITC",
@@ -26,27 +27,30 @@ export default defineConfig({
           text: 'MIPS',
           collapsed: false,
           items: [
-            { text: 'Introduction', link: '/MIPS/' },
-            { text: 'Registers', link: '/MIPS/Registers' },
-            { text: 'Instructions', link: '/MIPS/Instructions' },
-            { text: 'Examples', link: '/MIPS/Examples' },
+            { text: 'MIPS Setup', link: '/MIPS/mips_setup' },
+            { text: 'Basics and Procedures', link: '/MIPS/mips_basics&procedures'},
+            { text: 'MIPS Instructions and syscall', link: '/MIPS/mips_syscalls&tutorial' },
+            { text: 'Integer and Floating point', link: '/MIPS/Registers' },
+            { text: 'MIPS Arrays', link: '/MIPS/mips_array' },
+            { text: 'MIPS String', link: '/MIPS/mips_string' },
           ]
         
         }],
     
-      '/':[
+      '/Verilog':[
       {
-        text: 'Examples',
+        text: 'Verilog', link:'/Verilog/',
         items: [
-          { text: 'Verilog', link: '/markdown-examples' },
-          { text: 'MIPS', link: '/api-examples' }
-        ]
+          { text: 'Main Documentaion', link: '/Verilog/Intro' },
+          { text: 'FSM', link : '/Verilog/fsm/' },
+          { text: 'Single Cycle CPU', link : '/Verilog/SingleCycle/' }          
+          ]
       }
     ],
   },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/hwlabnitc' }
     ],
     footer: {
 			copyright: `Copyright © ${new Date().getFullYear()} National Institute of Technology Calicut`,

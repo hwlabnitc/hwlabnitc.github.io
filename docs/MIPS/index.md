@@ -45,7 +45,7 @@ This course covers the following topics-
 
 ## **Introduction to MIPS**
 
-Main Documentation : [Click Here](./mips.md)  
+Main Documentation : [Click Here](./mips)  
 Theory explanation: [ Video Link ](https://youtu.be/T40qoR7V6oU)  
 
 ### Setting up MARS:  

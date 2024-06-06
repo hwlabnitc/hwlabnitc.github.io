@@ -275,7 +275,7 @@ The datapath for sw instruction is as follows :-
 
 The beq instruction is of the form
 
-```mips
+```asm
     beq $rs ,$rt ,immediate
 ```
 
@@ -379,7 +379,7 @@ module top (input clk, reset,
 endmodule
 ```
 
-The top level module instantiates 3 sub modules ```mips``` , ```imem``` and  ```dmem```
+The top level module instantiates 3 sub modules ```asm``` , ```imem``` and  ```dmem```
 The `mips` module is the main processor that is responsible for executing instructions.
 The `imem` module is the instruction memory, which contains the program instructions.
 The `dmem` module is the data memory, which is used for load/store instructions.
@@ -518,10 +518,10 @@ Outputs :
 4. memwrite - control signal (discussed earlier).
 
 
-The ```mips```  module instantiates two other modules, ```controller```  and ```datapath``` , which work together to execute instructions. 
+The ```asm```  module instantiates two other modules, ```controller```  and ```datapath``` , which work together to execute instructions. 
 Both these modules are discussed in detail in the upcoming sections. 
 
-Overall the ```mips```  module acts like a traffic signal, directing the flow of data and control signals between the ```datapath```  and ```controller```  modules to execute instructions and maintain the processor’s state.
+Overall the ```asm```  module acts like a traffic signal, directing the flow of data and control signals between the ```datapath```  and ```controller```  modules to execute instructions and maintain the processor’s state.
 
 ![mips](./2024%20Single%20Cycle%20Images/singlecycle-0102.jpg)
 > RTL view of MIPS module
@@ -964,7 +964,7 @@ Now we will try to check if our microprocessor implements instructions properly.
 
 ### 1. add
 
-```mips
+```asm
 addi $2, $0, 450 //initialise $2 =450 
 addi $3, $0, 550 //initialise $3 =550 
 add  $4, $2, $3  //$4=$2+$3 ,$4=450+550=1000 
@@ -1024,7 +1024,7 @@ endmodule
 
 ### 2. sub
 
-```mips
+```asm
 addi $2,$0, 550 //initialise $2 =550 
 addi $3,$0, 550 //initialise $3 =550 
 sub $4,$2, $3 //$4=$2+$3 , $4=550-550=0 
@@ -1082,7 +1082,7 @@ module testbenchv1;
 
 ### 3. sw 
 
-```mips
+```asm
 addi $2,$0,25 //initialise $2 =25 
 sw $2, 30($0) //write address 30 = 25 
 ```
@@ -1136,7 +1136,7 @@ endmodule
 
 ### 4. lw
 
-```mips
+```asm
 addi $2,$0,100 //initialise $2 =100 
 sw $2,30($0) //write address 30 = 100 
 lw $3,30($0) //$3=[30] = 100 
@@ -1194,7 +1194,7 @@ endmodule
 
 ### 5. beq
 
-```mips
+```asm
 main: 
 addi $2,$0,20 //initialise $2 =20 
 addi $3,$0,30 //initialise $3 =30 

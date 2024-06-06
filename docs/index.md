@@ -10,14 +10,11 @@ hero:
   
   actions:
     - theme: brand
-      text: Verilog Docs
-      link: /markdown-examples
+      text: Verilog Guide
+      link: /Verilog/
     - theme: alt
-      text: MIPS Docs
-      link: /api-examples
-    - theme: alt
-      text: Single Cycle Docs
-      link: /guide-examples
+      text: MIPS Guide
+      link: /MIPS
 
 features:
   - title: Extensive documentation

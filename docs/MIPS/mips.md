@@ -1425,7 +1425,7 @@ j++
 ```
 _MIPS:_
 
-```mips
+```asm
 i $s1,0           # i=0 
 li $s2,0           # j=0 
 loop1: 
