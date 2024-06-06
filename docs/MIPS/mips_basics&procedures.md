@@ -1,12 +1,14 @@
 # **MIPS Basics and Procedures**
-## **MIPS Basic Codes**
-### **MIPS code for if statements**
-  - If the condition is an equality use beq, bne
-  - If the condition is a comparison combine beq/ bne with set-on-less-than
 
+## **MIPS Basic Codes**
+
+### **MIPS code for if statements**
+
+- If the condition is an equality use beq, bne
+- If the condition is a comparison combine beq/ bne with set-on-less-than
 
 **Why not blt or bge?**
-  While blt and bge (pseudo-instructions) are available in MIPS, beq and bne are favoured inconditional statements for their efficiency making them the common choice.
+While blt and bge (pseudo-instructions) are available in MIPS, beq and bne are favoured inconditional statements for their efficiency making them the common choice.
 
 **Example 1)** Given,f:`$s0`, g:`$s1`, h:`$s2`, i:`$s3`, j:`$s4`
 
@@ -17,7 +19,7 @@
     f = g - h;
 ```
 
-**Solution 1 :-** Corresponding MIPS code
+::: details **Solution 1 :-** Corresponding MIPS code
 
 ```asm
   bne $s3, $s4, else
@@ -27,7 +29,10 @@ else: sub $s0, $s1, $s2
 endif: ...........
 ```
 
+:::
+
 **Example 2)** Given,f:$s0 ,g:$s1 ,h:$s2 ,i:$s3 ,j:$s4
+
 ```c
   if(i<j)
     f=g+h;
@@ -35,7 +40,8 @@ endif: ...........
     f=g-h;
 ```
 
-**Solution 2 :-** Corresponding MIPS code
+::: details **Solution 2 :-** Corresponding MIPS code
+
 ```asm
   slt $to, $s3, $s4
   beq $to, $zero, else
@@ -46,10 +52,12 @@ else:
 endif: .......
 ```
 
+:::
+
 ### **MIPS code for Loop statements**
 
 Although there are said to be 3 different types of loops in C namely, do/while, while and for loop, they are all functionally identical. In other
-words, you can take any for-loop and easily turn it into a while-loop. 
+words, you can take any for-loop and easily turn it into a while-loop.
 
 ```c
   int i;
@@ -57,7 +65,9 @@ words, you can take any for-loop and easily turn it into a while-loop.
     loopbody;
   }
 ```
+
 or
+
 ```c
   inti=0;
   while(i< 10 ){
@@ -67,23 +77,28 @@ or
 ```
 
 **Example 1)** Given, i:$s3, k:$s
+
 ```c
   while(i < j)
     i+=1;
 ```
 
-**Solution 1 :-** Corresponding MIPS code
+::: details **Solution 1 :-** Corresponding MIPS code
+
 ```asm
 loop:
-  slt $t0, $s3, $s4
-  beq $t0, $zero, exit
-  addi $s3, $s3, 1
-  j loop
+slt $t0, $s3, $s4
+beq $t0, $zero, exit
+addi $s3, $s3, 1
+j loop
 
 exit: ...
 ```
 
+:::
+
 **Example 2)** Given i:$t0, k is some integer
+
 ```c
   int i;
   for(i = 0; i < k; i++){
@@ -91,22 +106,26 @@ exit: ...
   }
 ```
 
-**Solution 2 :-** Corresponding MIPS code
+::: details **Solution 2 :-** Corresponding MIPS code
+
 ```asm
-  add $t0, $zero, $zero # i is initialized to 0, $t0 = 0
+add $t0, $zero, $zero # i is initialized to 0, $t0 = 0
 Loop: // loop body
-  addi $t0, $t0, 1 # i ++
-  slti $t1, $t0, 4 # $t1 = 1 if i < 4
-  bne $t1, $zero, Loop # go to Loop if i < 4
+addi $t0, $t0, 1 # i ++
+slti $t1, $t0, 4 # $t1 = 1 if i < 4
+bne $t1, $zero, Loop # go to Loop if i < 4
 ```
 
+:::
+
 **Example 3)** Given, i:$s3, base address of arr:$s6, k:$s
+
 ```c
   while(arr[i] == k)
     i+=3;
 ```
 
-**Solution 3 :-** Corresponding MIPS code
+::: details **Solution 3 :-** Corresponding MIPS code
 
 ```asm
 loop:
@@ -119,6 +138,8 @@ loop:
 
 exit:...
 ```
+
+:::
 
 ## **Procedures in MIPS**
 
@@ -158,7 +179,6 @@ In addition to the steps for leaf procedures, non-leaf procedures must manage:
 
 ★ **Function (Procedure) calling in MIPS**
 
-
 In MIPS assembly language, passing parameters to functions involves using
 registers. Unlike high-level languages where parameters are often passed on the stack,MIPS typically uses specific registers for passing arguments.
 
@@ -189,11 +209,12 @@ on to the stack, saving any callee- saved registers on to the stack(these are ty
 **● Function Epilogue (Non-leaf functions):** Before returning, non-leaf functions need to cleanup the stack frame and restore the state of callee-saved registers.This involves restoring callee-saved registers from the stack, restoring the return address($ra) from the stack  resetting the stack pointer($sp) to deallocate the stack frame, jumping back to the return address using the jr $ra instruction.
 
 ● Return: Upon completing its task, the function returns control to the caller. If it's a leaf function, it typically involves jumping back to the return address stored in $ra using the jr $ra instruction. For non-leaf
- functions, the return sequence includes restoring the stack frame and registers before jumping back to the caller.
+functions, the return sequence includes restoring the stack frame and registers before jumping back to the caller.
 
 (Note:-For simplicity we will only use $sp and extend the stack at procedure entry/exit)
 
 **Example 1)** Calling a procedure which prints a string
+
 ```c
 //code
 printFunction();
@@ -201,7 +222,8 @@ a=a+2;
 //code
 ```
 
-**Solution 1 :-** Corresponding MIPS code
+::: details **Solution 1 :-** Corresponding MIPS code
+
 ```asm
 data
 hello_string: .asciiz "Hello, world!\n" # String definition
@@ -222,6 +244,8 @@ syscall # Perform syscall to print
 jr $ra # Return control to PC + 4
 ```
 
+:::
+
 ● When jal is used, the control moves to the address specified in the instruction and the address of the next instruction is stored in $ra.
 
 ● When the procedure ends jr $ra is used to return control back to the
@@ -230,14 +254,15 @@ next address from where it jumped.
 ● These procedures are usually placed after the “main” procedure to avoid instruction overlap.
 
 **Example 1)** Calling a function with parameters
+
 ```c
 //code
 result=addNumbers(5,7);
 //code
 ```
 
+::: details **Solution 1 :-** Corresponding MIPS code
 
-**Solution 1 :-** Corresponding MIPS code
 ```asm
 text
 main:
@@ -253,6 +278,8 @@ addNumbers:
   add $v0, $a0, $a1 # Add the values of $a0 and $a1 and store the result in $v0
   jr $ra # Return control to the next instruction after jal
 ```
+
+:::
 
 ● In the main function, parameters are passed to the addNumbers function by loading values into registers $a0 and $a1.
 
@@ -295,7 +322,6 @@ pointed to by the stack pointer, and then the stack pointer is incremented to re
 ● Upon completion of the function, the saved values on the stack are restored to their original registers.
 ● This process is known as the function epilogue.
 
-
 **Example)** Function Call and Stack Usage
 
 ● When main calls my Function using jal, the return address (the address of the instruction following the function call) is automatically saved in register $ra.
@@ -314,14 +340,15 @@ result = factorial(5);
 //code
 ```
 
-**Solution 1 :-** Corresponding MIPS code
+::: details **Solution 1 :-** Corresponding MIPS code
+
 ```asm
 text
 main:
   li $a0, 5 # Load the value 5 (number whose factorial is to be calculated) into $a0
   jal factorial # Jump to the factorial function
   move $s0, $v0 # Store the result returned by factorial in $s0
-  
+
   # Further code using the result stored in $s0
   # ...
 
@@ -332,7 +359,7 @@ factorial:
   # Function prologue
   addi $sp, $sp, -4 # Allocate space on the stack for local variables
   sw $ra, 0($sp) # Save the return address on the stack
-  
+
   # Check for base case: if n <= 1, return 1
   li $t0, 1 # Load the value 1 into $t0
   ble $a0, $t0, base_case # Branch to base_case if $a0 (n) <= $t0 (1)
@@ -353,24 +380,24 @@ base_case:
   jr $ra # Return control to the caller
 ```
 
+:::
+
 ● In the main function, the value 5 is loaded into register $a0 to calculate its factorial.  
 ● The factorial function is then called using the jal instruction.  
-● Inside the factorial function, the base case checks if the input value n is less than or equal to 1.If so,it returns 1.    
+● Inside the factorial function, the base case checks if the input value n is less than or equal to 1.If so,it returns 1.  
 ● Otherwise,the function decrements n by 1 and recursively calls itself
 with the decremented value.  
 ● The result of the recursive call is then multiplied by n to compute the factorial.
 ● Finally,the result is returned to the caller using register $v0.
 
-
-
-
 ### **References**
-- J.L.Hennessy and D.A.Patterson Computer Organization and Design:The Hardware/Software Interface, Fifth Edition  
+
+- J.L.Hennessy and D.A.Patterson Computer Organization and Design:The Hardware/Software Interface, Fifth Edition
 - “Digital Logic and Computer Design” by M.Morris Mano
 - “Digital Fundamentals” by Thomas L.Flyod
 - [www.cs.missouristate.edu/MARS](http://www.cs.missouristate.edu/MARS/)
-- [https://www.d.umn.edu/~gshute/mips/directives-registers.pdf](https://www.d.umn.edu/~gshute/mips/directives-registers.pdf) 
+- [https://www.d.umn.edu/~gshute/mips/directives-registers.pdf](https://www.d.umn.edu/~gshute/mips/directives-registers.pdf)
 - [courses.missouristate.edu/KenVollmar/mars/Help/SyscallHelp.html](https://courses.missouristate.edu/KenVollmar/mars/Help/SyscallHelp.html)
-- [courses.missouristate.edu/KenVollmar/mars/Help/MarsHelpIntro.html](https://courses.missouristate.edu/KenVollmar/mars/Help/MarsHelpIntro.html) 
-- [riptutorial.com/mips/example/29993/mars-mips-simulator](https://riptutorial.com/mips/example/29993/mars-mips-simulator) 
-- [bytes.usc.edu/files/ee109/documents/MARS_Tutorial.pdf](https://bytes.usc.edu/files/ee109/documents/MARS_Tutorial.pdf) 
+- [courses.missouristate.edu/KenVollmar/mars/Help/MarsHelpIntro.html](https://courses.missouristate.edu/KenVollmar/mars/Help/MarsHelpIntro.html)
+- [riptutorial.com/mips/example/29993/mars-mips-simulator](https://riptutorial.com/mips/example/29993/mars-mips-simulator)
+- [bytes.usc.edu/files/ee109/documents/MARS_Tutorial.pdf](https://bytes.usc.edu/files/ee109/documents/MARS_Tutorial.pdf)

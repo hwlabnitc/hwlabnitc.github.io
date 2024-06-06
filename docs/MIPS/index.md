@@ -146,8 +146,12 @@ Main Documentation : [Click Here](./mips_array.md)
 
 ### **2-D Integer Array Handling**
 
-Main Documentation : [Click Here](./mips_array)  
-Theory Explanation: [Video Link](https://youtu.be/SHl3shv24jc)  
+Main Documentation : [Click Here](./mips_array)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SHl3shv24jc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[View on Youtube](https://youtu.be/SHl3shv24jc)
+
 Sample Code:
 
 | Topic               | Video Link | Sample Code Link                                                                                                                                          |
