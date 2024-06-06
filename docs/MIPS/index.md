@@ -83,7 +83,7 @@ Main Documentation : [Click Here](https://drive.google.com/file/d/1BybUxaKDMDrL3
 
 ## **Integer Array Handling**
 
-Main Documentation : [Click Here](./mips_array.md)    
+Main Documentation : [Click Here](./mips_array.md)
 
 | Topic                                       | Video Link                                            | Sample Code Link                                                                                      |
 |---------------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -99,7 +99,7 @@ Main Documentation : [Click Here](./mips_array.md)
 
 ### **2-D Integer Array Handling**
 
-Main Documentation : [Click Here](./mips_array.md/#two-dimensional-arrays)  
+Main Documentation : [Click Here](./mips_array)  
 Theory Explanation: [Video Link](https://youtu.be/SHl3shv24jc)  
 Sample Code Bank:  
 
