@@ -8,22 +8,28 @@ hero:
   tagline: This part covers the following topics
 
 features:
-    - title: Introduction to MIPS 
+    - icon: 📄
+      title: Introduction to MIPS 
       details: Setting up and understanding MIPS ISA.
       link: '#introduction-to-mips'
-    - title: Basic Integer and String Handling 
+    - icon: 🔢
+      title: Basic Integer and String Handling 
       details: Learn the Basics of MIPS integers.
       link: '#introduction-to-mips'
-    - title: Integer Array Handling 
+    - icon: 🔗
+      title: Integer Array Handling 
       details: Learn how to make integer arrays and operate them.
       link: '#introduction-to-mips'
-    - title: 2-D Array Handling 
+    - icon: 🔲
+      title: 2-D Array Handling 
       details: Extend your array knowledge with 2-D arrays.
       link: '#introduction-to-mips'
-    - title: Strings (Advanced) 
+    - icon: 🔤 
+      title: Strings (Advanced) 
       details: String Handling explained in detail.
       link: '#introduction-to-mips'
-    - title: Floating Points 
+    - icon: 📊
+      title: Floating Points 
       details: Learn how to handle floating point numbers.
       link: '#introduction-to-mips'
 
