@@ -14,7 +14,7 @@ hero:
       link: /Verilog/
     - theme: alt
       text: MIPS Guide
-      link: /MIPS
+      link: /MIPS/
 
 features:
   - title: Extensive documentation
