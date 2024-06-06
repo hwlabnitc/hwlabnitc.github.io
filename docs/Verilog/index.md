@@ -42,12 +42,20 @@ This course covers the following topics-
 Documentation: [Link](./Intro.md)  
 Video Explanation of Theory:  
 
- 1. [Theory Vid Part 1 (INTRO TO VERILOG-LOGIC GATES-ADDERS-SUBTRACTORS)](https://youtu.be/SnNwp8LP_2k)  
- 2. [Theory Vid Part 2 (PARITY-TILL END)](https://youtu.be/VU-qFRw2F_s)
+1. [Theory Vid Part 1 (INTRO TO VERILOG-LOGIC GATES-ADDERS-SUBTRACTORS)](https://youtu.be/SnNwp8LP_2k)  
+
+
+<iframe width="400" height="315" src="https://www.youtube.com/embed/SnNwp8LP_2k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+2. [Theory Vid Part 2 (PARITY-TILL END)](https://youtu.be/VU-qFRw2F_s)
+
+<iframe width="400" height="315" src="https://www.youtube.com/embed/VU-qFRw2F_s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 **Implementation** :  
 How to Run Verilog Files in Quartus: [How to Run ?]( https://youtu.be/cICPPWahs0k)  
+<iframe width="400" height="215" src="https://www.youtube.com/embed/cICPPWahs0k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Sample Codes: [Link]( https://github.com/hwlabnitc/Intro-to-Verilog )  
 Video Explanation of Select Codes:   
 
