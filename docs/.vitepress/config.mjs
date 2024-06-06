@@ -13,7 +13,8 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Verilog Guide', link: '/Verilog/'},
-      { text: 'MIPS Guide', link: '/MIPS/' }
+      { text: 'MIPS Guide', link: '/MIPS/' },
+      { text: 'About', link: '/about'}
     ],
 
     search: {
@@ -57,5 +58,6 @@ export default defineConfig({
 			copyright: `Copyright © ${new Date().getFullYear()} National Institute of Technology Calicut`,
 		},
 
-  }
+  },
+  
 })

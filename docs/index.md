@@ -20,6 +20,7 @@ features:
   - icon: 📚
     title: Extensive documentation
     details: Study the documentation to understand the working of the topics hardware lab
+    link: all_docs.md
   - icon: 🎥
     title: Video tutorials
     details: Watch the video tutorials to understand sample codes and key concepts

@@ -6,9 +6,10 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-		"vitepress": "^1.0.0"
-	},
-	"dependencies": {
-		"medium-zoom": "^1.1.0"
-	}
+    "vitepress": "^1.0.0"
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "medium-zoom": "^1.1.0"
+  }
 }
