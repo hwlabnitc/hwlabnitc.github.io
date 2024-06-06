@@ -8,16 +8,20 @@ hero:
   tagline: "This course covers the following topics : "
 
 features:
-  - title: Introduction To Verilog
+  - icon:  📖
+    title: Introduction To Verilog
     details: Learn the Basics of Verilog HDL and implement various circuits using Verilog.
     link: "#introduction-to-verilog"
-  - title: Finite State Machines
+  - icon: 🚦
+    title: Finite State Machines
     details: Design a Verilog-based FSM that enhances your circuits with efficient sequential control and decision-making capabilities.
     link: "#finite-state-machines"
-  - title: MIPS Single Cycle Processor
+  - icon : 🖥️
+    title: MIPS Single Cycle Processor
     details: Build an exciting MIPS single cycle processor which will allow you to run MIPS hardware commands.
     link: "#single-cycle-mips-processor"
-  - title : Registers
+  - icon: 💾
+    title : Registers
     details : Learn about the registers in MIPS ISA.
     link : "#registers"
 
@@ -116,7 +120,7 @@ Assignment 3:  [Download Here](https://drive.google.com/file/d/1SMjzJmn0EjlE59kX
 
 **Theory** :
 
-Documentation: [Link to Main Documentation](/)
+Documentation: [Link to Main Documentation](./registers.md)
 Video Explanation of Concept:
 
  1. [Control Unit Theory]( https://youtu.be/_QdWPSIrtVo)
