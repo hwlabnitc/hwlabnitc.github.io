@@ -13,7 +13,8 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Verilog Guide', link: '/Verilog/'},
-      { text: 'MIPS Guide', link: '/MIPS/' }
+      { text: 'MIPS Guide', link: '/MIPS/' },
+      { text: 'About', link: '/about'}
     ],
 
     search: {
@@ -43,7 +44,8 @@ export default defineConfig({
         items: [
           { text: 'Main Documentaion', link: '/Verilog/Intro' },
           { text: 'FSM', link : '/Verilog/fsm/' },
-          { text: 'Single Cycle CPU', link : '/Verilog/SingleCycle/' }          
+          { text: 'Single Cycle CPU', link : '/Verilog/SingleCycle/' },
+          {text: 'Registers', link: '/Verilog/registers'},          
           ]
       }
     ],
@@ -56,5 +58,6 @@ export default defineConfig({
 			copyright: `Copyright © ${new Date().getFullYear()} National Institute of Technology Calicut`,
 		},
 
-  }
+  },
+  
 })

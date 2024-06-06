@@ -17,11 +17,15 @@ hero:
       link: /MIPS/
 
 features:
-  - title: Extensive documentation
+  - icon: 📚
+    title: Extensive documentation
     details: Study the documentation to understand the working of the topics hardware lab
-  - title: Video tutorials
+    link: all_docs.md
+  - icon: 🎥
+    title: Video tutorials
     details: Watch the video tutorials to understand sample codes and key concepts
-  - title: Sample Codes
+  - icon: 👨‍💻 
+    title: Sample Codes
     details: Practice the sample codes to understand the working of the topics
 
 ---

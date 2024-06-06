@@ -8,24 +8,33 @@ hero:
   tagline: This part covers the following topics
 
 features:
-  - title: Introduction to MIPS
-    details: Setting up and understanding MIPS ISA.
-    link: "#introduction-to-mips"
-  - title: Basic Integer and String Handling
-    details: Learn the Basics of MIPS integers.
-    link: "#introduction-to-mips"
-  - title: Integer Array Handling
-    details: Learn how to make integer arrays and operate them.
-    link: "#introduction-to-mips"
-  - title: 2-D Array Handling
-    details: Extend your array knowledge with 2-D arrays.
-    link: "#introduction-to-mips"
-  - title: Strings (Advanced)
-    details: String Handling explained in detail.
-    link: "#introduction-to-mips"
-  - title: Floating Points
-    details: Learn how to handle floating point numbers.
-    link: "#introduction-to-mips"
+
+    - icon: 📄
+      title: Introduction to MIPS 
+      details: Setting up and understanding MIPS ISA.
+      link: '#introduction-to-mips'
+    - icon: 🔢
+      title: Basic Integer and String Handling 
+      details: Learn the Basics of MIPS integers.
+      link: '#introduction-to-mips'
+    - icon: 🔗
+      title: Integer Array Handling 
+      details: Learn how to make integer arrays and operate them.
+      link: '#introduction-to-mips'
+    - icon: 🔲
+      title: 2-D Array Handling 
+      details: Extend your array knowledge with 2-D arrays.
+      link: '#introduction-to-mips'
+    - icon: 🔤 
+      title: Strings (Advanced) 
+      details: String Handling explained in detail.
+      link: '#introduction-to-mips'
+    - icon: 📊
+      title: Floating Points 
+      details: Learn how to handle floating point numbers.
+      link: '#introduction-to-mips'
+
+ 
 ---
 
 <!-- # Welcome to the MIPS Guide
@@ -101,6 +110,7 @@ syscall
 :::
 
 [View on Github](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/First%20program/Tutorial1.asm)
+
 
 ## **Basic Integer and String Handling**
 

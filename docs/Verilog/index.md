@@ -8,15 +8,23 @@ hero:
   tagline: "This course covers the following topics : "
 
 features:
-  - title: Introduction To Verilog
+  - icon:  📖
+    title: Introduction To Verilog
     details: Learn the Basics of Verilog HDL and implement various circuits using Verilog.
     link: "#introduction-to-verilog"
-  - title: Finite State Machines
+  - icon: 🚦
+    title: Finite State Machines
     details: Design a Verilog-based FSM that enhances your circuits with efficient sequential control and decision-making capabilities.
     link: "#finite-state-machines"
-  - title: MIPS Single Cycle Processor
+  - icon : 🖥️
+    title: MIPS Single Cycle Processor
     details: Build an exciting MIPS single cycle processor which will allow you to run MIPS hardware commands.
     link: "#single-cycle-mips-processor"
+  - icon: 💾
+    title : Registers
+    details : Learn about the registers in MIPS ISA.
+    link : "#registers"
+
 ---
 
 <!-- For full documentation visit [mkdocs.org](https://www.mkdocs.org).     -->
@@ -35,14 +43,20 @@ This course covers the following topics-
 Documentation: [Link](./Intro.md)  
 Video Explanation of Theory:
 
-1.  [Theory Vid Part 1 (INTRO TO VERILOG-LOGIC GATES-ADDERS-SUBTRACTORS)](https://youtu.be/SnNwp8LP_2k)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SnNwp8LP_2k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-2.  [Theory Vid Part 2 (PARITY-TILL END)](https://youtu.be/VU-qFRw2F_s)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VU-qFRw2F_s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+1. [Theory Vid Part 1 (INTRO TO VERILOG-LOGIC GATES-ADDERS-SUBTRACTORS)](https://youtu.be/SnNwp8LP_2k)  
+
+
+<iframe width="400" height="315" src="https://www.youtube.com/embed/SnNwp8LP_2k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+2. [Theory Vid Part 2 (PARITY-TILL END)](https://youtu.be/VU-qFRw2F_s)
+
+<iframe width="400" height="315" src="https://www.youtube.com/embed/VU-qFRw2F_s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 **Implementation** :  
+
 How to Run Verilog Files in Quartus: [How to Run ?](https://youtu.be/cICPPWahs0k)
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cICPPWahs0k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 Sample Codes: [Link](https://github.com/hwlabnitc/Intro-to-Verilog)  
@@ -95,4 +109,16 @@ Video Explanation of Code (From Documentation) :
 
 [Link to Sample Codes](https://github.com/hwlab-csed/Single-Cycle-Processor)
 
-## Assignment 3: [Download Here](https://drive.google.com/file/d/1SMjzJmn0EjlE59kXobJl59c5MZmNftOH/view?usp=sharing)
+
+Assignment 3:  [Download Here](https://drive.google.com/file/d/1SMjzJmn0EjlE59kXobJl59c5MZmNftOH/view?usp=sharing)
+
+## **Registers**
+
+**Theory** :
+
+Documentation: [Link to Main Documentation](./registers.md)
+Video Explanation of Concept:
+
+ 1. [Control Unit Theory]( https://youtu.be/_QdWPSIrtVo)
+ 2. [Datapath Theory](https://youtu.be/n8S_XsjyF9U)
+---
