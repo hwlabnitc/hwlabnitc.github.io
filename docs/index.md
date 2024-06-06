@@ -30,11 +30,9 @@ features:
 
 ---
 
-<br>
 
 # Welcome to the Hardware Lab Guide
 
-  
 This course covers the following topics-
 
 
