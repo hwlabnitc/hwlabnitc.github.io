@@ -5,6 +5,7 @@ export default defineConfig({
   title: "Hardware Lab NITC",
   description: "An official hardware lab wesbsite",
   head: [['link', { rel: 'icon', href: '/img/favicon.ico' }]],
+  base: '/hwlabnitc.github.io/',
   themeConfig: {
     outline: { level: 'deep' },
     // https://vitepress.dev/reference/default-theme-config
