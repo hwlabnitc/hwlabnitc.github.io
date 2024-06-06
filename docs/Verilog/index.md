@@ -17,6 +17,9 @@ features:
   - title: MIPS Single Cycle Processor
     details: Build an exciting MIPS single cycle processor which will allow you to run MIPS hardware commands.
     link: "#single-cycle-mips-processor"
+  - title : Registers
+    details : Learn about the registers in MIPS ISA.
+    link : "#registers"
 
 ---
 
@@ -100,4 +103,14 @@ Code Bank:
  [Link to Sample Codes]( https://github.com/hwlab-csed/Single-Cycle-Processor)  
 
 Assignment 3:  [Download Here](https://drive.google.com/file/d/1SMjzJmn0EjlE59kXobJl59c5MZmNftOH/view?usp=sharing)
+
+## **Registers**
+
+**Theory** :
+
+Documentation: [Link to Main Documentation](/)
+Video Explanation of Concept:
+
+ 1. [Control Unit Theory]( https://youtu.be/_QdWPSIrtVo)
+ 2. [Datapath Theory](https://youtu.be/n8S_XsjyF9U)
 ---

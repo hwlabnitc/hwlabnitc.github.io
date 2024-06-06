@@ -42,11 +42,12 @@ This course covers the following topics-
 * `Strings (Advanced)` - String Handling explained in detail.
 * `Floating Points` - Learn how to handle floating point numbers. -->
 
-
+o
 ## **Introduction to MIPS**
 
 Main Documentation : [Click Here](./mips_basics&procedures.md)  
-Theory explanation: [ Video Link ](https://youtu.be/T40qoR7V6oU)  
+Theory explanation: [ Video Link ](https://youtu.be/T40qoR7V6oU) 
+
 
 ## Setting up MARS:  
 
