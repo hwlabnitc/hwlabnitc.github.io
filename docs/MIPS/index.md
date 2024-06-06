@@ -1,46 +1,73 @@
-# Welcome to the MIPS Guide
+---
+# https://vitepress.dev/reference/default-theme-home-page
+layout: home
 
-<!-- For full Main Documentation :material-google-drive:visit [mkdocs.org](https://www.mkdocs.org).     -->
+hero:
+  name: Welcome to the MIPS Guide
+  text: ""
+  tagline: This part covers the following topics
+
+features:
+    - title: Introduction to MIPS 
+      details: Setting up and understanding MIPS ISA.
+      link: '#introduction-to-mips'
+    - title: Basic Integer and String Handling 
+      details: Learn the Basics of MIPS integers.
+      link: '#introduction-to-mips'
+    - title: Integer Array Handling 
+      details: Learn how to make integer arrays and operate them.
+      link: '#introduction-to-mips'
+    - title: 2-D Array Handling 
+      details: Extend your array knowledge with 2-D arrays.
+      link: '#introduction-to-mips'
+    - title: Strings (Advanced) 
+      details: String Handling explained in detail.
+      link: '#introduction-to-mips'
+    - title: Floating Points 
+      details: Learn how to handle floating point numbers.
+      link: '#introduction-to-mips'
+
+  
+---
+
+<!-- # Welcome to the MIPS Guide
   
 This course covers the following topics-
 
-## 
 
 * `Introduction to MIPS` - Setting up and understanding MIPS ISA.
 * `Basic Integer and String Handling` - Learn the Basics of MIPS integers.
 * `Integer Array Handling` - Learn how to make integer arrays and operate them.
 * `2-D Array Handling` - Extend your array knowledge with 2-D arrays.
 * `Strings (Advanced)` - String Handling explained in detail.
-* `Floating Points` - Learn how to handle floating point numbers.
+* `Floating Points` - Learn how to handle floating point numbers. -->
 
 
 ## **Introduction to MIPS**
 
-Main Documentation :material-google-drive: : [Click Here](https://drive.google.com/file/d/1ioiGx-AY5g9wbuYAzQ1hQwh_USFIAlrg/view?usp=sharing)  
+Main Documentation : [Click Here](./mips.md)  
 Theory explanation: [ Video Link ](https://youtu.be/T40qoR7V6oU)  
-Setting up MARS:  
 
- 1. [Video Link]( https://youtu.be/FM-0bSelrjw  )  
-   
- 2. [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/First%20program/Tutorial1.asm )  
+### Setting up MARS:  
 
+- [Video Link]( https://youtu.be/FM-0bSelrjw  )  
+- [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/First%20program/Tutorial1.asm )  
 
 ## **Basic Integer and String Handling**
 
-Main Documentation :material-google-drive: : [Click Here](https://drive.google.com/file/d/105FBBHBQZX-1MJW7P27LlPcv1Jij5xnz/view?usp=sharing)  
-Theory Explanation: [Video Link ](https://youtu.be/R5UB4CnZo7Y)  
-Sample Code Bank:  
+Main Documentation : [Click Here](https://drive.google.com/file/d/105FBBHBQZX-1MJW7P27LlPcv1Jij5xnz/view?usp=sharing)  
+Theory Explanation: [Video Link ](https://youtu.be/R5UB4CnZo7Y)
+
+### Sample Code Bank:  
 
  1. [Reversing 2 digit number]( https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q1.asm)  
-   
  2. [Calculating Average Marks](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q2.asm )  
-
  3. [Finding Spy Number](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q3.asm )  
 
 
 ## **Floating Point Handling**
 
-Main Documentation :material-google-drive: : [Click Here](https://drive.google.com/file/d/1BybUxaKDMDrL3FIs_8W87zXCUnqun1HT/view?usp=sharing)
+Main Documentation : [Click Here](https://drive.google.com/file/d/1BybUxaKDMDrL3FIs_8W87zXCUnqun1HT/view?usp=sharing)
 
 Farenheit to Celcius:  
 [ Sample Code ](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q1.asm )         
@@ -53,7 +80,7 @@ Maximum and Minimum in Float Array:
 
 ## **Integer Array Handling**
 
-Main Documentation (Also contains String advanced):material-google-drive: : [Click Here](https://drive.google.com/file/d/1zscvtdHjjzVDhKyP9l7cfaFXMhMfeBQj/view?usp=sharing)    
+Main Documentation (Also contains String advanced : [Click Here](https://drive.google.com/file/d/1zscvtdHjjzVDhKyP9l7cfaFXMhMfeBQj/view?usp=sharing)    
 
 Introduction to Integer Arrays:  
 
@@ -81,7 +108,7 @@ Merge 2 Sorted Arrays:
 
 Highest and Lowest occurrence of an element in an array:  
 
- 1. [ Video]( https://youtu.be/1tUfRNTi1t4)  ▶️
+ 1. [Video]( https://youtu.be/1tUfRNTi1t4)  ▶️
  2. [ Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20Arrays%20Advanced/Integer_Array_Advanced_Practice_Q2_Highest_Lowest_Frequency.asm )  
 
 
@@ -100,7 +127,7 @@ Quicksort:
 
 ### **2-D Integer Array Handling**
 
-Main Documentation :material-google-drive: : [Click Here](https://drive.google.com/file/d/1PSKVY8JSxPmQUKMK4aZ0Q41GEBkVXjG8/view?usp=sharing)  
+Main Documentation : [Click Here](https://drive.google.com/file/d/1PSKVY8JSxPmQUKMK4aZ0Q41GEBkVXjG8/view?usp=sharing)  
 
 Theory Explanation: [Video Link](https://youtu.be/SHl3shv24jc)  
 Sample Code Bank:  
@@ -114,24 +141,25 @@ Sample Code Bank:
 
 Input/Output of Strings:
 
- 1. [ Video ]( https://youtu.be/R5UB4CnZo7Y)  ▶️
- 2. [ Sample Code ]( https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q2.asm)  
+ 1. [Video]( https://youtu.be/R5UB4CnZo7Y)  ▶️
+ 2. [Sample Code]( https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q2.asm)  
 
 Traversal of Strings (Advanced string operations):  
- 1. [ Video ](https://youtu.be/HiqgMrXHeyQ )  ▶️
- 2. [ Sample Code ](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings%20Advanced_Sample%20Codes_1.asm )  
+
+- [Video](https://youtu.be/HiqgMrXHeyQ )  ▶️
+- [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings%20Advanced_Sample%20Codes_1.asm )  
 
 Length of String:  
- 1. [ Video ](https://youtu.be/GWlaAK4VdWo )  ▶️
- 2. [ Sample Code ](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q1.asm )  
+
+- [Video](https://youtu.be/GWlaAK4VdWo )  ▶️
+- [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q1.asm )  
 
 Palindrome Check:  
- 1. [ Video ]( https://youtu.be/7mD-2DHDjEc)  ▶️
- 2. [ Sample Code ](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q2.asm )  
+
+- [Video]( https://youtu.be/7mD-2DHDjEc)  ▶️
+- [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q2.asm )  
 
 Concatenation of strings:  
- 1. [ Video ]( https://youtu.be/SDeHKgsCJE8)  ▶️
- 2. [ Sample Code ](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q3.asm )  
 
-
----
+- [Video]( https://youtu.be/SDeHKgsCJE8)  ▶️
+- [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q3.asm )  

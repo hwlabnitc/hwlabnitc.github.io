@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  image : /img/favicon.ico
-  name: "Hardware Lab NITC"
+  image : "/NITC_Logo.png"
+  name: Hardware Lab NITC
   text: ""
   tagline: The official Hardware Lab Guide
   

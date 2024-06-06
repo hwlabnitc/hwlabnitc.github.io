@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as r,a4 as t}from"./chunks/framework.CgMb17D3.js";const f=JSON.parse('{"title":"About Us","description":"","frontmatter":{},"headers":[],"relativePath":"about.md","filePath":"about.md"}'),i={name:"about.md"},o=t("",18),n=[o];function l(s,h,c,d,u,m){return r(),a("div",null,n)}const b=e(i,[["render",l]]);export{f as __pageData,b as default};

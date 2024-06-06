@@ -19,7 +19,22 @@ export default defineConfig({
 			provider: 'local',
 		},
 
-    sidebar: [
+    sidebar: {
+
+      '/MIPS/':[
+        {
+          text: 'MIPS',
+          collapsed: false,
+          items: [
+            { text: 'Introduction', link: '/MIPS/' },
+            { text: 'Registers', link: '/MIPS/Registers' },
+            { text: 'Instructions', link: '/MIPS/Instructions' },
+            { text: 'Examples', link: '/MIPS/Examples' },
+          ]
+        
+        }],
+    
+      '/':[
       {
         text: 'Examples',
         items: [
@@ -28,6 +43,7 @@ export default defineConfig({
         ]
       }
     ],
+  },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
