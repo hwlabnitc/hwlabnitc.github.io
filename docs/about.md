@@ -31,8 +31,8 @@
 #### The MIPS Team :
 
 - [Arun Natarjan](https://www.linkedin.com/in/arun-natarajan-567539211/)
-- [Hafeez Muhammed](www.linkedin.com/in/hafeez-hm)
-- [Prarthana Phukan](www.linkedin.com/in/prarthana-phukan-464023278)
+- [Hafeez Muhammed](https://www.linkedin.com/in/hafeez-hm)
+- [Prarthana Phukan](https://www.linkedin.com/in/prarthana-phukan-464023278)
 - [Suzzanne Sadique](https://www.linkedin.com/in/sznne)
 - [Naila Fathima](https://www.linkedin.com/in/naila-fathima-16b129221/)
 
