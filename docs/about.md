@@ -7,6 +7,7 @@
 ---
 ### The 2023 Team:
 #### The MIPS Team :
+
 - [Mohammad Saad](https://www.linkedin.com/in/mosaad2707/)
 - [Naeem Niaz](https://www.linkedin.com/in/naeem-niaz-670a141b8/)
 - [Chandrakant V Bellary](https://www.linkedin.com/in/chandrakant-bellary-623a24244/)
@@ -14,6 +15,7 @@
 - [Abel Mani Roy](https://www.linkedin.com/in/abel-roy-813144279)
 
 #### The Verilog Team :
+
 - [Arshiya P Hafis](http://www.linkedin.com/in/arshiya-padiyath-hafis-76237b230)
 - [Avinash Kumar](https://www.linkedin.com/in/avinash-kumar-228199230)
 - [Akshit Kumar](https://www.linkedin.com/in/akshit-kumar-444a28275)
@@ -21,11 +23,13 @@
 - [Arjun Krishna](https://www.linkedin.com/in/arjun-krishna-b0aa12247)
 
 #### Web and Repository Maintenance :
+
 - [Mohammad Saad](https://github.com/mosaad2707)
 - [Aritro Ghosh](https://github.com/AltoTenor)
 ---
 ### The 2024 Team:
 #### The MIPS Team :
+
 - [Arun Natarjan](https://www.linkedin.com/in/arun-natarajan-567539211/)
 - [Hafeez Muhammed](www.linkedin.com/in/hafeez-hm)
 - [Prarthana Phukan](www.linkedin.com/in/prarthana-phukan-464023278)
@@ -33,6 +37,8 @@
 - [Naila Fathima](https://www.linkedin.com/in/naila-fathima-16b129221/)
 
 #### The Verilog Team :
+
+- [Vinit Keshri](https://in.linkedin.com/in/vinitkeshri)
 - [Nandana Anand](https://www.linkedin.com/in/nandana-anand-6611a2258)
 - [Sridevi Shankar](https://www.linkedin.com/in/sridevi-s-636a33255)
 - [Sriram Devineni](https://www.linkedin.com/in/devineni-sriram-8a298b2a6/)
