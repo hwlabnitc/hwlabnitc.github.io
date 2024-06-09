@@ -66,11 +66,11 @@ _**System calls that return values put their results in register $v0**_
 ### **Logical**
 
 | Instruction         | Example        | Meaning   | Comments                               |
-| ------------------- | -------------- | --------- | -------------------------------------- | ------------------------------- |
+| ------------------- | -------------- | --------- | -------------------------------------- | 
 | and                 | and $1,$2,$3   | $1=$2&$3  | Bitwise AND                            |
-| or                  | or $1,$2,$3    | $1=$2     | $3                                     | Bitwise OR                      |
+| or                  | or $1,$2,$3    | $1=$2I$3   | Bitwise OR                             |
 | and immediate       | andi $1,$2,100 | $1=$2&100 | Bitwise AND with immediate value       |
-| or immediate        | ori $1,$2,100  | $1=$2     | 100                                    | Bitwise OR with immediate value |
+| or immediate        | ori $1,$2,100  | $1=$2I100  | Bitwise OR with immediate value        |  
 | shift left logical  | sll $1,$2,10   | $1=$2<<10 | Shift left by constant number of bits  |
 | shift right logical | srl $1,$2,10   | $1=$2>>10 | Shift right by constant number of bits |
 
