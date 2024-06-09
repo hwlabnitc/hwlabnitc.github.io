@@ -38,9 +38,10 @@
 
 #### The Verilog Team :
 
-- [Vinit Keshri](https://in.linkedin.com/in/vinitkeshri)
+
 - [Nandana Anand](https://www.linkedin.com/in/nandana-anand-6611a2258)
 - [Sridevi Shankar](https://www.linkedin.com/in/sridevi-s-636a33255)
+- [Vinit Keshri](https://in.linkedin.com/in/vinitkeshri)
 - [Sriram Devineni](https://www.linkedin.com/in/devineni-sriram-8a298b2a6/)
 - [Jaefar Shameem](https://www.linkedin.com/in/jaefar-shameem-290b601b9)
 - [Vaishnavi Pai](https://www.linkedin.com/in/vaishnavi-pai-5543aa223)
@@ -50,12 +51,14 @@
 - [Anugraha Pulinjery](www.linkedin.com/in/anugraha-pulinjery)
 
 #### Web and Repository Maintenance :
-- Aditya Kamble  
-  [Github](https://github.com/27-aditya)  
-  [LinkedIn](https://www.linkedin.com/in/aditya-kamble27)
+
 - Vinit Keshri  
   [Github](https://github.com/vinitkesh)  
   [LinkedIn](https://in.linkedin.com/in/vinitkeshri)
+- Aditya Kamble  
+  [Github](https://github.com/27-aditya)  
+  [LinkedIn](https://www.linkedin.com/in/aditya-kamble27)
+
 ---
 
 ## Join Our Team
