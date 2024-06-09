@@ -45,7 +45,7 @@ npm run docs:dev
 
 In the docs folder, the index.md file contains the main page of the site and the other markdown files contains other content of the site.
 
-The site is dplit between 2 folders:
+The site is split between 2 folders:
 
 1. MIPS
 2. Verilog
