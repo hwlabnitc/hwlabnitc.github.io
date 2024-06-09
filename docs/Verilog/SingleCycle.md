@@ -1,27 +1,31 @@
 # Single Cycle Processor
 
+:::tip Visit Code Repository
+[**Github: Intro to Verilog**](https://github.com/hwlabnitc/Intro-to-Verilog)
+:::
+
 ## Table of Contents
 
-| Sl  No. |     | Topic                                | Page  No. |
-|---------|-----|--------------------------------------|-----------|
-| 1       |     | Overview                             | [1](#1-overview)        |
-| 2       |     | Prerequisites                        | [2](#2-prerequisites)         |
-| 3       |     | Theory- Control Unit                 | [3](#3-control-unit)         |
-| 4       |     | Theory- Datapath                     | [8](#4-datapath)         |
-| 5       |     | Implementation                       | [22](#5-implementation)        |
-|         | 1   | Top Level Module                     | [22](#1-top-level-module)        |
-|         | 2   | Data Memory                          | [24](#2-data-memory)        |
-|         | 3   | Instruction Memory                   | [25](#3-instruction-memory)        |
-|         | 4   | Microprocessor Top Level (MIPS)      | [27](#4mips)        |
-|         | 5   | Controller                           | [29](#5-controller)        |
-|         | 6   | Main Decoder                         | [31](#6-main-decoder)        |
-|         | 7   | ALU Decoder                          | [33](#7-alu-decoder)        |
-|         | 8   | Datapath                             | [35](#8-datapath)        |
-|         | 9   | Register File                        | [38](#9-three-ported-register)        |
-|         | 10  | Other Functional Units               | [41](#10-some-other-functional-units)        |
-| 6       |     | How to Run Instructions?             | [44](#6-how-to-run-instructions)        |
-| 7       |     | Test Cases for Various Instructions  | [46](#7-test-cases-for-various-instructions)        |
-| 8       |     | References                           | [53](#8-references)        |
+| Sl  No. |     | Topic                                |
+|---------|-----|--------------------------------------|
+| 1       |     | [Overview](#_1-overview)        |
+| 2       |     | [Prerequisites](#_2-prerequisites)         |
+| 3       |     | [Theory- Control Unit](#_3-control-unit)         |
+| 4       |     | [Theory- Datapath](#_4-datapath)         |
+| 5       |     | [Implementation](#_5-implementation)        |
+|         | 1   | [Top Level Module](#_1-top-level-module)        |
+|         | 2   | [Data Memory](#_2-data-memory)        |
+|         | 3   | [Instruction Memory](#_3-instruction-memory)        |
+|         | 4   | [Microprocessor Top Level (MIPS)](#_4mips)        |
+|         | 5   | [Controller](#_5-controller)        |
+|         | 6   | [Main Decoder](#_6-main-decoder)        |
+|         | 7   | [ALU Decoder](#_7-alu-decoder)        |
+|         | 8   | [Datapath](#_8-datapath)        |
+|         | 9   | [Register File](#_9-three-ported-register)        |
+|         | 10  | [Other Functional Units](#_10-some-other-functional-units)        |
+| 6       |     | [How to Run Instructions](#_6-how-to-run-instructions)        |
+| 7       |     | [Test Cases for Various Instructions](#_7-test-cases-for-various-instructions)        |
+| 8       |     | [References](#_8-references)        |
 
 ## 1. Overview
 

@@ -1,5 +1,9 @@
 # **Introduction To Finite State Machines**
 
+:::tip Visit Code Repository
+[**Finite State Machines**](https://github.com/hwlabnitc/Finite-State-Machines)
+:::
+
 ## **Basic Definition And Formulations:**
 
 An FSM is a digital sequential circuit that can follow a number of predefined
@@ -132,6 +136,7 @@ independent of each other. The connection between each is what determines the
 flow of data. To model this behavior, an always block is made as a continuous 
 process that gets triggered and performs some action when a signal within the
 sensitivity list becomes active. The syntax is displayed in [Section 2.2](#22-moore-model)  
+
 ```v
 always @ (event)
   [statement]
@@ -147,25 +152,31 @@ sequentially in the given order, one after the other. Delay values are
 treated relative to the time of execution of the previous statement. After all the 
 statements within the block are executed control may be passed elsewhere. The 
 syntax is shown in [Section 3.3](#33-beginend)
+
 ```v
 begin : name_seq
   [statements]
 end
 ```
+
 ### **Fork..Join**
+
 Statements are launched in parallel by wrapping them within the join and fork
 keywords. A parallel block can execute statements concurrently and delay 
 control can be used to provide time-ordering of the assignments. The syntax is 
 shown in [Section 3.4](#34-forkjoin)
+
 ```v
 fork : name_fork
   [statements]
 join
 ```
+
 ### **Blocking Statements**
 Blocking assignment statements are assigned using = and are executed one after
 the other in a procedural block. However, this will not prevent execution of 
 statments that run in a parallel block. For eg
+
 ```v
 module tb;
   reg[7:0] a, b, c, d, e;
@@ -190,6 +201,7 @@ module tb;
   end
 endmodule
 ```
+
 In the above example, there are two initial blocks which are executed in parallel
 when simulation starts. Statements are executed sequentially in each block
 and both blocks finish at time 0ns. To be more specific, variable a gets assigned 
@@ -197,6 +209,7 @@ first, followed by the display statement which is then followed by all other
 statements.
 
 ### **Non-Blocking Statements**
+
 Non-blocking assignment allows assignments to be scheduled without blocking 
 the execution of following statements and is specified by a <= symbol. It's
 interesting to note that the same symbol is used as a relational operator in 
@@ -204,6 +217,7 @@ expressions, and as an assignment operator in the context of a non-blocking
 assignment. The following code snippet is written by replacing all the blocking 
 statements in the previous example by non blocking statements. Try out for 
 yourself and compare the difference in the outputs :-) .
+
 ```v
 module tb;
   reg[7:0] a, b, c, d, e;
@@ -230,6 +244,7 @@ endmodule
 ```  
 
 ### **Posedge and Negedge**
+
 Simply speaking,
 posedge means the transition from 0 to 1 
 negedge the oposit transition from 1 to 0 
@@ -243,11 +258,13 @@ always@(posedge clock, negedge reset);
 ```
 
 ### **Case Statement**
+
 The case statement checks if the given expression matches one of the other 
 expressions in the list and branches accordingly. It is typically used to 
 implement a multiplexer. The if-else construct may not be suitable if there are 
 many conditions to be checked and would synthesize into a priority encoder 
 instead of a multiplexer.
+
 ```v
 // Here 'expression' should match one of the lines
 case(<expression>)

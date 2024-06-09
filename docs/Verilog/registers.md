@@ -1,5 +1,9 @@
 # **Introduction To Registers**
 
+:::tip Visit Code Repository
+[**Github: Intro to Registers**](https://github.com/hwlabnitc/Registers)
+:::
+
 ## **Registers**
 A register is a collection of flip-flops that are edge triggered. Registers 
 capture and store data based on a trigger- either a rising or falling edge. 

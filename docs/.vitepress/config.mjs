@@ -8,6 +8,7 @@ export default defineConfig({
   head: [['link', { rel: 'icon', href: '/img/favicon.ico' }]],
   base: '/hwlabnitc.github.io/',
   themeConfig: {
+    logo: '/img/favicon.ico',
     outline: { level: 'deep' },
     // https://vitepress.dev/reference/default-theme-config
     nav: [

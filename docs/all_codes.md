@@ -1,11 +1,12 @@
 # All Sample Codes
 
-:::info Note
+<!-- :::info Note
 Visit our [Github](https://github.com/hwlabnitc) for all sample code repositories.
-:::
+::: -->
 
 
 :::warning IMPORTANT NOTE
+
 Links to repositories for sample codes various topics are given below. Click on the respective links to access the sample code repositories.:
 
 1. [Introduction to Verilog](https://github.com/hwlabnitc/Intro-to-Verilog)
@@ -18,8 +19,6 @@ Links to repositories for sample codes various topics are given below. Click on 
 
 
 ## Introduction to Verilog Sample Codes
-
-[CodeBase](https://github.com/hwlabnitc/Intro-to-Verilog)
 
 1. [8 Bit AND Gate](https://github.com/hwlabnitc/Intro-to-Verilog/tree/main/Sample%20Codes/8%20Bit%20AND%20Gate/)
 1. [Half Adder](https://github.com/hwlabnitc/Intro-to-Verilog/tree/main/Sample%20Codes/Half%20Adder/)
@@ -36,10 +35,6 @@ Links to repositories for sample codes various topics are given below. Click on 
 
 ## Finite State Machines Sample Codes
 
-[CodeBase](https://github.com/hwlabnitc/Finite-State-Machines)
-
-### Design the following Finite State Machines:
-
 1. [Chess Clock](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/Chess%20Clock/)
 2. [Mealy Machine](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/Mealy%20Machine/)
 3. [Moore Machine](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/Moore%20Machine/)
@@ -55,8 +50,6 @@ Links to repositories for sample codes various topics are given below. Click on 
 
 ## Registers Sample Codes
 
-[CodeBase](https://github.com/hwlabnitc/Registers)
-
 1. [Implement a 4-bit register using D flip-flops.](https://github.com/hwlabnitc/Registers/blob/main/codes/Q1/)  
 2. [Implement an 8-bit register using behavioral modeling with a single read and write port such that both read and write operations can occur simultaneously, but when they do read is given more priority.](https://github.com/hwlabnitc/Registers/blob/main/codes/Q2/)  
 3. [Implement an 8-bit SISO shift register using behavioral modeling.](https://github.com/hwlabnitc/Registers/blob/main/codes/Q3/)  
@@ -66,16 +59,14 @@ Links to repositories for sample codes various topics are given below. Click on 
 7. [Implement an 8-bit register with 1 read port and 2 write ports.](https://github.com/hwlabnitc/Registers/blob/main/codes/Q7/)  :  Either read or write is permitted at a time and when you perform write, you are to write through the two write ports alternately
 8. [Implement an 8-bit register file with 8 registers such that only a read or write can oc
 cur at a time.](https://github.com/hwlabnitc/Registers/blob/main/codes/Q8/)  
-9. [Implement a 64-bit register file with 32 register with 4 read ports and 2 write ports. Multiple operations can occur at a time, but the lower port is given more priority in such cases. Read > Write .](https://github.com/hwlabnitc/Registers/blob/main/codes/Q9/)  
-10. [Implement a 4-bit universal shift register.](https://github.com/hwlabnitc/Registers/blob/main/codes/Q1/.v)  
+1. [Implement a 64-bit register file with 32 register with 4 read ports and 2 write ports. Multiple operations can occur at a time, but the lower port is given more priority in such cases. Read > Write .](https://github.com/hwlabnitc/Registers/blob/main/codes/Q9/)  
+2.  [Implement a 4-bit universal shift register.](https://github.com/hwlabnitc/Registers/blob/main/codes/Q1/.v)  
 
 :::tip Note
 To understand the context of the sample codes, refer to the Registers Documentation.
 :::
 
 ## MIPS Assembly Codes
-
-[CodeBase](https://github.com/hwlabnitc/MIPS-Codes)
 
 ### **Basic Integer and String Handling**
 
@@ -111,7 +102,7 @@ Theory Explanation    [Theory Explanation Video](https://youtu.be/SHl3shv24jc)
 
 ### **String Handling (advanced)**    
     
-[Theory Explanation Vide](https://youtu.be/R5UB4CnZ) 
+[Theory Explanation Video](https://youtu.be/R5UB4CnZ) 
 
 1. Traversal of Strings  [Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings%20Advanced_Sample%20Codes_1.asm)  | [Video](https://youtu.be/HiqgMrXHeyQ) 
 1. Length of String  [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q1.asm)  | [Video](https://youtu.be/GWlaAK4VdWo) 

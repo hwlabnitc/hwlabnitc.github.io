@@ -2,26 +2,30 @@
 
 ## Table of Contents
 
-|Topic|Page|
-|---|---|
-|Introduction|[1](#introduction)|
-|Verilog Syntax|[2](#verilog-syntax)|
-|Basic Logic Gates|[3](#basic-logic-gates)|
-|Binary Adders and Subtractors|[4](#binary-adders-and-subtractors)|
-|Latches|[5](#latches)|
-|Flip Flops|[6](#flip-flops)|
-|Multiplexers|[7](#multiplexers)|
-|Demultiplexers|[8](#demultiplexers)|
-|Parity Generator|[9](#parity-generator)|
-|Code converter|[10](#code-converter)|
-|Comparators|[11](#comparators)|
-|Registers|[12](#registers)|
-|Counters|[13](#counters)|
-|Arithmetic Logic Unit|[14](#arithmetic-logic-unit-alu)|
-|Encoders|[15](#encoder)|
-|Decoders|[16](#decoder)|
-|How to make a verilog program|[17](#how-to-make-a-verilog-program)|
-|Bibliography|[18](#bibliography)|
+:::tip Visit Code Repository
+[**Github: Intro to Verilog**](https://github.com/hwlabnitc/Intro-to-Verilog)
+:::
+
+|Topic|
+|---|
+|[Introduction](#introduction)|
+|[Verilog Syntax](#verilog-syntax)|
+|[Basic Logic Gates](#basic-logic-gates)|
+|[Binary Adders and Subtractors](#binary-adders-and-subtractors)|
+|[Latches](#latches)|
+|[Flip Flops](#flip-flops)|
+|[Multiplexers](#multiplexers)|
+|[Demultiplexers](#demultiplexers)|
+|[Parity Generator](#parity-generator)|
+|[Code converter](#code-converter)|
+|[Comparators](#comparators)|
+|[Registers](#registers)|
+|[Counters](#counters)|
+|[Arithmetic Logic Unit](#arithmetic-logic-unit-alu)|
+|[Encoders](#encoder)|
+|[Decoders](#decoder)|
+|[How to make a verilog program](#how-to-make-a-verilog-program)|
+|[Bibliography](#bibliography)|
 ---
 
 Verilog is a **Hardware Description Language (HDL)**. They resemble
