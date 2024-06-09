@@ -1,7 +1,7 @@
 # Single Cycle Processor
 
 :::tip Visit Code Repository
-[**Github: Intro to Verilog**](https://github.com/hwlabnitc/Intro-to-Verilog)
+[**Github: Single-Cycle-Processor**](https://github.com/hwlabnitc/Single-Cycle-Processor)
 :::
 
 ## Table of Contents

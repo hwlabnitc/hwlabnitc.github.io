@@ -62,15 +62,10 @@ cur at a time.](https://github.com/hwlabnitc/Registers/blob/main/codes/Q8/)
 1. [Implement a 64-bit register file with 32 register with 4 read ports and 2 write ports. Multiple operations can occur at a time, but the lower port is given more priority in such cases. Read > Write .](https://github.com/hwlabnitc/Registers/blob/main/codes/Q9/)  
 2.  [Implement a 4-bit universal shift register.](https://github.com/hwlabnitc/Registers/blob/main/codes/Q1/.v)  
 
-:::tip Note
-To understand the context of the sample codes, refer to the Registers Documentation.
-:::
 
 ## MIPS Assembly Codes
 
 ### **Basic Integer and String Handling**
-
-Theory Explanation    [Theory Explanation Video](https://youtu.be/R5UB4CnZo7Y) 
 
 1. Reversing 2 digit number  [Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q1.asm)   
 2. Calculating Average Marks  [Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q2.asm)   
@@ -94,15 +89,11 @@ Theory Explanation    [Theory Explanation Video](https://youtu.be/R5UB4CnZo7Y)
 
 ### **2-D Integer Array Handling**
 
-Theory Explanation    [Theory Explanation Video](https://youtu.be/SHl3shv24jc) 
-
 1. Taking Input  [Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q1_Taking_Input_For_Matrix.asm)   
 2. Printing a Matrix  [Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q2_Printing_Matrix.asm)   
 3. Sum of Two Matrices  [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Practice_Q1_sum_of_two_matrices.asm)   
 
 ### **String Handling (advanced)**    
-    
-[Theory Explanation Video](https://youtu.be/R5UB4CnZ) 
 
 1. Traversal of Strings  [Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings%20Advanced_Sample%20Codes_1.asm)  | [Video](https://youtu.be/HiqgMrXHeyQ) 
 1. Length of String  [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q1.asm)  | [Video](https://youtu.be/GWlaAK4VdWo) 

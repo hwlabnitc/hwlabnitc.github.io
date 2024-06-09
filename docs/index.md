@@ -9,7 +9,7 @@ hero:
   tagline: The official Hardware Lab Guide
   
   actions:
-    - theme: brand
+    - theme: alt
       text: Verilog Guide
       link: /Verilog/
     - theme: alt
@@ -18,14 +18,15 @@ hero:
 
 features:
   - icon: 📚
-    title: Extensive documentation
-    details: Study the documentation to understand the working of the topics hardware lab
+    title: Extensive Documentation
+    details: Study the documentation to understand the working of the topics in hardware lab
     link: all_docs.md
   - icon: 🎥
-    title: Video tutorials
+    title: 30+ Video Tutorials
     details: Watch the video tutorials to understand sample codes and key concepts
+    link: "https://www.youtube.com/playlist?list=PLJGMNIXnU1SLUNfqTxjIEp-oW4wWtr5Mc"
   - icon: 👨‍💻 
-    title: Sample Codes
+    title: 50+ Sample Codes
     details: Practice the sample codes to understand the working of the topics
     link: all_codes.md
 

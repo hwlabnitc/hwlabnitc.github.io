@@ -1,7 +1,7 @@
 # **Introduction To Finite State Machines**
 
 :::tip Visit Code Repository
-[**Finite State Machines**](https://github.com/hwlabnitc/Finite-State-Machines)
+[**Github: Finite State Machines**](https://github.com/hwlabnitc/Finite-State-Machines)
 :::
 
 ## **Basic Definition And Formulations:**
