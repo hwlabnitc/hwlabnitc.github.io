@@ -16,23 +16,23 @@ features:
     - icon: 🔢
       title: Basic Integer and String Handling 
       details: Learn the Basics of MIPS integers.
-      link: '#introduction-to-mips'
+      link: '#basic-integer-and-string-handling'
     - icon: 🔗
       title: Integer Array Handling 
       details: Learn how to make integer arrays and operate them.
-      link: '#introduction-to-mips'
+      link: '#integer-array-handling'
     - icon: 🔲
       title: 2-D Array Handling 
       details: Extend your array knowledge with 2-D arrays.
-      link: '#introduction-to-mips'
+      link: '#_2-d-integer-array-handling'
     - icon: 🔤 
       title: Strings (Advanced) 
       details: String Handling explained in detail.
-      link: '#introduction-to-mips'
+      link: '#string-handling-advanceds'
     - icon: 📊
       title: Floating Points 
       details: Learn how to handle floating point numbers.
-      link: '#introduction-to-mips'
+      link: '#floating-point-handling'
 
  
 ---
