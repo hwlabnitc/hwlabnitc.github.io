@@ -164,11 +164,11 @@ Main Documentation : [Click Here](./mips_array)
 
 Sample Code:
 
-| Topic               | Video Link | Sample Code Link                                                                                                                                          |
-| ------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Taking Input        | N/A        | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q1_Taking_Input_For_Matrix.asm) |
-| Printing a Matrix   | N/A        | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q2_Printing_Matrix.asm)         |
-| Sum of Two Matrices | N/A        | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Practice_Q1_sum_of_two_matrices.asm)    |
+| Topic               | Sample Code Link                                                                                                                                          |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Taking Input        | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q1_Taking_Input_For_Matrix.asm) |
+| Printing a Matrix   | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Sample_Q2_Printing_Matrix.asm)         |
+| Sum of Two Matrices | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Two%20Dimensional%20Arrays/Two_Dimensional_Arrays_Practice_Q1_sum_of_two_matrices.asm)    |
 
 ---
 

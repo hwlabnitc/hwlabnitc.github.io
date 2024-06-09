@@ -113,14 +113,17 @@ Video Explanation of Concept:
 2. [Datapath Theory](https://youtu.be/n8S_XsjyF9U)
 
 **IMPLEMENTATION:** 
-Video Explanation of Code (From Documentation) :
+
+[Main Code](https://github.com/hwlab-csed/Single-Cycle-Processor)
+
+Video Explanation of Code :
 
 1. [Code Modules 1 to 5 explained](https://youtu.be/akrKa3O-7T8)
 2. [Code Modules 6 to 10 explained](https://youtu.be/Q51G2JWI5t0)
 3. [All Testbenches explained](https://youtu.be/_pPCv_fkO1w)  
     Code Bank:
 
-[Link to Sample Codes](https://github.com/hwlab-csed/Single-Cycle-Processor)
+
 
 
 Assignment 3:  [Download Here](https://drive.google.com/file/d/1SMjzJmn0EjlE59kXobJl59c5MZmNftOH/view?usp=sharing)
