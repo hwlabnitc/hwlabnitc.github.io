@@ -1,4 +1,4 @@
-## **The Hardware Lab Course Guide Team**
+# **The Hardware Lab Course Guide Team**
 
 ## **Faculty :**
  - [**Prof. Srinivasa TM** ](http://people.cse.nitc.ac.in/srinivasa/)

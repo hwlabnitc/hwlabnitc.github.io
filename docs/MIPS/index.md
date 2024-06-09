@@ -28,7 +28,7 @@ features:
     - icon: 🔤 
       title: Strings (Advanced) 
       details: String Handling explained in detail.
-      link: '#string-handling-advanceds'
+      link: '#string-handling-advanced'
     - icon: 📊
       title: Floating Points 
       details: Learn how to handle floating point numbers.

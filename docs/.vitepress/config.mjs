@@ -5,13 +5,13 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Hardware Lab NITC",
   description: "An official hardware lab wesbsite",
-  head: [['link', { rel: 'icon', href: '/img/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '/public/NITC_Logo.png' }]],
   base: '/hwlabnitc.github.io/',
   themeConfig: {
-    logo: '/img/favicon.ico',
+    logo: 'public/NITC_Logo.png',
     outline: { level: 'deep' },
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
+    nav: [  
       { text: 'Home', link: '/' },
       { text: 'Verilog Guide', link: '/Verilog/'},
       { text: 'MIPS Guide', link: '/MIPS/' },
