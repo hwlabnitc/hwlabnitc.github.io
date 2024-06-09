@@ -5,7 +5,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Hardware Lab NITC",
   description: "An official hardware lab wesbsite",
-  head: [['link', { rel: 'icon', href: '/public/NITC_Logo.png' }]],
+  head: [['link', { rel: 'icon', href: 'img/favicon.ico' }]],
   base: '/hwlabnitc.github.io/',
   themeConfig: {
     logo: 'public/NITC_Logo.png',
