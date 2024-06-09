@@ -1,4 +1,4 @@
-# All docuemntations:
+# All documentation
 
 ## Verilog
 
