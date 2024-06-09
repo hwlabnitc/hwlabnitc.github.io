@@ -14,4 +14,4 @@
 3. [MIPS Instructions and syscall](./MIPS/mips_syscalls&tutorial.md)
 4. [Basic Integer and String Handling](./MIPS/mips_basics&procedures.md)
 5. [Integer Array Handling](./MIPS/mips_array.md)
-6. [Strings (Advanced)](./MIPS/mips_string.md)g
+6. [Strings (Advanced)](./MIPS/mips_string.md)

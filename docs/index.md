@@ -27,6 +27,7 @@ features:
   - icon: 👨‍💻 
     title: Sample Codes
     details: Practice the sample codes to understand the working of the topics
+    link: all_codes.md
 
 ---
 
