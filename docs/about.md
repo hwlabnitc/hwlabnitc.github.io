@@ -48,7 +48,7 @@
 - [Anupama Mary Joseph](https://www.linkedin.com/in/anupama-mj)
 - [Gokul Krishna V](https://www.linkedin.com/in/vgokulkrishna)
 - [Afsheen Wasifiya](https://www.linkedin.com/in/afsheen-wasfiya-abdul-wahab-33a504257/)
-- [Anugraha Pulinjery](www.linkedin.com/in/anugraha-pulinjery)
+- [Anugraha Pulinjery](https://www.linkedin.com/in/anugraha-pulinjery)
 
 #### Web and Repository Maintenance :
 
