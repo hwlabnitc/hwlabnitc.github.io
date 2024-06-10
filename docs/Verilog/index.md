@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Welcome to the Verilog Guide"
   text: ""
-  tagline: "This section covers the following topics : "
+  tagline: "This section covers the following topics "
 
 features:
   - icon:  📖

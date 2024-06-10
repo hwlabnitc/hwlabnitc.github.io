@@ -1,12 +1,13 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+title: Hardware Lab NITC
 
 hero:
   image : "/logo2.png"
   name: Hardware Lab NITC
   text: ""
-  tagline: The official Hardware Lab Guide
+  tagline: The Official Hardware Lab Guide
   
   actions:
     - theme: alt
