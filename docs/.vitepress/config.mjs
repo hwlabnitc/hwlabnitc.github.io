@@ -5,10 +5,10 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Hardware Lab NITC",
   description: "An official hardware lab wesbsite",
-  head: [['link', { rel: 'icon', href: 'img/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: 'HWL_Logo.png' }]], // In the Browser tab
   base: '/hwlabnitc.github.io/',
   themeConfig: {
-    logo: 'public/NITC_Logo.png',
+    logo: 'HWL_Logo.png',
     outline: { level: 'deep' },
     // https://vitepress.dev/reference/default-theme-config
     nav: [  
