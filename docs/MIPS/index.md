@@ -49,15 +49,7 @@ This course covers the following topics-
 * `Strings (Advanced)` - String Handling explained in detail.
 * `Floating Points` - Learn how to handle floating point numbers. -->
 
-## **Introduction to MIPS**
-
-Main Documentation : [Click Here](./mips_basics&procedures.md)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T40qoR7V6oU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-[ View on Youtube ](https://youtu.be/T40qoR7V6oU)
-
-## Setting up MARS:
+## Setting up MARS
 
 Main Documentation : [Click Here](./mips_setup.md)
 
@@ -110,6 +102,15 @@ syscall
 :::
 
 [View on Github](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/First%20program/Tutorial1.asm)
+
+
+## **Introduction to MIPS**
+
+Main Documentation : [Click Here](./mips_basics&procedures.md)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T40qoR7V6oU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[ View on Youtube ](https://youtu.be/T40qoR7V6oU)
 
 
 ## **Basic Integer and String Handling**
@@ -181,3 +182,19 @@ Sample Code:
 | Length of String                                  | [Video](https://youtu.be/GWlaAK4VdWo) | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q1.asm)         |
 | Palindrome Check                                  | [Video](https://youtu.be/7mD-2DHDjEc) | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q2.asm)         |
 | Concatenation of strings                          | [Video](https://youtu.be/SDeHKgsCJE8) | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Strings%20Advanced/MIPS_Strings_Advanced_Practice_Q3.asm)         |
+
+| Topic| Video Link | Sample Code Link |
+| ---------------------------- | --------------------- | --- | 
+| **Loops** | | | 
+|  | LowerCase to UpperCase | [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Loops/lower%20to%20uppercase.asm) | 
+| **Procedure Calling** | | |  |
+|  | Sum of two numbers | [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Procedure%20Calling/Sum%20of%202%20numbers%20Q1.asm) |  |  
+|  | Product of two numbers | [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Procedure%20Calling/Product%20of%20two%20numbers%20Q2.asm) | [Video](https://youtu.be/7E7uyIC0oTw?si=9Q69iTm_x7MJe6Ul) |  
+|  | Maximum of four numbers | [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Procedure%20Calling/Max%20of%204%20numbers%20with%20function%20calling%20Q3.asm) |  
+|  | Factorial of a number | [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Procedure%20Calling/Calculate%20factorial%20iteratively%20Q4.asm) |  
+| **Recursion Using JAL** | | |  |
+|  | Binary search with recursion  | [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Recursion%20Using%20JAL/Binary%20search%20with%20recursion%20Q4.asm) |  
+|  | Factorial recursion | [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Recursion%20Using%20JAL/Factorial%20recursion%20Q3.asm) | [Video](https://youtu.be/sJ55rgXjq2U?si=leQ5dD0YZz_jID_N) |  
+|  | Find exponent recursively | [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Recursion%20Using%20JAL/Find%20exponent%20recursively%20Q2.asm) |  
+|  | Sum of first N natural numbers | [Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Recursion%20Using%20JAL/Sum%20of%20first%20N%20natural%20numbers%20recursively%20Q1.asm) | 
+
