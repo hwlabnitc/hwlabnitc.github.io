@@ -5,6 +5,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Hardware Lab NITC",
   description: "An official hardware lab wesbsite",
+  logo: 'HWL_Logo.png',
   head: [['link', { rel: 'icon', href: 'HWL_Logo.png' }]], // In the Browser tab
   base: '/hwlabnitc.github.io/',
   themeConfig: {
