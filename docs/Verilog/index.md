@@ -129,8 +129,8 @@ Video Explanation of Code :
 
 |**Modification Questions & Solution** | Video Explanation |
 |---|---|
-| [Modify given code to include the Andi, Ori and Xori instructions](Modification/andi%2C%20ori%2C%20xori/README.md) | N/A |
-| [Modify given code to include the Jr (Jump Register) instruction](Modification/jr/README.md) | [Video Explanation](https://www.youtube.com/watch?v=YdMKU0FelT4&list=PLJGMNIXnU1SLUNfqTxjIEp-oW4wWtr5Mc&index=10) |
+| [Modify given code to include the Andi, Ori and Xori instructions](https://github.com/hwlabnitc/Single-Cycle-Processor/tree/main/Modification/andi%2C%20ori%2C%20xori/README.md) | N/A |
+| [Modify given code to include the Jr (Jump Register) instruction](https://github.com/hwlabnitc/Single-Cycle-Processor/tree/main/Modification/jr/README.md) | [Video Explanation](https://www.youtube.com/watch?v=YdMKU0FelT4&list=PLJGMNIXnU1SLUNfqTxjIEp-oW4wWtr5Mc&index=10) |
 
 [Assignment 3](https://github.com/hwlabnitc/Single-Cycle-Processor/blob/main/Assignment3/Questions.md)
 
