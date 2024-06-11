@@ -7,7 +7,7 @@ export default defineConfig({
   description: "An official hardware lab website",
   logo: 'HWL_Logo.png',
   head: [['link', { rel: 'icon', href: 'HWL_Logo.png' }]], // In the Browser tab
-  base: '/hwlabnitc.github.io/',
+  base: '/',
   themeConfig: {
     logo: 'HWL_Logo.png',
     outline: { level: 'deep' },
