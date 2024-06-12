@@ -27,22 +27,25 @@
 | 7       |     | [Test Cases for Various Instructions](#_7-test-cases-for-various-instructions)        |
 | 8       |     | [References](#_8-references)        |
 
-## 1. Overview
 
+
+## 1. Overview
 
 Till now you have learned to design sequential and combinational logic, in this section you will learn how to create a single cycle processor, specifically the MIPS microprocessor.  
 
 This section combines almost every concept covered so far. Abstraction of block diagrams and Verilog HDLis used to describe the arrangement of each component. We exploit regularity and modularity by reusing already created blocks such as ALUs, multiplexers and register files. 
 The microarchitecture is partitioned into datapath and control units. The MIPS microprocessor datapath uses the register file, ALU, memory unit, and instruction decoder to execute instructions. The register file stores data and instructions, the ALU performs operations, the memory unit accesses and stores data, and the instruction decoder controls data flow. 
+
 The control unit of a MIPS microprocessor generates control signals that direct the flow of data between components in the datapath, ensuring that instructions are executed correctly. It receives instructions from the decoder, directs data flow to the correct components, and controls instruction timing.  
+
 Together, the datapath and control units work to execute instructions in the MIPS microprocessor.  
 We will focus on the single-cycle implementation of a subset of MIPS instructions. Additionally, we will compare single-cycle, multicycle, and pipelined microarchitectures for the MIPS processor.
 
-## 2. Prerequisites 
+# 2. Prerequisites 
 
 To create a Verilog MIPS single cycle processor, you should have a strong understanding of digital logic design, computer architecture, and Verilog programming.   
 
-Some of the specific prerequisites include-
+Some of the specific prerequisites include:-
 
 - Knowledge of digital logic design concepts, such as combinational and sequential circuits, logic gates, flip-flops, and registers and implementing these in Verilog HDL.   
 
@@ -56,20 +59,21 @@ Some of the specific prerequisites include-
 
 Additionally, it would be helpful if you were familiar with the MIPS instruction set architecture, including its various instruction formats, opcode values, and functionality.
 
-## 3. Control Unit 
+# 3. Control Unit 
 
-This section covers an implementation of our MIPS subset, which is created by adding a basic control function to the datapath discussed in the previous section. Support for load word (lw), store word (sw), branch equal (beq), and arithmetic-logical instructions like add, sub, AND, OR, and set on less than are all included in this version. It is implemented in 2 parts: the main control Unit and ALU Control Unit. Firstly we look at the instruction format.
+This section covers an implementation of our MIPS subset, which is created by adding a basic control function to the datapath discussed in the previous section. Support for load word (lw), store word (sw), branch if equal (beq), and arithmetic-logical instructions like add, sub, AND, OR, and set on less than are all included in this version. It is implemented in 2 parts: the Main Control Unit and ALU Control Unit. Firstly, we look at the instruction format.
 
 ![CU](./2024%20Single%20Cycle%20Images/singlecycle-0013.png)
+> Fig. 1 
 
-### Instruction Format 
+## Instruction Format 
 
-The 32 bit MIPS instruction can be broken down into the following parts 
+The 32 bit MIPS instruction can be broken down into the following parts:-
 
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0017.png)
-```fig 2```
+> Fig. 2 Instruction Breakdown
 
- The op field, called the opcode, is always contained in bits 31:26. We will refer to this field as ```Op[5:0]``` by standard notation.
+ The op field, called the opcode, is always contained in bits ```31:26```. We will refer to this field as ```Op[5:0]``` by standard notation.
 
 - The two registers to be read are always specified by the rs and rt fields, at positions ````25:21```` and ```20:16```. This is true for the R-type instructions, branch equal, and store.
 
@@ -77,19 +81,18 @@ The 32 bit MIPS instruction can be broken down into the following parts
 
 - The 16-bit offset for branch equal, load, and store is always in positions ```15:0```. 
 
-- The destination register is in one of two places. For a load, it is in bit positions 20:16 (rt), while for an R-type instruction it is in bit positions 15:11 (rd). Thus, we will need to add a multiplexor to select which field of the instruction is used to indicate the register number to be written. 
+- The destination register is in one of two places. For a `load`, it is in bit positions `20:16 (rt)`, while for an `R-type` instruction it is in bit positions `15:11 (rd)`. Thus, we will need to add a multiplexor to select which field of the instruction is used to indicate the register number to be written. 
 
-### Main Control Unit (Main Decoder)
+## Main Control Unit (Main Decoder)
 
-The control unit computes the control  ignals based on the opcode and funct fields of the instruction, `[31:26]` and `[5:0]`.
+The control unit computes the control signals based on the opcode and funct fields of the instruction, `[31:26]` and `[5:0]`.
 
 Most of the control information comes from the opcode, but R-type instructions also use the funct field to determine the ALU operation. The majority of the outputs from the opcode are computed by the main decoder. The 6 bits of the opcode are decoded into various control signals of the Main Decoder as shown in Fig. 3.
 
-![Simple PLA Implementation ](./2024%20Single%20Cycle%20Images/singlecycle-0020.png) 
-
+![](./2024%20Single%20Cycle%20Images/singlecycle-0020.png) 
 > Fig 3. Simple PLA Implementation 
 
-Table 1 explains each of the control signals in detail with all the important information. These nine control (two from ALUOp which are explained later) signals are set on the basis of six input signals to the control unit, which are the opcode bits 31 to 26.
+Table 1 explains each of the control signals in detail with all the important information. These nine control signals (two from ALUOp which are explained later) are set on the basis of six input signals to the control unit, which are the opcode bits 31 to 26.
 
 | Control  Signals |                          Deasserted                         |                                            Asserted                                          |
 |:----------------:|:-----------------------------------------------------------:|:--------------------------------------------------------------------------------------------:|
@@ -103,35 +106,35 @@ Table 1 explains each of the control signals in detail with all the important in
 
 > Table 1. Different Control Signals for the different MUXs
 
-With the exception of the PCSrc control line, the control unit can set all of the control signals based only on the opcode field of the instruction.
+With the exception of the PCSrc control line, the control unit can set all of the control signals based only on the opcode field of the instruction. 
 If the instruction is branch on equal and the ALU's Zero output is asserted, then the PCSrc control line should also be asserted. We must AND the Zero signal from the ALU with the Branch signal from the control unit in order to produce the PCSrc signal.
 
-### ALU Control Unit (ALU Decoder)
+## ALU Control Unit (ALU Decoder) 
 
-Depending on the instruction class, the ALU will need to perform one of these functions.
+Depending on the instruction class, the ALU will need to perform one of these functions:-
 
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0023.png)
-Table 2. ALU Control Lines 
+> Table 2. ALU Control Lines 
 
 The main decoder determines a 2-bit ALUOp signal which is used as input for ALU Decoder along with the 6-bit funct (or function) field in the low-order bits of the instruction. The 4 bit output signal of the ALU Control Unit represents the operation to be carried out by the ALU. 
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0026.png)
-Fig 4. ALU Hardware Implementation 
+> Fig 4. ALU Hardware Implementation 
 
 The 2 bit ALUOp sent by the Control Unit indicates whether the operation to be performed should be add (00) for loads and stores, subtract (01) for beq, or determined by the operation encoded in the funct field (10).
 
-#### Understanding the optimal implementation: 
+### Understanding the Optimal Implementation
 
-Using multiple levels of control can reduce the size of the main control unit. Using several smaller control units may also potentially increase the speed of the control unit. Such optimizations are important, since the speed of the control unit is often critical to clock cycle time 
+Using multiple levels of control can reduce the size of the main control unit. Using several smaller control units may also potentially increase the speed of the control unit. Such optimizations are important, since the speed of the control unit is often critical to clock cycle time.
 
-#### ALU Control Truth Table 
+### ALU Control Truth Table 
 
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0027.png)
 
-#### Input-Output Truth Table
+### Input-Output Truth Table
 
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0030.png)
 
-## 4. Datapath
+# 4. Datapath
 
 A datapath is the part of a computer processor that performs arithmetic and logic operations on data. It is a digital circuit that consists of `registers`, an `arithmetic logic unit` (ALU), and `multiplexers`.
 
@@ -139,34 +142,35 @@ The datapath receives instructions and data from the processor's memory and perf
 
 The datapath also includes multiplexers that allow the selection of different input values based on control signals. The control signals are generated by the control unit, which coordinates the operations of the datapath to execute instructions.
 
-The datapath operates on words of data. ``MIPS `` is a ``32-bit architecture``, so we will use a 32-bit datapath. The datapath first decodes the instruction for the control unit which then sets the different multiplexers thereby fixing the datapath. We will split the datapath into different state elements and try to learn them one by one and finally piece them together to create a complete datapath.
+The datapath operates on words of data. ``MIPS`` is a ``32-bit architecture``, so we will use a 32-bit datapath. The datapath first decodes the instruction for the control unit which then sets the different multiplexers thereby fixing the datapath. We will split the datapath into different state elements and try to learn them one by one and finally piece them together to create a complete datapath.
 
-### State elements
+## State elements
 
 There are 5 main state elements required for building the datapath.
 
-#### a Instruction Memory 
+### a) Instruction Memory 
 
 The program counter contains the address of the instruction to be executed. The first step is to read this instruction from the element called instruction memory. 
-The instruction memory takes the address in PC as the input and fetches the 32 bit instruction, labelled instr. 
+The instruction memory takes the address in PC as the input and fetches the 32 bit instruction, labelled `instr`. 
 
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0033.png)
 
 The processor’s actions depend on the specific instruction that was fetched. 
 
-#### b Register File 
+### b) Register File 
 
-The register file contains all the available registers. It has two read ports and one write port. Since MIPS architecture contains 32 registers, each register is identified by a unique 5 bit number (log2 32). This unique 5 bit number is given as the input in both read and write ports. 
+The register file contains all the available registers. It has two read ports and one write port. Since MIPS architecture contains 32 registers, each register is identified by a unique 5 bit number (log<sub>2</sub> 32). This unique 5 bit number is given as the input in both read and write ports. 
 The contents of the registers specified via the read ports are given as the output. If the control signal RegWrite is set, the data given in the data port is written into the register given in the write port.
 
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0036.png)
  
-#### c) ALU
+### c) ALU
+
    ALU performs different arithmetic operations on the data depending on the signal received from the control unit. It has two data input ports and an input from the control unit which specifies the operation to be performed. The final result is output through ALU result and zero port is set to 1 if the result is zero. 
 
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0037.png)
 
-#### d Data Memory
+### d) Data Memory 
 
 The memory unit is a state element with inputs for the address and the write data, and a single output for the read result.There are separate read and write controls, called MemRead and MemWrite. Only one of these may be asserted at a time.
 
@@ -175,7 +179,7 @@ The memory unit is a state element with inputs for the address and the write dat
 
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0040.png)
 
-#### e) Sign extension 
+### e) Sign extension 
 
 To understand what sign extension is, let’s take an example. Consider the 4 bit number 1100. If we were to sign extend it to an 8 bit number, we take the MSB which in this case is 1 and extend it to make the upper half of the 8 bit number keeping the lower same as the initial 4 bits which gives us 1111 1100. Similarly, this element sign extends a 16 bit number into a 32 bit number.
 
@@ -183,14 +187,20 @@ To understand what sign extension is, let’s take an example. Consider the 4 bi
 
 Now that we have seen the different state elements involved in a datapath, let's see the datapath followed by different MIPS instructions. Since we are considering MIPS microprocessor, each instruction is 32 bits long. 
 
-- add 
-It is an R-type instruction of the form add $rd,$rs,$rt 
-The R-type instruction format is
+## Datapaths of MIPS Instructions
+
+- ### add
+  
+It is an R-type instruction of the form:-
+```mips
+    add $rd,$rs,$rt
+```
+The has an R-type instruction format.
 
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0044.png)
 
 
-The datapath for add instruction is as follows :
+The datapath for add instruction is as follows:-
 
 1. Grab the instruction address from the PC.
 
@@ -199,13 +209,14 @@ The datapath for add instruction is as follows :
 2. Decode instruction.
 
 ![Decoder](./2024%20Single%20Cycle%20Images/singlecycle-0046.png)
+   
 
 3. Pass rs,rt and rd into read register and write register ports.
 
 ![Register](./2024%20Single%20Cycle%20Images/singlecycle-0049.png)
 
 
-4. Retrieve data from read register 1 and register 2 (rs and rt).
+4. Retrieve data from read register 1 and register 2 (rs and rt). 
 
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0050.png)
 
@@ -222,13 +233,20 @@ The datapath for add instruction is as follows :
 ![](./2024%20Single%20Cycle%20Images/singlecycle-0057.png)
 
 
-- ```lw(load word)```  
-The lw instruction is of the form `lw $rt immediate($rs)`. It has an I-type instruction format. 
+- ### lw (load word)
+  
+The lw instruction is of the form:-
+
+```mips
+   lw $rt immediate($rs)
+```
+It has an I-type instruction format with an opcode 35. 
 
 ![lw](./2024%20Single%20Cycle%20Images/singlecycle-0058.png)
 
 The load word instruction copies the data stored at the address ‘immediate+value(rs)’ and stores it into the register rt.  
-The datapath for lw instruction is as follows :-
+
+The datapath for lw instruction is as follows:-
 
 1. The instruction memory reads the PC and outputs the instruction.
 
@@ -246,18 +264,16 @@ The datapath for lw instruction is as follows :-
 
 ![lw](./2024%20Single%20Cycle%20Images/singlecycle-0061.png)
 
-- ``` sw(store word)```
-    sw instruction is of the form
+- ### sw (store word)
+sw instruction is of the form:-
 
-    ```v
-    sw $rt immediate($rs)
-    ```
+```mips
+   sw $rt immediate($rs)
+```
 
-    The instruction format is again of the form I-type with an opcode 43.
+The instruction format is again of the form I-type with an opcode 43. The store word instruction writes the data stored in the register rt into the memory address ‘value(rs)+immediate’.
 
-The store word instruction writes the data stored in the register rt into the memory address ‘value(rs)+immediate ’.
-
-The datapath for sw instruction is as follows :-
+The datapath for sw instruction is as follows:-
 
 1. The instruction memory reads the PC and outputs the instruction.
 
@@ -275,21 +291,21 @@ The datapath for sw instruction is as follows :-
 
 
 
-- ``beq``(branch if equal) 
+- ### beq (branch if equal) 
 
-The beq instruction is of the form
+The beq instruction is of the form:-
 
-```asm
+```mips
     beq $rs ,$rt ,immediate
 ```
 
-It has an I-type instruction format.
+It has an I-type instruction format and its opcode is 4. 
 
 ![I-type](./2024%20Single%20Cycle%20Images/singlecycle-0066.png)
 
 It compares the contents of rs and rt to check if they are equal and uses the 16-bit immediate field to compute the target address of the branch relative to the current address. 
 
-The datapath for beq instruction is as follows :- 
+The datapath for beq instruction is as follows:- 
 
 1. The instruction memory reads the PC and outputs the instruction.
 
@@ -307,16 +323,20 @@ The datapath for beq instruction is as follows :-
 
 ![beq](./2024%20Single%20Cycle%20Images/singlecycle-0069.png)
 
-- ```j``` (jump)
+- ### j (jump)
  
-The jump instruction is of the form j targaddr. It has a J-type instruction format with opcode 2.
+The jump instruction is of the form 
 
-This instruction uses the 26 bit targaddr to compute jump address and updates the value of PC to jump 
-address. 
+```mips
+   j targaddr
+```
+It has a J-type instruction format with opcode 2.
 
 ![J-type](./2024%20Single%20Cycle%20Images/singlecycle-0072.png)
 
-The datapath for j instruction is as follows :-
+This instruction uses the 26 bit targaddr to compute jump address and updates the value of PC to jump address.
+
+The datapath for j instruction is as follows:-
 
 1. The instruction memory reads the PC and outputs the instruction.
 
@@ -330,13 +350,13 @@ The datapath for j instruction is as follows :-
 
 ![j](./2024%20Single%20Cycle%20Images/singlecycle-0073.png)
 
-### The Final Datapath
+## The Final Datapath
 
 ![Final](./2024%20Single%20Cycle%20Images/singlecycle-0076.png)
 
 > Fig 4. Simple datapath with control unit (for R-type and I-type)
 
-Here, the input to the control unit is the 6-bit opcode field from the instruction. The outputs are the control signals which serve various purposes :- 
+Here, the input to the control unit is the 6-bit opcode field from the instruction. The outputs are the control signals which serve various purposes:- 
 
 - `RegDst`, `ALUSrc`, `MemtoReg` - 1-bit signals that control the multiplexors.
 
@@ -346,27 +366,27 @@ Here, the input to the control unit is the 6-bit opcode field from the instructi
 
 Note that here, the AND gate is used to combine the Branch control signal with the Zero output from the ALU. This is responsible for the selection of the next PC.
 
-#### Role of Multiplexors
+### Role of Multiplexors
 
-As seen above, there are 4 multiplexors required at various stages of the datapath. They are needed in order to implement both R-type and I-type instructions using the same datapath. Their roles are explained below :- 
+As seen above, there are 4 multiplexors required at various stages of the datapath. They are needed in order to implement both R-type and I-type instructions using the same datapath. Their roles are explained below:- 
 
-1. MUX 1 - This MUX determines which register needs to be written into using the `RegDst` control signal. If it’s 0, the write register number comes from the rt field (in the case of I-type), whereas if it’s 1, the write register number comes from the rd field (for R-type instructions)
+1. `MUX 1` - This MUX determines which register needs to be written into using the `RegDst` control signal. If it’s 0, the write register number comes from the rt field (in the case of I-type), whereas if it’s 1, the write register number comes from the rd field (for R-type instructions).
 
-1. MUX 2 - This MUX is placed at the ALU input with `ALUSrc` as the select line. When it’s 0, an arithmetic-logical instruction is taking place, and the second ALU operand is the data read from the second register. When it’s 1, a memory instruction is taking place, with the second ALU operand being the sign-extended 16-bit immediate field from instruction.
+1. `MUX 2` - This MUX is placed at the ALU input with `ALUSrc` as the select line. When it’s 0, an arithmetic-logical instruction is taking place, and the second ALU operand is the data read from the second register. When it’s 1, a memory instruction is taking place, with the second ALU operand being the sign-extended 16-bit immediate field from instruction.
 
-1. MUX 3 - It chooses which value is stored in the destination register using the `MemtoReg` control signal. This value comes from the ALU (for an R-type instruction) or the memory (for a load).
+1. `MUX 3` - It chooses which value is stored in the destination register using the `MemtoReg` control signal. This value comes from the ALU (for an R-type instruction) or the memory (for a load).
 
-1. MUX 4 - The final MUX is used to select if the PC moves onto the sequentially following instruction address (PC + 4) or branches to a target address. The control signal that achieves this is the output of the `AND gate` which is 1 in case of a branch instruction and 0 otherwise.
+1. `MUX 4` - The final MUX is used to select if the PC moves onto the sequentially following instruction address (PC + 4) or branches to a target address. The control signal that achieves this is the output of the `AND gate` which is 1 in case of a branch instruction and 0 otherwise.
 
 ![Final](./2024%20Single%20Cycle%20Images/singlecycle-0079.png)
-> Fig 4. Datapath with Jump implementation
+> Fig 5. Datapath with Jump implementation
 
 Additionally to implement the Jump instruction in the same datapath, an additional MUX, controlled by the jump control signal, is used to determine whether to move to the jump target address or the next consequent instruction. This jump target is obtained by shifting the lower 26 bits of the jump instruction left 2 bits (ie. multiplying by 4) and then concatenating the upper 4 bits of PC + 4 as the high-order bits, thus yielding a 32-bit address.
 
 
-## 5. Implementation 
+# 5. Implementation 
 
-### 1. Top level module
+## 1. Top level module
 
 ![Top](./2024%20Single%20Cycle%20Images/singlecycle-0082.jpg)
 
@@ -383,19 +403,23 @@ module top (input clk, reset,
 endmodule
 ```
 
-The top level module instantiates 3 sub modules ```asm``` , ```imem``` and  ```dmem```
-The `mips` module is the main processor that is responsible for executing instructions.
-The `imem` module is the instruction memory, which contains the program instructions.
-The `dmem` module is the data memory, which is used for load/store instructions.
+The top level module instantiates 3 sub modules `mips` , `imem` and  `dmem`.
+
+The `mips` module is the **main processor** that is responsible for executing instructions.
+
+The `imem` module is the **instruction memory**, which contains the program instructions.
+
+The `dmem` module is the **data memory**, which is used for load/store instructions.
+
 Here is a brief description of the input and output ports of the top module:
 
-#### Inputs
+**Inputs**
 
 1. `clk` - the clock signal used to synchronise the processor.
 
 2. `reset` - the reset signal used to initialise the processor.
 
-#### Outputs
+**Outputs**
 
 1. `writedata` - the data to be written to memory.
 
@@ -414,7 +438,7 @@ Overall, the top module provides the infrastructure to execute programs on the M
 ![Top](./2024%20Single%20Cycle%20Images/singlecycle-0088.jpg)
 > RTL view of top level module 
 
-### 2. Data Memory
+## 2. Data Memory
 
 ```v
 module dmem (input clk, we, 
@@ -422,31 +446,33 @@ module dmem (input clk, we,
             output [31:0] rd); 
 
     reg [31:0] RAM[63:0]; 
-    assign rd RAM[a[31:2]]; // word aligned 
+    assign rd=RAM[a[31:2]]; // word aligned 
     always @ (posedge clk) 
         if (we) 
-            RAM[a[31:2]] wd; 
+            RAM[a[31:2]]=wd; 
 endmodule
 ```
-```dmem``` represents a random access memory (RAM) block that can store and retrieve 32-bit data values. 
+`dmem` represents a random access memory (RAM) block that can store and retrieve 32-bit data values. 
 
-#### Inputs-
+**Inputs**
 
-1. clk 
-2. MemWrite ```we``` - control signal that determines whether to write data to memory.
-3. 32 bit memory address ```a```
-4. 32 bit WriteData ‘wd’- data to be written to the location specified by ```a```.
+1. `clk `
+2. `we` - MemWrite control signal that determines whether to write data to memory.
+3. `a` - 32 bit memory address 
+4. `wd` - 32 bit WriteData - data to be written to the location specified by `a`.
 
 
-#### Output-
+**Outputs**
 
-1. 32 bit ReadData ````rd```` - data read from memory location `a`. 
+1. `rd` - 32 bit ReadData  - data read from memory location `a`. 
+
 The `dmem` module contains a RAM that stores 64 words each of size 32 bits. When the `we` input is set to 1, the 32 bit data `wd` gets written into the memory location `a` at the positive edge of `clk` .
 
 ![dmem](./2024%20Single%20Cycle%20Images/singlecycle-0092.jpg)
+> RTL view of Data memory
 
 
-### 3. Instruction Memory
+## 3. Instruction Memory
 
 ```v
 module imem (input [5:0] a,output [31:0] rd); 
@@ -460,31 +486,35 @@ module imem (input [5:0] a,output [31:0] rd);
 endmodule
 ```
 
-Input : 
+**Input**
 
-1. 6 bit address ```a``` : This is generated by the mips module.
+1. 6 bit address `a` : This is generated by the mips module.
 
-Output : 
+**Output**
 
-1. 32 bit instruction ```rd``` :  
-The instructions are stored initially in a file called memfile.dat. This file gets loaded into the ```RAM``` array using the ```$readmemh``` system task. The ```$readmemh``` system task reads a memory file in HEX format and initialises the memory array with these values.
+1. 32 bit instruction `rd` 
 
-The syntax is : 
+The instructions are stored initially in a file called memfile.dat. This file gets loaded into the `RAM` array using the `$readmemh` system task. The ```$readmemh``` system task reads a memory file in **HEX format** and initialises the memory array with these values.
+
+**The syntax is :** 
 
 ```v
-$readmemh("hex_memory_file.mem", memory_array,[start_address],[end_address]) (The start and end address arguments are optional) 
+$readmemh("hex_memory_file.mem", memory_array,[start_address],[end_address]) 
 ```
+<sub> (The start and end address arguments are optional)  </sub>
 
-The ```imem``` module is a combinational logic block which is driven by the ```RAM``` array. 
 
-The input address ```a``` is used to index into the ```RAM``` array to retrieve the instruction located at that address.
+The `imem` module is a combinational logic block which is driven by the `RAM` array. 
 
-The instruction is then assigned to ```rd``` .
+The input address `a` is used to index into the `RAM` array to retrieve the instruction located at that address.
+
+The instruction is then assigned to `rd`.
 
 ![imem]( ./2024%20Single%20Cycle%20Images/singlecycle-0097.jpg )
 > RTL view of Instruction Memory
 
-### 4.MIPS
+### 4. MIPS
+
 
 ```v
 module mips(input clk, reset, 
@@ -507,30 +537,31 @@ endmodule
 
 ```
 
-Inputs :
+**Inputs**
 
-1. clk
-1. reset
-1. instr - current instruction being executed.
-1. 32 bit readdata - data read from the memory.
+1. `clk`
+1. `reset`
+1. `instr` - current instruction being executed.
+1. 32 bit `readdata` - data read from the memory.
 
-Outputs :
+**Outputs**
 
-1. 32 bit pc - current program counter.
-2. 32 bit aluout - result of ALU operation(i applicable). 
-3. 32 bit writedata
-4. memwrite - control signal (discussed earlier).
+1. 32 bit `pc` - current program counter.
+2. 32 bit `aluout` - result of ALU operation(i applicable). 
+3. 32 bit `writedata`
+4. `memwrite` - control signal (discussed earlier).
 
 
-The ```asm```  module instantiates two other modules, ```controller```  and ```datapath``` , which work together to execute instructions. 
+The `mips`  module instantiates two other modules, `controller`  and `datapath` , which work together to execute instructions. 
+
 Both these modules are discussed in detail in the upcoming sections. 
 
-Overall the ```asm```  module acts like a traffic signal, directing the flow of data and control signals between the ```datapath```  and ```controller```  modules to execute instructions and maintain the processor’s state.
+Overall the ```mips```  module acts like a traffic signal, directing the flow of data and control signals between the ```datapath```  and ```controller```  modules to execute instructions and maintain the processor’s state.
 
 ![mips](./2024%20Single%20Cycle%20Images/singlecycle-0102.jpg)
 > RTL view of MIPS module
 
-### 5. Controller 
+## 5. Controller 
 
 ```v
 module controller (input [5:0] op, funct, 
@@ -551,39 +582,40 @@ module controller (input [5:0] op, funct,
      endmodule 
 ```
 
-Inputs-
+**Inputs**
 
-1. 6 bit Opcode
-2. 6 bit funct
-3. Zero bit (for PCSrc)
+1. 6 bit `Opcode`
+2. 6 bit `funct`
+3. `zero` bit (for `PCSrc`)
 
-Outputs-
+**Outputs**
 
-1. 7 control signals
-    1. ```memtoreg```  
-    2. ```memwrite```  
-    3. ```pcsrc```  
-    4. ```alusrc```  
-    5. ```regdst```  
-    6. ```regwrite```  
-    7. ```jump```  
+1) 7 control signals
 
-2. 3 bit alu control
+    1. `memtoreg`
+    2. `memwrite`  
+    3. `pcsrc`  
+    4. `alusrc`  
+    5. `regdst`  
+    6. `regwrite`  
+    7. `jump`  
 
- Temporary Variables
+2) 3 bit alu control
 
-1. 2 bit AluOP
-1. Branch bit
+**Temporary Variables**
 
-#### Working
+1. 2 bit `aluOP`
+1. `branch` bit
 
-It acts as a top level module connecting the main decoder and alu decoder. It has some additional logic to make the PCSrc control signal by AND-ing the branch (intermediate) signal from the main decoder and the Zero from the ALU.
+**Working**
 
-![controller](./2024%20Single%20Cycle%20Images/singlecycle-0122.jpg)
+It acts as a top level module connecting the main decoder and alu decoder. It has some additional logic to make the `PCSrc` control signal by AND-ing the `branch` (intermediate) signal from the main decoder and the `Zero` from the ALU.
 
-RTL View of Main Controller
+![controller](./2024%20Single%20Cycle%20Images/singlecycle-0105.png)
 
-### 6. Main Decoder
+> RTL View of Main Controller
+
+## 6. Main Decoder
 
 ```v
 module maindec(input [5:0] op, 
@@ -609,11 +641,11 @@ module maindec(input [5:0] op,
 endmodule 
 ```
 
-Input :  
+**Inputs** 
 
-6 Bit ```Opcode```
+1. 6-bit ```Opcode```
 
-Outputs :
+**Outputs**
 
 1. ```memtoreg```
 2. ```memwrite```
@@ -623,22 +655,23 @@ Outputs :
 6. ```regwrite```
 7. ```jump```
 
-(These 7 represent the 7 control signals which originate from the Control Unit and are explained in Theory section Table 1)
-     1. 2 Bit ALUOp
+(These 7 represent the 7 control signals which originate from the Control Unit and are explained in Theory section **Table 1**)
 
-### Temporary Variables
+8. 2-bit `ALUOp`
+
+**Temporary Variables**
 
 1. 9 bit register control - It represents all the control signals together for easier assignment during the case statement.
 
-#### Working
+**Working**
 
-It is the main decoder which sets the control signals to 1s and 0s according to the opcode instruction. It uses a switch-case statement to decide what control to set inside a “always” procedural block.
+It is the main decoder which sets the control signals to 1s and 0s according to the opcode instruction. It uses a **switch-case** statement to decide what control to set inside a **“always”** procedural block.
 
 > Note:  
-> ```always@(*)``` blocks are used to describe **Combinational Logic**, or Logic Gates. ```*``` sets the sensitivity list of the “always” to any values that can have an impact on a value(s) determined by the ```always@(*)``` block.
+> ```always@(*)``` blocks are used to describe **Combinational Logic**, or Logic Gates. ```*``` sets the sensitivity list of the `always` to any values that can have an impact on a value(s) determined by the ```always@(*)``` block.
 
 ![maindec](./2024%20Single%20Cycle%20Images/singlecycle-0110.png)
-RTL View of Main Decoder
+> RTL View of Main Decoder
 
 ## 7. ALU Decoder
 
@@ -663,18 +696,18 @@ endcase
 endmodule 
 ````
 
-Inputs :
+**Inputs** 
 
 1. 16 bit ```funct``` (from 32 bit MIPS Instruction)
 2. 2 bit ```ALUOp``` (coming from Main decoder)
 
-Output :
+**Outputs**
 
 1. 3 bit ALU control
 
-Working
+**Working**
 
-It decides what function the ALU will carry out. It works with a nested switch-case statement. First it checks the ```ALUop```
+It decides what function the ALU will carry out. It works with a **nested switch-case** statement. First it checks the ```ALUop```
 
 1. If ```ALUOp``` = 1 -> ALU has to perform addition. (lw,sw)
 2. If ```ALUOp``` = 2 -> ALU has to perform subtraction. (beq)
@@ -687,20 +720,22 @@ RTL View of ALU Decoder
 
 ```v
 module datapath (input clk, reset, 
-    input memtoreg, pcsrc, 
-    input alusrc, regdst, 
-    input regwrite, jump, 
-    input [2:0] alucontrol, 
-    output zero, 
-    output [31:0] pc, 
-    input [31:0] instr, 
-    output [31:0] aluout, writedata, 
-    input [31:0] readdata); 
+                input memtoreg, pcsrc, 
+                input alusrc, regdst, 
+                input regwrite, jump, 
+                input [2:0] alucontrol, 
+                output zero, 
+                output [31:0] pc, 
+                input [31:0] instr, 
+                output [31:0] aluout, writedata, 
+                input [31:0] readdata); 
+
     wire [4:0] writereg; 
     wire [31:0] pcnext, pcnextbr, pcplus4, pcbranch; 
     wire [31:0] signimm, signimmsh; 
     wire [31:0] srca, srcb; 
     wire [31:0] result; 
+
 // next PC logic 
     flopr #(32) pcreg(clk, reset, pcnext, pc); 
     adder pcadd1 (pc, 32b100, pcplus4); 
@@ -709,6 +744,7 @@ module datapath (input clk, reset,
     mux2 #(32) pcbrmux(pcplus4, pcbranch, pcsrc,pcnextbr); 
     mux2 #(32) pcmux(pcnextbr, {pcplus4[31:28], 
     instr[25:0], 2b00},jump, pcnext); 
+
 // register file logic 
     regfile rf(clk, regwrite, instr[25:21],instr[20:16], writereg,result, srca, writedata); 
     mux2 #(5) wrmux(instr[20:16], instr[15:11], 
@@ -716,40 +752,46 @@ module datapath (input clk, reset,
     mux2 #(32) resmux(aluout, readdata, 
     memtoreg, result); 
     signext se(instr[15:0], signimm); 
+
 // ALU logic 
-    mux2 #(32) srcbmux(writedata, signimm, alusrc,srcb); alu alu(srca, srcb, alucontrol,aluout, zero); 
+    mux2 #(32) srcbmux(writedata, signimm, alusrc,srcb); 
+    alu alu(srca, srcb, alucontrol,aluout, zero); 
 endmodule
 ```
 
-Inputs :
+**Inputs** 
 
-1. clk
-2. reset  
 (They are external inputs.)
-3. memwrite
-4. regwrite
-5. regdst
-6. alusrc
-7. memtoreg
-8. pcsrc
-9. jump  
+
+1. `clk`
+2. `reset`  
+
 (They are the control signals from the main decoder.)
-10. 32 bit instr - output of the instruction memory.
-11. 32 bit readdata - output of the data memory.
-12. 3 bit alucontrol - output of the alu decoder.
 
-Outputs :
+3. `memwrite`
+4. `regwrite`
+5. `regdst`
+6. `alusrc`
+7. `memtoreg`
+8. `pcsrc`
+9. `jump`  
+<br>
+10. 32 bit `instr` - output of the instruction memory.
+11. 32 bit `readdata` - output of the data memory.
+12. 3 bit `alucontrol` - output of the alu decoder.
 
-1. zero
-2. 32 bit pc
-3. 32 bit aluout
-4. 32 bit writedata
+**Outputs**
 
-Working :
+1. `zero`
+2. 32 bit `pc`
+3. 32 bit `aluout`
+4. 32 bit `writedata`
+
+### Working 
 
 The datapath is separated into 3 sections:-
 
-1. next PC logic
+#### 1. next PC logic
 
 The pseudocode for this section is-
 
@@ -776,35 +818,37 @@ always@(poseedge clk && poseedge reset)
 }
 ```
 
-2. register file logic
+#### 2. register file logic
 
 The pseudocode for this section is- 
 
 ```v
 { 
-if(regdst==0) 
-    writereg=instr[20:16]; 
-else 
-    writereg=instr[15:11]; 
-    if(memtoreg==0) 
-    result=aluout; 
+    if(regdst==0) 
+        writereg=instr[20:16]; 
     else 
-    result=readdata; 
+        writereg=instr[15:11]; 
+    if(memtoreg==0) 
+        result=aluout; 
+    else 
+        result=readdata; 
+
     in registerfile { 
-    read register1=instr[25,21]; 
-    read register2=instr[20:16]; 
-    write register=writereg; 
-    write data=result; 
+        read register1=instr[25:21]; 
+        read register2=instr[20:16]; 
+        write register=writereg; 
+        write data=result; 
           } 
 }
 ```
 
-3. ALU 
-In this section the ALU performs operations on ‘srca’(output of register file) and ‘srcb’ (depends on control signal alusrc) depending on the value of ‘alucontrol’.
+#### 3. ALU 
+In this section the ALU performs operations on `srca`(output of register file) and `srcb` (depends on control signal `alusrc`) depending on the value of `alucontrol`.
 
-RTL view of datapath 
+![datapath](./2024%20Single%20Cycle%20Images/singlecycle-0122.jpg )
+> RTL view of datapath 
 
-### 9. Three ported Register
+## 9. Three ported Register
 
 ```v
 module regfile (input clk,
@@ -821,28 +865,29 @@ module regfile (input clk,
 endmodule
 ```
 
-Inputs :
+**Inputs**
 
-1. ```Clk``` signal for third port
+1. `Clk` signal for third port
 2. Read register 1 ```ra1```
 3. Read register 2 ```ra2```
 4. Write register ```wa3```
 5. Write data ```we3```
 
-Outputs :
+**Outputs**
 
 1. Read data 1 ```rd1```
 2. Read data 2 ```rd2```
 
-Temporary Variables :
+**Temporary Variables** 
 
 1. 32 element Array of 32 bit registers
 
-Working :
+**Working** 
 
 Two ports read combinationally. Third port written on the rising edge of the clock. If any of the registers are ‘0’ it is hardwired to be 0 value by default.
 
-![regfile](./2024%20Single%20Cycle%20Images/singlecycle-0125.png) RTL View of Register File
+![regfile](./2024%20Single%20Cycle%20Images/singlecycle-0125.png) 
+> RTL View of Register File
 
 ## 10. Some Other Functional Units 
 These units were explained in previous modules. As such explanation and theory is not repeated and can be referred to from those modules.
@@ -850,7 +895,8 @@ These units were explained in previous modules. As such explanation and theory i
 ### 1. ADDER MODULE 
 
 ```v
-module adder (input [31:0] a, b,output [31:0] y); assign y=a + b; 
+module adder (input [31:0] a, b,output [31:0] y); 
+    assign y=a + b; 
 endmodule
 ```
 
@@ -859,14 +905,15 @@ endmodule
 ```v
 module sl2 (input [31:0] a, 
 output [31:0] y); 
-assign y = {a[29:01], 2'b00}; 
+    assign y = {a[29:01], 2'b00}; 
 endmodule
 ```
 
 ### 3. SIGN EXTENSION MODULE 
 
 ```v
-module signext (input [15:0] a,output [31:0] y); assign y={{16{a[15]}}, a}; 
+module signext (input [15:0] a,output [31:0] y); 
+    assign y={{16{a[15]}}, a}; 
 endmodule
 ```
 
@@ -894,8 +941,14 @@ endmodule
 
 ```v
 module alu(i_data_A, i_data_B, i_alu_control,o_result,o_zero_flag); 
-    input [31:0] i_data_A; // A operand input [31:0] i_data_B; // B operand output reg [31:0] o_result; // ALU result input [3:0] i_alu_control; // Control signal 
-    output wire o_zero_flag; // Zero flag assign o_zero_flag = ~|o_result; 
+    input [31:0] i_data_A; // A operand 
+    input [31:0] i_data_B; // B operand 
+    output reg [31:0] o_result; // ALU result 
+    input [3:0] i_alu_control; // Control signal 
+    output wire o_zero_flag; // Zero flag 
+    
+    assign o_zero_flag = ~|o_result; 
+
     always @(*) begin 
     // Start initialization: 
         casex(i_alu_control) 
@@ -917,7 +970,8 @@ module alu(i_data_A, i_data_B, i_alu_control,o_result,o_zero_flag);
             end 
         4'b0111: // SLT 
             begin 
-                o_result = i_data_A < i_data_B ? 32'h00000001: 32'h00000000; 
+                o_result = i_data_A < i_data_B ? 32'h00000001:           
+                                                 32'h00000000; 
             end 
         4'b0011://XOR 
             begin 
@@ -936,46 +990,49 @@ module alu(i_data_A, i_data_B, i_alu_control,o_result,o_zero_flag);
 endmodule
 ```
 
-## 6. How to Run Instructions
+# 6. How to Run Instructions
 
-Great! Now we have our single cycle microprocessor ready but how do we run assembly code in it? The following steps explain that in detail.
+**Great! Now we have our single cycle microprocessor ready but how do we run assembly code in it? The following steps explain that in detail.**
+
 ( Since its a MIPS implementation of a 32 Bit Microprocessor we shall use MIPS code as the assembly code. )
 
-Steps to run
+## Steps to run
 
 1. Write Down the MIPS code you want to execute.
-    1. Your code should have an instance of the instruction you want to test.
-    1. Make sure the set of instructions ends with a store word (sw) instruction. The output of this “store word” should be dependent on the instruction to be tested. (This will be used for checking if the instruction is executed correctly or not.)
-2. Convert the MIPS Code into machine code with the help of an online convertor.
-3. Save the machine code as “memfile.dat” in your preferred directory.
-4. Update the path (line 6) of “memfile.dat” in the imem module (Instruction Memory) of your Verilog code to the absolute path of the memfile.dat
+    1. Your code should have an instance of the **instruction** you want to test.
+    2. Make sure the set of instructions ends with a **store word** (sw) instruction. **The output of this “store word” should be dependent on the instruction to be tested.** (This will be used for checking if the instruction is executed correctly or not.)
+2. Convert the **MIPS Cod**e into **machine code** with the help of an online convertor.
+3. Save the machine code as `“memfile.dat”` in your preferred directory.
+4. Update the path (line 6) of `“memfile.dat”` in the `imem module` (Instruction Memory) of your Verilog code to the **absolute path of the memfile.dat**
 5. Change the test bench to check the following
-    1. dataaddr- should contain the address of the last store word (X) in the last line of  our machine code in memfile.dat
-    1. writedata- should contain the data being written in memory (Y) in the last store word instruction.
+    1. `dataaddr`- should contain the address of the **last store word (X)** in the last line of  our machine code in memfile.dat
+    1. `writedata`- should contain the **data being written in memory (Y)** in the last store word instruction.
     1. So, in the testbench make the change :
-    (dataadr === X & writedata === Y )
+    `(dataadr === X & writedata === Y )`
 6. Save the module and compile your Verilog code.
-7. Run RTL Simulation.
-8. The transcript section should contain “Simulation succeeded” in the case of a correct implementation and matching dataaddr and writedata.
+7. Run **RTL Simulation**.
+8. The transcript section should contain **“Simulation succeeded”** in the case of a correct implementation and matching dataaddr and writedata.
 
 ![transcript](./2024%20Single%20Cycle%20Images/singlecycle-0134.png)
 
-Fig. Sample transcript output
+> Fig. Sample transcript output
 
-## 7. Test cases for Various Instructions
+<br>
 
-Now we will try to check if our microprocessor implements instructions properly.
+# 7. Test cases for Various Instructions
 
-### 1. add
+**Now we will try to check if our microprocessor implements instructions properly.**
 
-```asm
+## 1. add
+
+```mips
 addi $2, $0, 450 //initialise $2 =450 
 addi $3, $0, 550 //initialise $3 =550 
 add  $4, $2, $3  //$4=$2+$3 ,$4=450+550=1000 
 sw   $4, 20($0)  //write address 20 = 1000 
 ```
 
-Machine code
+Machine code:
 
 ```hex
 200201c2 
@@ -1026,16 +1083,16 @@ module testbenchv1;
 endmodule
 ```
 
-### 2. sub
+## 2. sub
 
-```asm
+```mips
 addi $2,$0, 550 //initialise $2 =550 
 addi $3,$0, 550 //initialise $3 =550 
-sub $4,$2, $3 //$4=$2+$3 , $4=550-550=0 
+sub $4,$2, $3 //$4=$2-$3 , $4=550-550=0 
 sw $4, 50($0) //write address 50 = 0
 ```
 
-Machine code :
+Machine code:
 
 ```hex
 20020226 
@@ -1084,14 +1141,14 @@ module testbenchv1;
  endmodule 
 ```
 
-### 3. sw 
+## 3. sw 
 
-```asm
+```mips
 addi $2,$0,25 //initialise $2 =25 
 sw $2, 30($0) //write address 30 = 25 
 ```
 
-Machine code :
+Machine code:
 
 ```hex
 20020019 
@@ -1113,12 +1170,12 @@ module testbenchv1;
     // initialize test 
     initial 
     begin 
-    reset <= 1; # 22; reset <= 0; 
+        reset <= 1; # 22; reset <= 0; 
     end 
     // generate clock to sequence tests 
     always 
     begin 
-    clk <= 1; # 5; clk <= 0; # 5; 
+        clk <= 1; # 5; clk <= 0; # 5; 
     end 
     // check results 
     always @ (negedge clk) 
@@ -1138,16 +1195,16 @@ module testbenchv1;
 endmodule
 ```
 
-### 4. lw
+## 4. lw
 
-```asm
+```mips
 addi $2,$0,100 //initialise $2 =100 
 sw $2,30($0) //write address 30 = 100 
 lw $3,30($0) //$3=[30] = 100 
 sw $3,20($0) //write address 20 = 100 
 ```
 
-Machine code
+Machine code:
 
 ```hex
 20020064 
@@ -1157,7 +1214,7 @@ ac030014
 ```
 
 If the value at address location 20 is 100, then lw instruction is working properly. 
-The testbench to check the same is:\
+The testbench to check the same is:
 
 ```v
 module testbenchv1; 
@@ -1170,14 +1227,14 @@ module testbenchv1;
     top dut(clk, reset, writedata, dataadr, memwrite); 
     // initialize test 
     initial 
-        begin 
+    begin 
         reset <= 1; # 22; reset <= 0; 
-        end 
+    end 
     // generate clock to sequence tests 
     always 
-        begin 
+    begin 
         clk <= 1; # 5; clk <= 0; # 5; 
-        end 
+    end 
     // check results 
     always @ (negedge clk) 
         begin 
@@ -1196,9 +1253,9 @@ module testbenchv1;
 endmodule
 ```
 
-### 5. beq
+## 5. beq
 
-```asm
+```mips
 main: 
 addi $2,$0,20 //initialise $2 =20 
 addi $3,$0,30 //initialise $3 =30 
@@ -1258,7 +1315,7 @@ always
 endmodule
 ```
 
-## 8. References
+# 8. References
 
 - "Computer Organization and Design: The Hardware/Software Interface" by David Patterson and John Hennessy
 - “Digital design and Computer architecture” by David Money Harris & Sarah L. Harris.
