@@ -50,9 +50,9 @@ This course covers the following topics-
 * `Floating Points` - Learn how to handle floating point numbers. -->
 
 ## Setting up MARS
-
+:::tip Open
 Main Documentation : [Click Here](./mips_setup.md)
-
+:::
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FM-0bSelrjw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [View on Youtube](https://youtu.be/FM-0bSelrjw)
@@ -105,18 +105,18 @@ syscall
 
 
 ## **Introduction to MIPS**
-
+:::tip Open
 Main Documentation : [Click Here](./mips_basics&procedures.md)
-
+:::
 <iframe width="560" height="315" src="https://www.youtube.com/embed/T40qoR7V6oU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [ View on Youtube ](https://youtu.be/T40qoR7V6oU)
 
 
 ## **Basic Integer and String Handling**
-
+:::tip Open
 Main Documentation (Integer) : [Click Here](./mips_integers&float.md)
-
+:::
 <iframe width="560" height="315" src="https://www.youtube.com/embed/R5UB4CnZo7Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [View on Youtube](https://youtu.be/R5UB4CnZo7Y)
@@ -130,9 +130,9 @@ Main Documentation (Integer) : [Click Here](./mips_integers&float.md)
 | Finding Spy Number        | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Intro%20to%20MIPS/Integers%20and%20Strings_q3.asm) |
 
 ## **Floating Point Handling**
-
+:::tip Open
 Main Documentation : [Click Here](./mips_integers&float.md)
-
+:::
 | Topic                              | Sample Code Link                                                                         |
 | ---------------------------------- | ---------------------------------------------------------------------------------------- |
 | Fahrenheit to Celsius              | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q1.asm) |
@@ -140,9 +140,9 @@ Main Documentation : [Click Here](./mips_integers&float.md)
 | Round off to n digits              | [Sample Code](https://github.com/hwlabnitc/MIPS-Codes/blob/main/Floating%20point/Q3.asm) |
 
 ## **Integer Array Handling**
-
+:::tip Open
 Main Documentation : [Click Here](./mips_array.md)
-
+:::
 | Topic                                                   | Video Link                            | Sample Code Link                                                                                                                                               |
 | ------------------------------------------------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Introduction to Integer Arrays                          | [Video](https://youtu.be/tvaMA7D_cjo) | [Sample Code](https://github.com/hwlab-csed/MIPS-Codes/blob/main/Integer%20arrays/MIPS_Integer%20Arrays_Sample%20Codes_1.asm)                                  |
@@ -156,9 +156,9 @@ Main Documentation : [Click Here](./mips_array.md)
 ---
 
 ### **2-D Integer Array Handling**
-
+:::tip Open
 Main Documentation : [Click Here](./mips_array)
-
+:::
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SHl3shv24jc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [View on Youtube](https://youtu.be/SHl3shv24jc)
