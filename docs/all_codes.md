@@ -63,6 +63,14 @@ cur at a time.](https://github.com/hwlabnitc/Registers/blob/main/codes/Q8/)
 2.  [Implement a 4-bit universal shift register.](https://github.com/hwlabnitc/Registers/blob/main/codes/Q1/.v)  
 
 
+## Single Cycle Processor Sample Codes
+
+1. [Base Code](https://github.com/hwlabnitc/Single-Cycle-Processor/blob/main/Sample%20Codes/SingleCycle.v)
+2. [Testbenches for Running Instructions](https://github.com/hwlabnitc/Single-Cycle-Processor/tree/main/Sample%20Codes)
+3. [Modification Question - Adding Andi, Ori, Xori instructions](https://github.com/hwlabnitc/Single-Cycle-Processor/tree/main/Modification/andi%2C%20ori%2C%20xori)
+4. [Modification Question - Adding Jr instruction](https://github.com/hwlabnitc/Single-Cycle-Processor/tree/main/Modification/jr)
+5. [Sample Assignment Questions](https://github.com/hwlabnitc/Single-Cycle-Processor/blob/main/Assignment3/Questions.md)
+
 ## MIPS Assembly Codes
 
 ### **Basic Integer and String Handling**
