@@ -17,6 +17,12 @@ The Computer Science Department of NITC is a leading academic department that fo
  - [**Prof. Srinivasa TM** ](http://people.cse.nitc.ac.in/srinivasa/)
  - [**Prof. Nirmal Kumar Boran** ](https://people.cse.nitc.ac.in/nirmal/)
 
+### **Special Thanks to**
+
+- [**Dr. Virendra Singh**](https://scholar.google.com/citations?user=cmRwYjAAAAAJ&hl=en)
+- [**Gaurav Kumar**](https://www.researchgate.net/profile/Gaurav-Kumar-248)
+- [**Tejeshwar Thorawade**](https://www.linkedin.com/in/tejeshwar-thorawade-7b664b136/?originalSubdomain=in)
+
 :::details The 2024 Team
 
 #### Web Dev and Repository Maintenance :
