@@ -39,13 +39,6 @@ Links to repositories for sample codes various topics are given below. Click on 
 2. [Mealy Machine](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/Mealy%20Machine/)
 3. [Moore Machine](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/Moore%20Machine/)
 4. [Vending Machine](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/Vending%20Machine/)
-5. [Simple Cycle Detector](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/Cycle%20Detector/)
-6. [Protocol Decoder with Error Check](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/Protocol%20Decoder%20with%20Error%20Check/)
-7. [Elevator Controller](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/ElevatorController/)
-8. [Key Debouncer](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/KeyDebouncer/)
-9. [Mealy Cycle Detector](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/Mealy%20Cycle%20Detector/)
-10. [Muller C-Element Detector](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/Muller%20C%20-%20Element%20Detector/)
-11. [Dual Clock Traffic Light Controller](https://github.com/hwlabnitc/Finite-State-Machines/tree/main/Sample%20Codes/Dual%20Clock%20Traffic%20Light/)
 
 
 ## Registers Sample Codes
