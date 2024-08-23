@@ -53,3 +53,5 @@ This tutorial is split into a 2 parts for each topic-
 2. **Implementation** - This part emphasizes the practical aspect of the course. You will find documentation and video tutorials that guide you through the implementation of Verilog designs and MIPS assembly code. This hands-on approach will help you gain practical skills and experience in designing and working with digital systems using Verilog and MIPS.  
 
 By following this course layout, you will have a well-rounded understanding of Verilog and MIPS, both from a theoretical and practical perspective.
+
+[🥚](./easteregg.md)
