@@ -1,5 +1,7 @@
 # Welcome to HW Lab NITC's Github
 
+![logo2](https://github.com/user-attachments/assets/c6961905-4e9b-4b60-b973-ff40707bb8cb)
+
 ## This site is built using [Vitepress](https://vitepress.dev/)
 
 To run this on your system follow the following steps:
@@ -39,15 +41,15 @@ npm run docs:build
 npm run docs:dev
 ```
 
-### Note: The Configuration of the navbar, sidebar, title social links, sidebar etc are present in docs/.vitepress/config.mjs
+| Note: The Configuration of the navbar, sidebar, title social links, sidebar etc are present in docs/.vitepress/config.mjs
 
-### Note: The markdown files are present in docs
+| Note: The markdown files are present in docs
 
-### The deploy.yml file is used for deploying the site on github pages
+| The deploy.yml file is used for deploying the site on github pages
 
-### package.json contains the scripts for building and running the site and also the homepage of the site
+| package.json contains the scripts for building and running the site and also the homepage of the site
 
-### The site is deployed on [HW Lab NITC](https://hwlabnitc.github.io/)
+| The site is deployed on [HW Lab NITC](https://hwlabnitc.github.io/)
 
 ## Folder Structure
 
