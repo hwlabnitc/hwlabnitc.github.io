@@ -110,7 +110,8 @@ lower levels of abstraction.
 - Can be optimized for timing, power, and area, allowing for more
 efficient designs.
 - Can be used for both simulation and synthesis.
-Cons
+
+#### Cons
 - More difficult to write and understand than the behavioral level.
 - Can be less portable than the behavioral level, since the same code
 may not synthesize correctly across different architectures.
@@ -124,7 +125,8 @@ design is more complex.
 - Provides the most detailed view of the hardware implementation.
 - Highly optimized for area, power, and performance.
 - Ideal for final verification of the design.
-Cons
+
+#### Cons
 - Very difficult to write and understand.
 - Not portable: The code is specific to a particular hardware architecture.
 - Verification can be very time-consuming and difficult, especially for
