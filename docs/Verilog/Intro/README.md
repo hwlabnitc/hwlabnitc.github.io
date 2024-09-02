@@ -73,7 +73,10 @@ registers. In this approach, the 'assign' statement is used. An assign
 statement is a continuous statement where any signal changes on the
 right-hand side will update the output signal. Changes in the inputs are
 continuously monitored. Any synthesizable code is called RTL code.
-Gate-Level: This is the lowest level of abstraction. Here, the circuit is
+
+### Gate-Level: 
+
+This is the lowest level of abstraction. Here, the circuit is
 described by logical links and their timing properties. The module is
 implemented in terms of logic gates and interconnections between these
 gates. It resembles a schematic drawing with components connected with
