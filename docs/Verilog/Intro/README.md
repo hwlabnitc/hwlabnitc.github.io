@@ -73,7 +73,10 @@ registers. In this approach, the 'assign' statement is used. An assign
 statement is a continuous statement where any signal changes on the
 right-hand side will update the output signal. Changes in the inputs are
 continuously monitored. Any synthesizable code is called RTL code.
-Gate-Level: This is the lowest level of abstraction. Here, the circuit is
+
+### Gate-Level: 
+
+This is the lowest level of abstraction. Here, the circuit is
 described by logical links and their timing properties. The module is
 implemented in terms of logic gates and interconnections between these
 gates. It resembles a schematic drawing with components connected with
@@ -107,7 +110,8 @@ lower levels of abstraction.
 - Can be optimized for timing, power, and area, allowing for more
 efficient designs.
 - Can be used for both simulation and synthesis.
-Cons
+
+#### Cons
 - More difficult to write and understand than the behavioral level.
 - Can be less portable than the behavioral level, since the same code
 may not synthesize correctly across different architectures.
@@ -121,7 +125,8 @@ design is more complex.
 - Provides the most detailed view of the hardware implementation.
 - Highly optimized for area, power, and performance.
 - Ideal for final verification of the design.
-Cons
+
+#### Cons
 - Very difficult to write and understand.
 - Not portable: The code is specific to a particular hardware architecture.
 - Verification can be very time-consuming and difficult, especially for
